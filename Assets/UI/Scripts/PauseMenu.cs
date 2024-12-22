@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
@@ -25,6 +26,6 @@ public class PauseMenu : MonoBehaviour
 
     public void QuitToMainMenu()
     {
-        //Go to the main emu scene
+        SceneManager.LoadScene("MainMenu");
     }
 }
