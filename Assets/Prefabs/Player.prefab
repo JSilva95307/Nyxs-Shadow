@@ -35,6 +35,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6600197960533121160}
+  - {fileID: 7691231495375846872}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4632480316223981943
@@ -50,7 +51,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 5286824670486448839}
-  moveSpeed: 10
+  groundCheck: {fileID: 7691231495375846872}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  movementSpeed: 12
+  fallingspeedCap: 0
+  apexSpeedBoost: 0
+  coyoteTime: 0
+  jumpForce: 10
+  jumpBufferTime: 0
+  isGrounded: 0
+  attackBufferTime: 0
+  health: 0
+  cam: {fileID: 8528339702348787020}
+  maxDistance: 0
+  minDistance: 0
+  followSpeed: 0
 --- !u!114 &4362003692211823917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,6 +226,37 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.51, y: 0.9}
   m_EdgeRadius: 0
+--- !u!1 &5282346705002863845
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7691231495375846872}
+  m_Layer: 0
+  m_Name: GroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7691231495375846872
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5282346705002863845}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.46, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2848291232546605315}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7471091775809398431
 GameObject:
   m_ObjectHideFlags: 0

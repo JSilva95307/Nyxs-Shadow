@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 2123625258}
   - component: {fileID: 2123625260}
   - component: {fileID: 2123625259}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Testing Map
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -693,7 +693,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2128443832}
   - component: {fileID: 2128443831}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -742,11 +742,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2848291232546605315, guid: b72d8c964d88367449ee4817d9ddcb48, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.5708027
+      value: 2.13
       objectReference: {fileID: 0}
     - target: {fileID: 2848291232546605315, guid: b72d8c964d88367449ee4817d9ddcb48, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.09
+      value: -1.9
       objectReference: {fileID: 0}
     - target: {fileID: 2848291232546605315, guid: b72d8c964d88367449ee4817d9ddcb48, type: 3}
       propertyPath: m_LocalPosition.z
