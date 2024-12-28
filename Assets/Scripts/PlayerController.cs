@@ -1,4 +1,7 @@
 using System;
+using System.Data;
+using System.Xml.Serialization;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -45,6 +48,8 @@ public class PlayerController : MonoBehaviour
     [Header("Gameplay Vars")]
     public float attackBufferTime;
     public float health;
+    Cooldowns testCooldown;
+    bool cooldownActive = false;
     [Space(20)]
     #endregion
 
@@ -60,8 +65,10 @@ public class PlayerController : MonoBehaviour
     // Awake executes only once you start to load the game
     private void Awake()
     {
+        canDash = true;
         controls = new PlayerInputs();
-        
+        testCooldown = gameObject.AddComponent<Cooldowns>();
+        testCooldown.SetCooldown(5f);
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -73,7 +80,9 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        playerVel = move.ReadValue<Vector2>();       
+        playerVel = move.ReadValue<Vector2>();
+        if (cooldownActive)
+            Debug.Log(testCooldown.GetProgress().ToString());
     }
 
     private void FixedUpdate()
@@ -86,8 +95,18 @@ public class PlayerController : MonoBehaviour
             rb.linearVelocityY = (jumpForce);
         }
         if (canDash && dash.IsPressed())
-            Debug.Log("you Dashed!");
+        {
+            testCooldown.StartCooldown(cdEnded);
+            cooldownActive = true;
+            canDash = false;
+        }
 
+    }
+
+    private void cdEnded()
+    {
+        cooldownActive = false;
+        canDash = true;
     }
 
 #region Input Boilerplate
