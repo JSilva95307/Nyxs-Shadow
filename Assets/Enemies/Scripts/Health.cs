@@ -2,21 +2,35 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] private float health;
+    [SerializeField] private float currentHealth;
+    [SerializeField] private float maxHealth;
 
+    private void Start()
+    {
+        currentHealth = maxHealth;
+    }
 
     public void TakeDamage(float damage)
     {
-        health -= damage;
+        currentHealth -= damage;
     }
 
-    public float GetHealth()
+    public float GetMaxHealth()
     {
-        return health;
+        return maxHealth;
     }
 
-    public void SetHealth(float _health)
+    public void SetMaxHealth(float health)
     {
-        health = _health;
+        maxHealth = health;
+    }
+    public float GetCurrentHealth()
+    {
+        return currentHealth;
+    }
+
+    public void SetCurrentHealth(float health)
+    {
+        currentHealth = health;
     }
 }
