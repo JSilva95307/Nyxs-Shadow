@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
     #region Gameplay Stats
     [Header("Gameplay Vars")]
     public float attackBufferTime;
-    public float health;
+    public Health playerHealth;
     Cooldowns testCooldown;
     bool cooldownActive = false;
     [Space(20)]
