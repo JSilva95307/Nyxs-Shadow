@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     public PlayerInputs controls;
     public Transform groundCheck;
     public LayerMask groundLayer;
+    public Animator animator;
     #endregion
 
     #region Inputs
@@ -60,10 +61,16 @@ public class PlayerController : MonoBehaviour
     public float maxDistance;
     public float minDistance;
     public float followSpeed;
+    [Space(20)]
     #endregion
 
     #region Weapons
-    List<WeaponStats> weapons;
+    [Header("Weapons")]
+    public WeaponStats sword;
+    public WeaponStats gun;
+    public WeaponStats tonfa;
+    public WeaponStats spear;
+    string currentWeapon;
     #endregion
 
     Vector2 playerVel = Vector2.zero;
@@ -74,6 +81,7 @@ public class PlayerController : MonoBehaviour
         controls = new PlayerInputs();
         testCooldown = gameObject.AddComponent<Cooldowns>();
         testCooldown.SetCooldown(5f);
+        currentWeapon = "ESword";
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -88,6 +96,31 @@ public class PlayerController : MonoBehaviour
         playerVel = move.ReadValue<Vector2>();
         if (cooldownActive)
             Debug.Log(testCooldown.GetProgress().ToString());
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            animator.SetBool(currentWeapon, false);
+            animator.SetBool("ESword", true);
+            currentWeapon = "ESword";
+        }
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            animator.SetBool(currentWeapon, false);
+            animator.SetBool("EGun", true);
+            currentWeapon = "EGun";
+        }
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            animator.SetBool(currentWeapon, false);
+            animator.SetBool("ESpear", true);
+            currentWeapon = "ESpear";
+        }
+        if (Input.GetKeyDown(KeyCode.P))
+
+        {
+            animator.SetBool(currentWeapon, false);
+            animator.SetBool("ETonfa", true);
+            currentWeapon = "ETonfa";
+        }
     }
 
     private void FixedUpdate()
@@ -105,7 +138,6 @@ public class PlayerController : MonoBehaviour
             cooldownActive = true;
             canDash = false;
         }
-
     }
 
     private void cdEnded()

@@ -1,22 +1,22 @@
 using UnityEngine;
 
+
+[CreateAssetMenu]
 public class WeaponStats : ScriptableObject
 {
     //all the basic attribute stats for the different weapon attacks
-    float P_damage;
-    float P_critMult;
-    float P_cooldown;
-    float S_damage;
-    float S_critMult;
-    float S_cooldown;
-    float A1_damage;
-    float A1_critMult;
-    float A1_cooldown;
-    float A2_damage;
-    float A2_critMult;
-    float A2_cooldown;
-    [Space(20)]
-
+    public float P_damage;
+    public float P_critMult;
+    public float P_cooldown;
+    public float S_damage;
+    public float S_critMult;
+    public float S_cooldown;
+    public float A1_damage;
+    public float A1_critMult;
+    public float A1_cooldown;
+    public float A2_damage;
+    public float A2_critMult;
+    public float A2_cooldown;
     //all the variables for things like animations and whatnot will go here.
     bool isComplete;
 }

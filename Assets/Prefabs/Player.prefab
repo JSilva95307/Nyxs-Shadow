@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8376380372079916077}
   - component: {fileID: 6373346519556152815}
   - component: {fileID: 1962167023953275459}
+  - component: {fileID: 7928505541811204023}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -56,6 +57,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
+  animator: {fileID: 7928505541811204023}
   movementSpeed: 12
   fallingspeedCap: 0
   apexSpeedBoost: 0
@@ -69,6 +71,10 @@ MonoBehaviour:
   maxDistance: 0
   minDistance: 0
   followSpeed: 0
+  sword: {fileID: 11400000, guid: fb6a4eb09db41b94d854b25580ce800b, type: 2}
+  gun: {fileID: 11400000, guid: f8877c7cb9271824e88b2aea930f2dba, type: 2}
+  tonfa: {fileID: 11400000, guid: 9e5467e86d4c9f14bbdb59c07c9eec70, type: 2}
+  spear: {fileID: 11400000, guid: 9d9d2e635c6f5b742840067038030d55, type: 2}
 --- !u!114 &4362003692211823917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,6 +247,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 100
   maxHealth: 100
+--- !u!95 &7928505541811204023
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2793163437225728115}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d4e012978f340774cafb6df839c28b7b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5282346705002863845
 GameObject:
   m_ObjectHideFlags: 0
