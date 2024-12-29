@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Xml.Serialization;
 using Unity.VisualScripting;
@@ -59,6 +60,10 @@ public class PlayerController : MonoBehaviour
     public float maxDistance;
     public float minDistance;
     public float followSpeed;
+    #endregion
+
+    #region Weapons
+    List<WeaponStats> weapons;
     #endregion
 
     Vector2 playerVel = Vector2.zero;
