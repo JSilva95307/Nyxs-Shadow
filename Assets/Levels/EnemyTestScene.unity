@@ -133,7 +133,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2848291232546605315, guid: b72d8c964d88367449ee4817d9ddcb48, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.21
+      value: 1.89
       objectReference: {fileID: 0}
     - target: {fileID: 2848291232546605315, guid: b72d8c964d88367449ee4817d9ddcb48, type: 3}
       propertyPath: m_LocalPosition.y
@@ -176,6 +176,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b72d8c964d88367449ee4817d9ddcb48, type: 3}
+--- !u!1 &624430183 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2793163437225728115, guid: b72d8c964d88367449ee4817d9ddcb48, type: 3}
+  m_PrefabInstance: {fileID: 580129785}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &679869420
 GameObject:
   m_ObjectHideFlags: 0
@@ -984,7 +989,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &1239756072
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1197,9 +1202,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ee9d2c01a989e0489c7c71fd3c8d83c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0
+  moveSpeed: 20
   animator: {fileID: 1319602754}
   timeBetweenAttacks: 2
+  speed: 2
+  stoppingDistance: 1
+  attackRange: 1
+  flip: 0
+  player: {fileID: 624430183}
+  canAttack: 0
+  timer: 4
 --- !u!1 &1517124448
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,15 +6,36 @@ public class TestMeleeEnemy : BaseEnemy
     public Animator animator;
     public float timeBetweenAttacks = 2f;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public float speed;
+    public float stoppingDistance;
+    public float attackRange = 1;
+
+    public bool flip;
+
+    public GameObject player;
+
+    public bool canAttack = false;
+    public float timer = 0f;
+
+
     void Start()
     {
-        //StartCoroutine(AttackLoop());
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        timer += Time.deltaTime;
+        ChasePlayer();
+
+        if (canAttack == true && timer > timeBetweenAttacks)
+        {
+            canAttack = false;
+            PlayAttackLoop();
+        }
+
+
         if (Input.GetKeyDown(KeyCode.O))
             PlayAttackLoop();
     }
@@ -37,7 +58,11 @@ public class TestMeleeEnemy : BaseEnemy
 
     private IEnumerator AttackLoop()
     {
-        //yield return new WaitForSeconds(1f);
+        if (timer < timeBetweenAttacks)
+            yield return null;
+
+
+
         Attack();
 
         //Wait until the transition is over
@@ -52,11 +77,47 @@ public class TestMeleeEnemy : BaseEnemy
         yield return new WaitWhile(() => animator.GetCurrentAnimatorStateInfo(0).IsName("Attack2"));
         Attack3();
 
+        
         yield return null;
     }
 
+   
+
     private void PlayAttackLoop()
     {
+        timer = 0;
         StartCoroutine(AttackLoop());
+    }
+
+    private void ChasePlayer()
+    {
+        Vector3 scale = transform.localScale;
+        Vector3 target = player.transform.position;
+
+        if (transform.position.x > target.x - attackRange && transform.position.x < target.x + attackRange)
+        {
+            canAttack = true;
+            return;
+        }
+            
+
+
+        if (target.x > transform.position.x)
+            target.x = target.x - stoppingDistance;
+        else
+            target.x = target.x + stoppingDistance;
+
+        if (target.x > transform.position.x)
+        {
+            scale.x = Mathf.Abs(scale.x) * (flip ? -1 : 1);
+            transform.Translate(x:speed * Time.deltaTime, y: 0, z: 0);
+        }
+        else
+        {
+            scale.x = Mathf.Abs(scale.x) * -1 * (flip ? -1 : 1);
+            transform.Translate(x:speed * Time.deltaTime * -1, y: 0, z: 0);
+        }
+
+        transform.localScale = scale;
     }
 }
