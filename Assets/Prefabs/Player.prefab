@@ -58,7 +58,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   animator: {fileID: 7928505541811204023}
-  tempGCheck: {fileID: 918681993247007914}
+  gCheck: {fileID: 918681993247007914}
   movementSpeed: 12
   fallingspeedCap: 0
   apexSpeedBoost: 0
