@@ -1,10 +1,13 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Xml.Serialization;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 using static UnityEditor.Timeline.TimelinePlaybackControls;
 
 public class PlayerController : MonoBehaviour
@@ -13,11 +16,10 @@ public class PlayerController : MonoBehaviour
     //bool canGoUpOrDown = false;
     public Rigidbody2D rb;
     public PlayerInputs controls;
-    public Transform groundCheck;
     public LayerMask groundLayer;
     public Animator animator;
 
-    public Collider2D tempGCheck;
+    public Collider2D gCheck;
     #endregion
 
     #region Inputs
@@ -46,7 +48,6 @@ public class PlayerController : MonoBehaviour
     public float jumpBufferTime;
     public bool isGrounded;
     private bool canDash;
-    private bool jumpReleased;
     [Space(20)]
     #endregion
 
@@ -123,21 +124,10 @@ public class PlayerController : MonoBehaviour
             cooldownActive = true;
             canDash = false;
         }
-        isGrounded = tempGCheck.IsTouchingLayers(groundLayer);
+        //isGrounded = gCheck.IsTouchingLayers(groundLayer);
     }
 
-    public void Jump(InputAction.CallbackContext ctx)
-    {
-        if (isGrounded && ctx.performed)
-        {
-            Debug.Log("New Jump!");
-            rb.linearVelocityY = (jumpForce);
-        }
-        if (ctx.canceled)
-        {   
-            Debug.Log("New Release!");
-        }
-    }
+    #region Attack Functions
 
     private void cdEnded()
     {
@@ -145,6 +135,36 @@ public class PlayerController : MonoBehaviour
         canDash = true;
     }
 
+    #endregion
+
+    #region Movement Functions
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(((1 << other.gameObject.layer) & groundLayer) != 0)
+        {
+            isGrounded = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        isGrounded = false;
+    }
+
+    public void Jump(InputAction.CallbackContext ctx)
+    {
+        if (isGrounded && ctx.performed)
+        {
+            rb.linearVelocityY = (jumpForce);
+        }
+        if (ctx.canceled && rb.linearVelocityY > 0)
+        {
+            rb.linearVelocityY = 0;
+        }
+    }
+
+    #endregion
     #region Input Boilerplate
     private void OnEnable()
     {
