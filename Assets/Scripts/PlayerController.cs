@@ -5,6 +5,7 @@ using System.Xml.Serialization;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEditor.Timeline.TimelinePlaybackControls;
 
 public class PlayerController : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class PlayerController : MonoBehaviour
     public Transform groundCheck;
     public LayerMask groundLayer;
     public Animator animator;
+
+    public Collider2D tempGCheck;
     #endregion
 
     #region Inputs
@@ -43,6 +46,7 @@ public class PlayerController : MonoBehaviour
     public float jumpBufferTime;
     public bool isGrounded;
     private bool canDash;
+    private bool jumpReleased;
     [Space(20)]
     #endregion
 
@@ -81,7 +85,7 @@ public class PlayerController : MonoBehaviour
         controls = new PlayerInputs();
         testCooldown = gameObject.AddComponent<Cooldowns>();
         testCooldown.SetCooldown(5f);
-        currentWeapon = "ESword";
+        currentWeapon = "SwoPrim";
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -93,50 +97,45 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.U))
+            currentWeapon = "SwoPrim";
+        if (Input.GetKeyDown(KeyCode.I))
+            currentWeapon = "GunPrim";
+        if (Input.GetKeyDown(KeyCode.O))
+            currentWeapon = "SpePrim";
+        if (Input.GetKeyDown(KeyCode.P))
+            currentWeapon = "TonPrim";
         playerVel = move.ReadValue<Vector2>();
         if (cooldownActive)
             Debug.Log(testCooldown.GetProgress().ToString());
-        if (Input.GetKeyDown(KeyCode.U))
+        if (primary.IsPressed())
         {
-            animator.SetBool(currentWeapon, false);
-            animator.SetBool("ESword", true);
-            currentWeapon = "ESword";
-        }
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            animator.SetBool(currentWeapon, false);
-            animator.SetBool("EGun", true);
-            currentWeapon = "EGun";
-        }
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            animator.SetBool(currentWeapon, false);
-            animator.SetBool("ESpear", true);
-            currentWeapon = "ESpear";
-        }
-        if (Input.GetKeyDown(KeyCode.P))
-
-        {
-            animator.SetBool(currentWeapon, false);
-            animator.SetBool("ETonfa", true);
-            currentWeapon = "ETonfa";
+            animator.SetTrigger(currentWeapon);
         }
     }
 
     private void FixedUpdate()
     {
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer);
         rb.linearVelocityX = playerVel.x * movementSpeed;
-        if (isGrounded && jump.IsPressed())
-        {
-            Debug.Log("Jumped!");
-            rb.linearVelocityY = (jumpForce);
-        }
         if (canDash && dash.IsPressed())
         {
             testCooldown.StartCooldown(cdEnded);
             cooldownActive = true;
             canDash = false;
+        }
+        isGrounded = tempGCheck.IsTouchingLayers(groundLayer);
+    }
+
+    public void Jump(InputAction.CallbackContext ctx)
+    {
+        if (isGrounded && ctx.performed)
+        {
+            Debug.Log("New Jump!");
+            rb.linearVelocityY = (jumpForce);
+        }
+        if (ctx.canceled)
+        {   
+            Debug.Log("New Release!");
         }
     }
 
@@ -146,8 +145,8 @@ public class PlayerController : MonoBehaviour
         canDash = true;
     }
 
-#region Input Boilerplate
-private void OnEnable()
+    #region Input Boilerplate
+    private void OnEnable()
     {
         move = controls.Player.Move;
         jump = controls.Player.Jump;
