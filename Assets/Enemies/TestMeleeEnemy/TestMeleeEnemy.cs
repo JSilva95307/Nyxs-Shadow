@@ -20,7 +20,7 @@ public class TestMeleeEnemy : BaseEnemy
 
     void Start()
     {
-        
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame

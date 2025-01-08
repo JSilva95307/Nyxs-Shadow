@@ -1,9 +1,17 @@
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Health : MonoBehaviour
 {
     [SerializeField] private float currentHealth;
     [SerializeField] private float maxHealth;
+
+    [SerializeField] private float invincibilityTime; //How long the player will be invunerable for after taking damage
+
+    //[SerializeField] private BoxCollider2D hurtbox;
+
+    public bool invulnerable = false;
 
     private void Start()
     {
@@ -12,7 +20,13 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        currentHealth -= damage;
+        if(invulnerable == false || damage < 0)
+        {
+            currentHealth -= damage;
+
+            if(gameObject.tag == "Player" && damage > 0)
+                StartCoroutine(TriggerInvincibility());
+        }
     }
 
     public float GetMaxHealth()
@@ -32,5 +46,18 @@ public class Health : MonoBehaviour
     public void SetCurrentHealth(float health)
     {
         currentHealth = health;
+    }
+
+    private IEnumerator TriggerInvincibility()
+    {
+        invulnerable = true;
+        //Activate damage flash here
+
+        yield return new WaitForSeconds(invincibilityTime);
+
+        invulnerable = false;
+        //Deactivate damage flash here
+
+        yield return null;
     }
 }
