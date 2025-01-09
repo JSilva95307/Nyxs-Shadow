@@ -51,8 +51,9 @@ public class PlayerController : MonoBehaviour
     public float coyoteTimeCounter;
 
     public float jumpBufferTime;
-    public float jumpBufferCounter;
-    
+    public float failedJumpTime;
+
+    bool bufferJumpToProcess = false;
     [Space(20)]
     #endregion
 
@@ -121,12 +122,16 @@ public class PlayerController : MonoBehaviour
         }
 
         if (isGrounded)
+        {
             coyoteTimeCounter = coyoteTime;
+            if( failedJumpTime - Time.time < jumpBufferTime  && bufferJumpToProcess)
+            {
+                DoJump();
+                bufferJumpToProcess = false;
+            }
+        }
         else
             coyoteTimeCounter -= Time.deltaTime;
-        jumpBufferCounter -= Time.deltaTime;
-
-
     }
 
     private void FixedUpdate()
@@ -138,7 +143,6 @@ public class PlayerController : MonoBehaviour
             cooldownActive = true;
             canDash = false;
         }
-        //isGrounded = gCheck.IsTouchingLayers(groundLayer);
     }
 
     #region Attack Functions
@@ -155,7 +159,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(((1 << other.gameObject.layer) & groundLayer) != 0)
+        if (((1 << other.gameObject.layer) & groundLayer) != 0)
         {
             isGrounded = true;
         }
@@ -168,13 +172,14 @@ public class PlayerController : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext ctx)
     {
-        if (ctx.performed)
-            jumpBufferCounter = jumpBufferTime;
-        if (coyoteTimeCounter > 0f && jumpBufferCounter > 0f)
+        if (coyoteTimeCounter > 0f)
         {
-            rb.linearVelocityY = (jumpForce);
-
-            jumpBufferCounter = 0f;
+            DoJump();
+        }
+        else if (ctx.performed)
+        {
+            failedJumpTime = Time.time;
+            bufferJumpToProcess = true;
         }
         if (ctx.canceled && rb.linearVelocityY > 0)
         {
@@ -182,6 +187,11 @@ public class PlayerController : MonoBehaviour
 
             coyoteTimeCounter = 0f;
         }
+    }
+
+    private void DoJump()
+    {
+        rb.linearVelocityY = (jumpForce);
     }
 
     #endregion
