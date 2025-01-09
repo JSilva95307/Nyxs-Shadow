@@ -12,6 +12,4 @@ public abstract class BaseHelmet : ScriptableObject
     public float defense;
     public float health;
     public float speed;
-
-
 }
