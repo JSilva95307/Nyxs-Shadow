@@ -2,12 +2,14 @@ using UnityEngine;
 
 [CreateAssetMenu(menuName = "Armor")]
 
-public abstract class BaseHelmet : ScriptableObject
+public class Armor : ScriptableObject
 {
     public ArmorType armorType;
     public ArmorSet armorSet;
 
-    public bool equipped;
+    public bool unlocked;
+
+    //Stats are % based
     public float attack;
     public float defense;
     public float health;

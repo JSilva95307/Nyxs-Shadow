@@ -84,6 +84,16 @@ public class PlayerController : MonoBehaviour
     string currentWeapon;
     #endregion
 
+    #region Armor
+    [Header("Armor")]
+    public Armor helmet;
+    public Armor chestplate;
+    public Armor greaves;
+    public List<Armor> armorList;
+
+    [Space(20)]
+    #endregion
+
     Vector2 playerVel = Vector2.zero;
     // Awake executes only once you start to load the game
     private void Awake()
@@ -100,6 +110,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         isGrounded = false;
+        //playerHealth.SetCurrentHealth(PlayerManager.Instance.health); //Saves the player's health between scenes
+        playerHealth.SetCurrentHealth(playerHealth.GetMaxHealth()); //Saves the player's health between scenes
     }
 
     // Update is called once per frame
@@ -113,6 +125,10 @@ public class PlayerController : MonoBehaviour
             currentWeapon = "SpePrim";
         if (Input.GetKeyDown(KeyCode.P))
             currentWeapon = "TonPrim";
+
+        if (Input.GetKeyDown(KeyCode.Q))
+            EquipArmor(armorList[0]); Debug.Log(armorList[0]);
+
         playerVel = move.ReadValue<Vector2>();
         if (cooldownActive)
             Debug.Log(testCooldown.GetProgress().ToString());
@@ -240,4 +256,56 @@ public class PlayerController : MonoBehaviour
     }
     #endregion
 
+
+    public void EquipArmor(Armor armor)
+    {
+        //Remove stat increases of current armor and add new armor to the slot
+        ArmorType type = armor.armorType;
+        switch (type)
+        {
+            case ArmorType.Helmet:
+                if (helmet != null)
+                {
+                    Debug.Log("Stats Removed");
+                    //Remove stat boosts from current armor
+
+                    playerHealth.SetCurrentHealth(playerHealth.GetCurrentHealth() - helmet.health);
+                    //helmet.attack;
+                    //helmet.defense;
+                    movementSpeed -= helmet.speed;
+
+                }
+
+                helmet = armor;
+
+                //Add new stats to the player
+                Debug.Log("Stats Added");
+                playerHealth.SetCurrentHealth(playerHealth.GetCurrentHealth() + helmet.health);
+                //Set Attack when stat is added
+                //Are we adding a defense stat?
+                movementSpeed += helmet.speed;
+
+                break;
+            case ArmorType.Chestplate:
+                chestplate = armor;
+                break;
+            case ArmorType.Greaves:
+                greaves = armor;
+                break;
+        }
+
+
+        //Check if each piece of armor is the same type and apply a set bonus
+        if(helmet.armorSet == chestplate.armorSet && helmet.armorSet == greaves.armorSet)
+        {
+            //Use a swich case to determine what set bonus to apply
+        }
+    }
+
+    public float FindPercentage(float input, float percentage)
+    {
+        float p = percentage / 100;
+
+        return input * p;
+    }
 }

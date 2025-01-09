@@ -24,6 +24,8 @@ public class PlayerManager : MonoBehaviour
             _instance = this;
         }
         DontDestroyOnLoad(this.gameObject);
+
+        
     }
 
     

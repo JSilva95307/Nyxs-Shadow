@@ -1159,18 +1159,17 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 0
   animator: {fileID: 7928505541761445608}
   gCheck: {fileID: 918681993267275253}
   movementSpeed: 12
   fallingspeedCap: 0
   apexSpeedBoost: 0
-  coyoteTime: 0
   jumpForce: 10
-  jumpBufferTime: 0
   isGrounded: 0
+  coyoteTime: 0
+  coyoteTimeCounter: 0
+  jumpBufferTime: 0
+  failedJumpTime: 0
   attackBufferTime: 0
   playerHealth: {fileID: 1962167024000903964}
   cam: {fileID: 8528339702333008915}
@@ -1181,6 +1180,11 @@ MonoBehaviour:
   gun: {fileID: 11400000, guid: f8877c7cb9271824e88b2aea930f2dba, type: 2}
   tonfa: {fileID: 11400000, guid: 9e5467e86d4c9f14bbdb59c07c9eec70, type: 2}
   spear: {fileID: 11400000, guid: 9d9d2e635c6f5b742840067038030d55, type: 2}
+  helmet: {fileID: 0}
+  chestplate: {fileID: 0}
+  greaves: {fileID: 0}
+  armorList:
+  - {fileID: 11400000, guid: ea27c528caac459408711890664059ca, type: 2}
 --- !u!1 &5282346705051835834
 GameObject:
   m_ObjectHideFlags: 0
@@ -1412,6 +1416,10 @@ PrefabInstance:
     - target: {fileID: 6971122671164375953, guid: 0f577e0022b099d4b8c7aba05749f00e, type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 6971122671164375953, guid: 0f577e0022b099d4b8c7aba05749f00e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
