@@ -17,7 +17,6 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rb;
     public PlayerInputs controls;
     public LayerMask groundLayer;
-    public LayerMask enemyLayer;
     public Animator animator;
 
     public Collider2D gCheck;
@@ -44,11 +43,17 @@ public class PlayerController : MonoBehaviour
     public float movementSpeed;
     public float fallingspeedCap;
     public float apexSpeedBoost;
-    public float coyoteTime;
     public float jumpForce;
-    public float jumpBufferTime;
     public bool isGrounded;
     private bool canDash;
+
+    public float coyoteTime;
+    public float coyoteTimeCounter;
+
+    public float jumpBufferTime;
+    public float failedJumpTime;
+
+    bool bufferJumpToProcess = false;
     [Space(20)]
     #endregion
 
@@ -115,6 +120,18 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetTrigger(currentWeapon);
         }
+
+        if (isGrounded)
+        {
+            coyoteTimeCounter = coyoteTime;
+            if( failedJumpTime - Time.time < jumpBufferTime  && bufferJumpToProcess)
+            {
+                DoJump();
+                bufferJumpToProcess = false;
+            }
+        }
+        else
+            coyoteTimeCounter -= Time.deltaTime;
     }
 
     private void FixedUpdate()
@@ -126,7 +143,6 @@ public class PlayerController : MonoBehaviour
             cooldownActive = true;
             canDash = false;
         }
-        //isGrounded = gCheck.IsTouchingLayers(groundLayer);
     }
 
     #region Attack Functions
@@ -143,7 +159,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(((1 << other.gameObject.layer) & groundLayer) != 0)
+        if (((1 << other.gameObject.layer) & groundLayer) != 0)
         {
             isGrounded = true;
         }
@@ -156,17 +172,30 @@ public class PlayerController : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext ctx)
     {
-        if (isGrounded && ctx.performed)
+        if (coyoteTimeCounter > 0f)
         {
-            rb.linearVelocityY = (jumpForce);
+            DoJump();
+        }
+        else if (ctx.performed)
+        {
+            failedJumpTime = Time.time;
+            bufferJumpToProcess = true;
         }
         if (ctx.canceled && rb.linearVelocityY > 0)
         {
             rb.linearVelocityY = 0;
+
+            coyoteTimeCounter = 0f;
         }
     }
 
+    private void DoJump()
+    {
+        rb.linearVelocityY = (jumpForce);
+    }
+
     #endregion
+
     #region Input Boilerplate
     private void OnEnable()
     {

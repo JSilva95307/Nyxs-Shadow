@@ -56,18 +56,17 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 0
   animator: {fileID: 7928505541811204023}
   gCheck: {fileID: 918681993247007914}
   movementSpeed: 12
   fallingspeedCap: 0
   apexSpeedBoost: 0
-  coyoteTime: 0
-  jumpForce: 10
-  jumpBufferTime: 0
+  jumpForce: 8
   isGrounded: 0
+  coyoteTime: 0.2
+  coyoteTimeCounter: 0
+  jumpBufferTime: 0.2
+  failedJumpTime: 0
   attackBufferTime: 0
   playerHealth: {fileID: 1962167023953275459}
   cam: {fileID: 8528339702348787020}
