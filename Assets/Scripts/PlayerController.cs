@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rb;
     public PlayerInputs controls;
     public LayerMask groundLayer;
+    public LayerMask enemyLayer;
     public Animator animator;
 
     public Collider2D gCheck;
@@ -87,6 +88,7 @@ public class PlayerController : MonoBehaviour
         testCooldown = gameObject.AddComponent<Cooldowns>();
         testCooldown.SetCooldown(5f);
         currentWeapon = "SwoPrim";
+        Physics.IgnoreLayerCollision(0, 6);
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
