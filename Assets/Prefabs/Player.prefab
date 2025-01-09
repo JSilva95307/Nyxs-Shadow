@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6373346519556152815}
   - component: {fileID: 1962167023953275459}
   - component: {fileID: 7928505541811204023}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -53,10 +53,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 5286824670486448839}
-  groundCheck: {fileID: 7691231495375846872}
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
   animator: {fileID: 7928505541811204023}
   gCheck: {fileID: 918681993247007914}
   movementSpeed: 12
@@ -352,6 +354,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 100
   maxHealth: 100
+  invincibilityTime: 2
+  invulnerable: 0
 --- !u!95 &7928505541811204023
 Animator:
   serializedVersion: 7
@@ -384,7 +388,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7691231495375846872}
   - component: {fileID: 918681993247007914}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -422,7 +426,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 320
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -463,7 +467,7 @@ GameObject:
   - component: {fileID: 6600197960533121160}
   - component: {fileID: 8528339702348787020}
   - component: {fileID: 3257050386483811047}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
