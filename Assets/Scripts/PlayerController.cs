@@ -17,7 +17,6 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rb;
     public PlayerInputs controls;
     public LayerMask groundLayer;
-    public LayerMask enemyLayer;
     public Animator animator;
 
     public Collider2D gCheck;
@@ -44,11 +43,16 @@ public class PlayerController : MonoBehaviour
     public float movementSpeed;
     public float fallingspeedCap;
     public float apexSpeedBoost;
-    public float coyoteTime;
     public float jumpForce;
-    public float jumpBufferTime;
     public bool isGrounded;
     private bool canDash;
+
+    public float coyoteTime;
+    public float coyoteTimeCounter;
+
+    public float jumpBufferTime;
+    public float jumpBufferCounter;
+    
     [Space(20)]
     #endregion
 
@@ -115,6 +119,14 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetTrigger(currentWeapon);
         }
+
+        if (isGrounded)
+            coyoteTimeCounter = coyoteTime;
+        else
+            coyoteTimeCounter -= Time.deltaTime;
+        jumpBufferCounter -= Time.deltaTime;
+
+
     }
 
     private void FixedUpdate()
@@ -156,17 +168,24 @@ public class PlayerController : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext ctx)
     {
-        if (isGrounded && ctx.performed)
+        if (ctx.performed)
+            jumpBufferCounter = jumpBufferTime;
+        if (coyoteTimeCounter > 0f && jumpBufferCounter > 0f)
         {
             rb.linearVelocityY = (jumpForce);
+
+            jumpBufferCounter = 0f;
         }
         if (ctx.canceled && rb.linearVelocityY > 0)
         {
             rb.linearVelocityY = 0;
+
+            coyoteTimeCounter = 0f;
         }
     }
 
     #endregion
+
     #region Input Boilerplate
     private void OnEnable()
     {
