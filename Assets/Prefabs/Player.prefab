@@ -65,11 +65,15 @@ MonoBehaviour:
   fallingspeedCap: 0
   apexSpeedBoost: 0
   jumpForce: 8
+  dashStr: 1
   isGrounded: 0
+  facingRight: 0
   coyoteTime: 0.2
   coyoteTimeCounter: 0
   jumpBufferTime: 0.2
   failedJumpTime: 0
+  dashCD: 0.5
+  dashCDTimer: 0
   attackBufferTime: 0
   playerHealth: {fileID: 1962167023953275459}
   cam: {fileID: 8528339702348787020}
@@ -139,7 +143,19 @@ MonoBehaviour:
     m_ActionId: bddc0a5a-d3c5-48d2-9c1c-38ee071ad313
     m_ActionName: 'Player/Ability2[/Keyboard/e]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4632480316223981943}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: Dash
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: b6021103-9717-41e1-bc69-06b3d40561fc
     m_ActionName: 'Player/Dash[/Keyboard/leftShift]'
   - m_PersistentCalls:

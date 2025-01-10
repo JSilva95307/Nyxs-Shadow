@@ -45,8 +45,10 @@ public class PlayerController : MonoBehaviour
     public float fallingspeedCap;
     public float apexSpeedBoost;
     public float jumpForce;
+    public float dashStr;
     public bool isGrounded;
     private bool canDash;
+    public bool facingRight;
 
     public float coyoteTime;
     public float coyoteTimeCounter;
@@ -55,6 +57,8 @@ public class PlayerController : MonoBehaviour
     public float failedJumpTime;
 
     bool bufferJumpToProcess = false;
+    public float dashCD;
+    public float dashCDTimer;
     [Space(20)]
     #endregion
 
@@ -63,7 +67,7 @@ public class PlayerController : MonoBehaviour
     public float attackBufferTime;
     public Health playerHealth;
     Cooldowns testCooldown;
-    bool cooldownActive = false;
+    bool TouchedGround;
     [Space(20)]
     #endregion
 
@@ -102,7 +106,7 @@ public class PlayerController : MonoBehaviour
         canDash = true;
         controls = new PlayerInputs();
         testCooldown = gameObject.AddComponent<Cooldowns>();
-        testCooldown.SetCooldown(5f);
+        testCooldown.SetCooldown(dashCD);
         currentWeapon = "SwoPrim";
         Physics.IgnoreLayerCollision(0, 6);
     }
@@ -130,8 +134,11 @@ public class PlayerController : MonoBehaviour
             EquipArmor(armorList[0]);
 
         playerVel = move.ReadValue<Vector2>();
-        if (cooldownActive)
-            Debug.Log(testCooldown.GetProgress().ToString());
+        if (playerVel.x > 0f)
+            facingRight = true;
+        else if (playerVel.x < 0f)
+            facingRight = false;
+
         if (primary.IsPressed())
         {
             animator.SetTrigger(currentWeapon);
@@ -148,25 +155,39 @@ public class PlayerController : MonoBehaviour
         }
         else
             coyoteTimeCounter -= Time.deltaTime;
+
+        if (!canDash && TouchedGround)
+        {
+            dashCDTimer -= Time.deltaTime;
+        }
     }
 
     private void FixedUpdate()
     {
         rb.linearVelocityX = playerVel.x * movementSpeed;
-        if (canDash && dash.IsPressed())
+        if (!canDash)
         {
-            testCooldown.StartCooldown(cdEnded);
-            cooldownActive = true;
-            canDash = false;
+            rb.linearVelocityY = 0;
+            if (facingRight)
+            {
+                rb.linearVelocityX = 12f;
+            }
+            else
+            {
+                rb.linearVelocityX = -12f;
+            }
         }
     }
 
     #region Attack Functions
 
-    private void cdEnded()
+    private void DashCooldown()
     {
-        cooldownActive = false;
+        if(!isGrounded)
+            TouchedGround = false;
         canDash = true;
+        rb.gravityScale = 2;
+        controls.Enable();
     }
 
     #endregion
@@ -178,6 +199,7 @@ public class PlayerController : MonoBehaviour
         if (((1 << other.gameObject.layer) & groundLayer) != 0)
         {
             isGrounded = true;
+            TouchedGround = true;
         }
     }
 
@@ -213,6 +235,19 @@ public class PlayerController : MonoBehaviour
         rb.linearVelocityY = (jumpForce);
     }
 
+    public void Dash(InputAction.CallbackContext ctx)
+    {
+        if (ctx.performed && canDash && TouchedGround)
+        {
+            dashCDTimer = dashCD;
+            testCooldown.StartCooldown(DashCooldown);
+            if (!isGrounded)
+                TouchedGround = false;
+            canDash = false;
+            controls.Disable();
+            rb.gravityScale = 0;
+        }
+    }
     #endregion
 
     #region Input Boilerplate

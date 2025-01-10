@@ -5,25 +5,26 @@ using UnityEngine.Events;
 
 public class Cooldowns : MonoBehaviour
 {
-    public float cooldownTime;
+    //progress report var
     private double cooldownProgress;
+    // functionality vars
+    private float cdTimerCounter;
+    public float cooldownTime;
     private float startTime;
     private float endTime;
-    private float cur;
-    private bool waiting = true;
+    private bool waitingForInput = true;
 
     public UnityEvent timerFinished;
-    public UnityEvent progressUpdate;
 
     private void Awake()
     {
         timerFinished = new UnityEvent();
-        cur = 0;
     }
 
     public void SetCooldown(float cooldown)
     { 
         cooldownTime = cooldown;
+        cdTimerCounter = cooldown;
     }
 
     public void ResetCooldown()
@@ -35,26 +36,26 @@ public class Cooldowns : MonoBehaviour
     {
         startTime = Time.time;
         endTime = startTime + cooldownTime;
-        waiting = false;
+        waitingForInput = false;
         timerFinished.AddListener(func);
     }
 
     private void Update()
     {
-        if (cur / endTime <= 1 && !waiting)
+        if (cdTimerCounter > 0 && !waitingForInput)
         {
-            cur += Time.deltaTime;
-            cooldownProgress = cur / endTime;
+            cdTimerCounter -= Time.deltaTime;
+            cooldownProgress = (1 - cdTimerCounter) / cooldownTime;
         }
         else
         {
             cooldownProgress = 1;
-            if (!waiting)
+            if (!waitingForInput)
             { 
                 timerFinished.Invoke();
-                cur = 0;
+                cdTimerCounter = cooldownTime;
             }
-            waiting = true;
+            waitingForInput = true;
         }
     }
 
