@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rb;
     public PlayerInputs controls;
     public LayerMask groundLayer;
+    public LayerMask enemyLayer;
     public Animator animator;
 
     public Collider2D gCheck;
@@ -126,8 +127,8 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
             currentWeapon = "TonPrim";
 
-        if (Input.GetKeyDown(KeyCode.Q))
-            EquipArmor(armorList[0]); Debug.Log(armorList[0]);
+        //if (Input.GetKeyDown(KeyCode.Q))
+            //EquipArmor(armorList[0]);
 
         playerVel = move.ReadValue<Vector2>();
         if (cooldownActive)
@@ -183,6 +184,9 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        if (((1 << collision.gameObject.layer) & enemyLayer) != 0)
+            return;
+            
         isGrounded = false;
     }
 

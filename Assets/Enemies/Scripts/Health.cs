@@ -13,6 +13,8 @@ public class Health : MonoBehaviour
 
     public bool invulnerable = false;
 
+    public float time;
+
     private void Start()
     {
         currentHealth = maxHealth;
@@ -25,7 +27,10 @@ public class Health : MonoBehaviour
             currentHealth -= damage;
 
             if(gameObject.tag == "Player" && damage > 0)
+            {
                 StartCoroutine(TriggerInvincibility());
+                gameObject.BroadcastMessage("Shake", 0.5f);
+            }
         }
     }
 
