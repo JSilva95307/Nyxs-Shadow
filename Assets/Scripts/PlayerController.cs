@@ -111,8 +111,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         isGrounded = false;
-        //playerHealth.SetCurrentHealth(PlayerManager.Instance.health); //Saves the player's health between scenes
-        playerHealth.SetCurrentHealth(playerHealth.GetMaxHealth()); //Saves the player's health between scenes
+        playerHealth.SetCurrentHealth(playerHealth.GetMaxHealth());
     }
 
     // Update is called once per frame
@@ -127,8 +126,8 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
             currentWeapon = "TonPrim";
 
-        //if (Input.GetKeyDown(KeyCode.Q))
-            //EquipArmor(armorList[0]);
+        if (Input.GetKeyDown(KeyCode.Q))
+            EquipArmor(armorList[0]);
 
         playerVel = move.ReadValue<Vector2>();
         if (cooldownActive)
@@ -260,7 +259,7 @@ public class PlayerController : MonoBehaviour
     }
     #endregion
 
-
+    #region Armor Functions
     public void EquipArmor(Armor armor)
     {
         //Remove stat increases of current armor and add new armor to the slot
@@ -300,7 +299,9 @@ public class PlayerController : MonoBehaviour
 
 
         //Check if each piece of armor is the same type and apply a set bonus
-        if(helmet.armorSet == chestplate.armorSet && helmet.armorSet == greaves.armorSet)
+        if (helmet == null || chestplate == null || greaves == null)
+            return;
+        else if(helmet.armorSet == chestplate.armorSet && helmet.armorSet == greaves.armorSet)
         {
             //Use a swich case to determine what set bonus to apply
         }
@@ -312,4 +313,5 @@ public class PlayerController : MonoBehaviour
 
         return input * p;
     }
+    #endregion
 }
