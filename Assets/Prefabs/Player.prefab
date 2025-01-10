@@ -83,7 +83,8 @@ MonoBehaviour:
   helmet: {fileID: 0}
   chestplate: {fileID: 0}
   greaves: {fileID: 0}
-  armorList: []
+  armorList:
+  - {fileID: 11400000, guid: ea27c528caac459408711890664059ca, type: 2}
 --- !u!114 &4362003692211823917
 MonoBehaviour:
   m_ObjectHideFlags: 0
