@@ -1,3 +1,4 @@
+using NUnit.Framework;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -18,9 +19,13 @@ public class PlayerController : MonoBehaviour
     public PlayerInputs controls;
     public LayerMask groundLayer;
     public LayerMask enemyLayer;
+    public LayerMask grappleLayer;
     public Animator animator;
 
     public Collider2D gCheck;
+    private Vector2 grapplePos;
+    private Vector2 grappleTime;
+    private bool grappling;
     #endregion
 
     #region Inputs
@@ -99,6 +104,9 @@ public class PlayerController : MonoBehaviour
     [Space(20)]
     #endregion
 
+    #region miscellaneous
+    public List<GameObject> grapplePoints;
+    #endregion
     Vector2 playerVel = Vector2.zero;
     // Awake executes only once you start to load the game
     private void Awake()
@@ -160,6 +168,11 @@ public class PlayerController : MonoBehaviour
         {
             dashCDTimer -= Time.deltaTime;
         }
+        if (grappling)
+        {
+            transform.position = grapplePos;
+            grappling = false;
+        }
     }
 
     private void FixedUpdate()
@@ -201,15 +214,21 @@ public class PlayerController : MonoBehaviour
             isGrounded = true;
             TouchedGround = true;
         }
+        if (((1 << other.gameObject.layer) | grappleLayer) != 0)
+        {
+            grapplePoints.Add(other.gameObject);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (((1 << collision.gameObject.layer) & enemyLayer) != 0)
             return;
-            
-        isGrounded = false;
-    }
+        if (((1 << collision.gameObject.layer) & groundLayer) != 0)
+            isGrounded = false;
+        if (((1 << collision.gameObject.layer) | grappleLayer) != 0)
+            grapplePoints.Remove(collision.gameObject);
+        }
 
     public void Jump(InputAction.CallbackContext ctx)
     {
@@ -225,7 +244,6 @@ public class PlayerController : MonoBehaviour
         if (ctx.canceled && rb.linearVelocityY > 0)
         {
             rb.linearVelocityY = 0;
-
             coyoteTimeCounter = 0f;
         }
     }
@@ -247,6 +265,38 @@ public class PlayerController : MonoBehaviour
             controls.Disable();
             rb.gravityScale = 0;
         }
+    }
+
+    public void Grapple(InputAction.CallbackContext ctx)
+    {
+        int index = 0;
+        if (ctx.performed && grapplePoints.Count > 0)
+        {
+            if (grapplePoints.Count > 1)
+            {
+                double curDistance;
+                double lastDistance = 0;
+                for (int i = 0; i < grapplePoints.Count; ++i)
+                {
+                    curDistance = Distance2D(grapplePoints[i].transform.position, transform.position);
+                    if (i == 0)
+                    {
+                        lastDistance = curDistance;
+                    }
+                    else if (lastDistance > curDistance)
+                    {
+                        index = i;
+                    }
+                }
+            }
+            grappling = true;
+            grapplePos = grapplePoints[index].transform.position;
+        }
+    }
+
+    private double Distance2D(Vector2 start, Vector2 end)
+    {
+        return Math.Sqrt(Math.Pow(end.x - start.x, 2) + Math.Pow(end.y - start.y, 2));
     }
     #endregion
 
