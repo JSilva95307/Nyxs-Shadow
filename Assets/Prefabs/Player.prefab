@@ -59,6 +59,9 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64
+  grappleLayer:
+    serializedVersion: 2
+    m_Bits: 512
   animator: {fileID: 7928505541811204023}
   gCheck: {fileID: 0}
   movementSpeed: 12
@@ -89,6 +92,7 @@ MonoBehaviour:
   greaves: {fileID: 0}
   armorList:
   - {fileID: 11400000, guid: ea27c528caac459408711890664059ca, type: 2}
+  grapplePoints: []
 --- !u!114 &4362003692211823917
 MonoBehaviour:
   m_ObjectHideFlags: 0
