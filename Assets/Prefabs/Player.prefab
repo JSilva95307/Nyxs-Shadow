@@ -67,7 +67,7 @@ MonoBehaviour:
   movementSpeed: 12
   fallingspeedCap: 0
   apexSpeedBoost: 0
-  jumpForce: 8
+  jumpForce: 10
   dashStr: 1
   isGrounded: 0
   facingRight: 0
@@ -76,7 +76,9 @@ MonoBehaviour:
   jumpBufferTime: 0.2
   failedJumpTime: 0
   dashCD: 0.5
-  dashCDTimer: 0
+  grappleCD: 0.5
+  grappleIsFar: 0
+  grappleLaunchPower: 0
   attackBufferTime: 0
   playerHealth: {fileID: 1962167023953275459}
   cam: {fileID: 8528339702348787020}
@@ -163,7 +165,19 @@ MonoBehaviour:
     m_ActionId: b6021103-9717-41e1-bc69-06b3d40561fc
     m_ActionName: 'Player/Dash[/Keyboard/leftShift]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4632480316223981943}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: Grapple
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 7075bb42-f545-44cf-9237-1a9da3378a06
     m_ActionName: 'Player/Grapple[/Keyboard/g]'
   - m_PersistentCalls:
@@ -251,9 +265,9 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 100
+  m_Mass: 1.4
   m_LinearDamping: 0
-  m_AngularDamping: 0.05
+  m_AngularDamping: 0
   m_GravityScale: 2
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -422,7 +436,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 320
+    m_Bits: 832
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2

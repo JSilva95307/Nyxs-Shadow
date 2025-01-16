@@ -63,7 +63,9 @@ public class PlayerController : MonoBehaviour
 
     bool bufferJumpToProcess = false;
     public float dashCD;
-    public float dashCDTimer;
+    public float grappleCD;
+    public bool grappleIsFar;
+    public float grappleLaunchPower;
     [Space(20)]
     #endregion
 
@@ -71,7 +73,8 @@ public class PlayerController : MonoBehaviour
     [Header("Gameplay Vars")]
     public float attackBufferTime;
     public Health playerHealth;
-    Cooldowns testCooldown;
+    Cooldowns dashCooldown;
+    Cooldowns grappleCooldown;
     bool TouchedGround;
     [Space(20)]
     #endregion
@@ -111,10 +114,13 @@ public class PlayerController : MonoBehaviour
     // Awake executes only once you start to load the game
     private void Awake()
     {
+        grappleIsFar = true;
         canDash = true;
         controls = new PlayerInputs();
-        testCooldown = gameObject.AddComponent<Cooldowns>();
-        testCooldown.SetCooldown(dashCD);
+        dashCooldown = gameObject.AddComponent<Cooldowns>();
+        dashCooldown.SetCooldown(dashCD);
+        grappleCooldown = gameObject.AddComponent<Cooldowns>();
+        grappleCooldown.SetCooldown(grappleCD);
         currentWeapon = "SwoPrim";
         Physics.IgnoreLayerCollision(0, 6);
     }
@@ -155,7 +161,7 @@ public class PlayerController : MonoBehaviour
         if (isGrounded)
         {
             coyoteTimeCounter = coyoteTime;
-            if( failedJumpTime - Time.time < jumpBufferTime  && bufferJumpToProcess)
+            if (failedJumpTime - Time.time < jumpBufferTime && bufferJumpToProcess)
             {
                 DoJump();
                 bufferJumpToProcess = false;
@@ -163,15 +169,14 @@ public class PlayerController : MonoBehaviour
         }
         else
             coyoteTimeCounter -= Time.deltaTime;
-
-        if (!canDash && TouchedGround)
+        //Debug.Log((Distance2D(transform.position, grapplePos)));
+        if ((Distance2D(transform.position, grapplePos)) <= 1f && grappling)
         {
-            dashCDTimer -= Time.deltaTime;
-        }
-        if (grappling)
-        {
-            transform.position = grapplePos;
+            grappleIsFar = true;
             grappling = false;
+            if (rb.linearVelocityY > 8)
+                rb.linearVelocityY = 8;
+            Debug.Log(rb.linearVelocityY);
         }
     }
 
@@ -190,17 +195,31 @@ public class PlayerController : MonoBehaviour
                 rb.linearVelocityX = -12f;
             }
         }
+        if (grappleIsFar && grappling)
+        {
+            //transform.position = grapplePos;
+            Debug.Log((grapplePos - (Vector2)(transform.position)).normalized * grappleLaunchPower);
+            Vector2 powah = (grapplePos - (Vector2)(transform.position)).normalized * grappleLaunchPower;
+            rb.linearVelocity = powah * grappleLaunchPower;
+            //grappling = false;
+            grappleCooldown.StartCooldown(GrappleCooldown);
+        }
     }
 
     #region Attack Functions
 
     private void DashCooldown()
     {
-        if(!isGrounded)
+        if (!isGrounded)
             TouchedGround = false;
         canDash = true;
         rb.gravityScale = 2;
         controls.Enable();
+    }
+
+    private void GrappleCooldown()
+    {
+        grappling = false;
     }
 
     #endregion
@@ -214,7 +233,7 @@ public class PlayerController : MonoBehaviour
             isGrounded = true;
             TouchedGround = true;
         }
-        if (((1 << other.gameObject.layer) | grappleLayer) != 0)
+        if (((1 << other.gameObject.layer) & grappleLayer) != 0)
         {
             grapplePoints.Add(other.gameObject);
         }
@@ -226,9 +245,9 @@ public class PlayerController : MonoBehaviour
             return;
         if (((1 << collision.gameObject.layer) & groundLayer) != 0)
             isGrounded = false;
-        if (((1 << collision.gameObject.layer) | grappleLayer) != 0)
+        if (((1 << collision.gameObject.layer) & grappleLayer) != 0)
             grapplePoints.Remove(collision.gameObject);
-        }
+    }
 
     public void Jump(InputAction.CallbackContext ctx)
     {
@@ -257,8 +276,7 @@ public class PlayerController : MonoBehaviour
     {
         if (ctx.performed && canDash && TouchedGround)
         {
-            dashCDTimer = dashCD;
-            testCooldown.StartCooldown(DashCooldown);
+            dashCooldown.StartCooldown(DashCooldown);
             if (!isGrounded)
                 TouchedGround = false;
             canDash = false;
@@ -272,9 +290,9 @@ public class PlayerController : MonoBehaviour
         int index = 0;
         if (ctx.performed && grapplePoints.Count > 0)
         {
+            double curDistance = Distance2D(grapplePoints[0].transform.position, transform.position);
             if (grapplePoints.Count > 1)
             {
-                double curDistance;
                 double lastDistance = 0;
                 for (int i = 0; i < grapplePoints.Count; ++i)
                 {
@@ -289,6 +307,7 @@ public class PlayerController : MonoBehaviour
                     }
                 }
             }
+            grappleLaunchPower = (float)(curDistance / grappleCD);
             grappling = true;
             grapplePos = grapplePoints[index].transform.position;
         }
@@ -386,7 +405,7 @@ public class PlayerController : MonoBehaviour
         //Check if each piece of armor is the same type and apply a set bonus
         if (helmet == null || chestplate == null || greaves == null)
             return;
-        else if(helmet.armorSet == chestplate.armorSet && helmet.armorSet == greaves.armorSet)
+        else if (helmet.armorSet == chestplate.armorSet && helmet.armorSet == greaves.armorSet)
         {
             //Use a swich case to determine what set bonus to apply
         }
