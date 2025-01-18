@@ -1135,12 +1135,15 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64
+  grappleLayer:
+    serializedVersion: 2
+    m_Bits: 0
   animator: {fileID: 7928505543675207416}
   gCheck: {fileID: 0}
   movementSpeed: 12
   fallingspeedCap: 0
   apexSpeedBoost: 0
-  jumpForce: 8
+  jumpForce: 10
   dashStr: 1
   isGrounded: 0
   facingRight: 0
@@ -1165,6 +1168,7 @@ MonoBehaviour:
   greaves: {fileID: 0}
   armorList:
   - {fileID: 11400000, guid: ea27c528caac459408711890664059ca, type: 2}
+  grapplePoints: []
 --- !u!50 &5286824669162994568
 Rigidbody2D:
   serializedVersion: 5
@@ -1448,9 +1452,13 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 4523082737540244043, guid: 0f577e0022b099d4b8c7aba05749f00e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4559548788399008782, guid: 0f577e0022b099d4b8c7aba05749f00e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.96
+      value: -9.16
       objectReference: {fileID: 0}
     - target: {fileID: 4559548788399008782, guid: 0f577e0022b099d4b8c7aba05749f00e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1494,13 +1502,70 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6971122671164375953, guid: 0f577e0022b099d4b8c7aba05749f00e, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f577e0022b099d4b8c7aba05749f00e, type: 3}
+--- !u!1001 &7694413161821558803
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5027786179316383145, guid: 54b33ab71a692da41a55703b4d0075a0, type: 3}
+      propertyPath: m_Name
+      value: Golem
+      objectReference: {fileID: 0}
+    - target: {fileID: 7117896005127123647, guid: 54b33ab71a692da41a55703b4d0075a0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 7117896005127123647, guid: 54b33ab71a692da41a55703b4d0075a0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7117896005127123647, guid: 54b33ab71a692da41a55703b4d0075a0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7117896005127123647, guid: 54b33ab71a692da41a55703b4d0075a0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7117896005127123647, guid: 54b33ab71a692da41a55703b4d0075a0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7117896005127123647, guid: 54b33ab71a692da41a55703b4d0075a0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7117896005127123647, guid: 54b33ab71a692da41a55703b4d0075a0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7117896005127123647, guid: 54b33ab71a692da41a55703b4d0075a0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7117896005127123647, guid: 54b33ab71a692da41a55703b4d0075a0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7117896005127123647, guid: 54b33ab71a692da41a55703b4d0075a0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 54b33ab71a692da41a55703b4d0075a0, type: 3}
 --- !u!95 &7928505543675207416
 Animator:
   serializedVersion: 7
@@ -1635,6 +1700,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 1239756074}
   - {fileID: 1517124450}
+  - {fileID: 7694413161821558803}
   - {fileID: 7505925443249702639}
   - {fileID: 1010673841}
   - {fileID: 2848291230686279756}
