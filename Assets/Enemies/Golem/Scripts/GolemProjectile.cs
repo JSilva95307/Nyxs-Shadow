@@ -7,6 +7,12 @@ public class GolemProjectile : MonoBehaviour
     [SerializeField] private float lifetime = 3;
     private float timer = 0;
 
+
+    private void Start()
+    {
+        FacePlayer();
+    }
+
     void Update()
     {
         timer += Time.deltaTime;
@@ -23,5 +29,15 @@ public class GolemProjectile : MonoBehaviour
 
         if (other.gameObject.tag != "Enemy")
             Destroy(gameObject);
+    }
+
+    private void FacePlayer()
+    {
+        Vector3 target = GameObject.FindGameObjectWithTag("Player").transform.position;
+
+        if (target.x < transform.position.x)
+        {
+            transform.Rotate(transform.up, 180f);
+        }
     }
 }
