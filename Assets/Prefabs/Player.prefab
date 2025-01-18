@@ -62,6 +62,9 @@ MonoBehaviour:
   grappleLayer:
     serializedVersion: 2
     m_Bits: 512
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 1024
   animator: {fileID: 7928505541811204023}
   gCheck: {fileID: 0}
   movementSpeed: 12
@@ -79,6 +82,7 @@ MonoBehaviour:
   grappleCD: 0.5
   grappleIsFar: 0
   grappleLaunchPower: 0
+  canWallJump: 0
   attackBufferTime: 0
   playerHealth: {fileID: 1962167023953275459}
   cam: {fileID: 8528339702348787020}
@@ -185,7 +189,19 @@ MonoBehaviour:
     m_ActionId: e9f9b183-4078-43d1-ba03-9c3efaecde5d
     m_ActionName: 'Player/GroundPound[/Keyboard/leftCtrl]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4632480316223981943}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: DoWallJump
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: aca23493-fc0c-4d9b-80ed-dd4adddd9c00
     m_ActionName: 'Player/WallJump[/Keyboard/space]'
   - m_PersistentCalls:
@@ -269,7 +285,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0
   m_GravityScale: 2
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 6aa4c221e0e283a46905dd495ba5a975, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -277,7 +293,7 @@ Rigidbody2D:
     serializedVersion: 2
     m_Bits: 0
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!212 &8376380372079916077
@@ -345,7 +361,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 6aa4c221e0e283a46905dd495ba5a975, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -430,7 +446,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 6aa4c221e0e283a46905dd495ba5a975, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

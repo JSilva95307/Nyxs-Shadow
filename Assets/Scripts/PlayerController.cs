@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     public LayerMask groundLayer;
     public LayerMask enemyLayer;
     public LayerMask grappleLayer;
+    public LayerMask wallLayer;
     public Animator animator;
 
     public Collider2D gCheck;
@@ -66,6 +67,7 @@ public class PlayerController : MonoBehaviour
     public float grappleCD;
     public bool grappleIsFar;
     public float grappleLaunchPower;
+    public bool canWallJump;
     [Space(20)]
     #endregion
 
@@ -237,6 +239,11 @@ public class PlayerController : MonoBehaviour
         {
             grapplePoints.Add(other.gameObject);
         }
+        if (((1 << other.gameObject.layer) & wallLayer) != 0)
+        {
+            canWallJump = true;
+        }
+
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -247,11 +254,13 @@ public class PlayerController : MonoBehaviour
             isGrounded = false;
         if (((1 << collision.gameObject.layer) & grappleLayer) != 0)
             grapplePoints.Remove(collision.gameObject);
+        if (((1 << collision.gameObject.layer) & wallLayer) != 0)
+            canWallJump = false;
     }
 
     public void Jump(InputAction.CallbackContext ctx)
     {
-        if (coyoteTimeCounter > 0f)
+        if (coyoteTimeCounter > 0f || canWallJump)
         {
             DoJump();
         }
@@ -270,6 +279,8 @@ public class PlayerController : MonoBehaviour
     private void DoJump()
     {
         rb.linearVelocityY = (jumpForce);
+        if (canWallJump)
+            canWallJump = false;
     }
 
     public void Dash(InputAction.CallbackContext ctx)
@@ -318,6 +329,12 @@ public class PlayerController : MonoBehaviour
         return Math.Sqrt(Math.Pow(end.x - start.x, 2) + Math.Pow(end.y - start.y, 2));
     }
     #endregion
+
+    public void DoWallJump(InputAction.CallbackContext ctx)
+    {
+        if(ctx.performed && canWallJump)
+            rb.linearVelocity = new Vector2(5 , jumpForce);
+    }
 
     #region Input Boilerplate
     private void OnEnable()
