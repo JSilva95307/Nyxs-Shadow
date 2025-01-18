@@ -68,6 +68,13 @@ public class PlayerController : MonoBehaviour
     public bool grappleIsFar;
     public float grappleLaunchPower;
     public bool canWallJump;
+
+    public float wallJumpBuffer;
+    public float wallDistance;
+    bool isWallSliding;
+    RaycastHit2D wallCheck;
+    float jumpTime;
+
     [Space(20)]
     #endregion
 
@@ -206,6 +213,9 @@ public class PlayerController : MonoBehaviour
             //grappling = false;
             grappleCooldown.StartCooldown(GrappleCooldown);
         }
+        
+        //wall jump
+
     }
 
     #region Attack Functions
