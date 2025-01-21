@@ -10,7 +10,7 @@ public class TestMeleeEnemy : BaseEnemy
     public float stoppingDistance;
     public float attackRange = 1;
 
-    private bool flip;
+    //private bool flip;
 
     private GameObject player;
 
