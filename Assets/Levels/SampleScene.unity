@@ -1692,6 +1692,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4632480316223981943, guid: b72d8c964d88367449ee4817d9ddcb48, type: 3}
+      propertyPath: wallDistance
+      value: 5.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4632480316223981943, guid: b72d8c964d88367449ee4817d9ddcb48, type: 3}
+      propertyPath: wallJumpBuffer
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6202902159381393325, guid: b72d8c964d88367449ee4817d9ddcb48, type: 3}
       propertyPath: m_Size.x
       value: 1.11

@@ -1,20 +1,11 @@
-using NUnit.Framework;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Data;
-using System.Xml.Serialization;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
-using static UnityEditor.Timeline.TimelinePlaybackControls;
 
 public class PlayerController : MonoBehaviour
 {
     #region functionality Vars
-    //bool canGoUpOrDown = false;
     public Rigidbody2D rb;
     public PlayerInputs controls;
     public LayerMask groundLayer;
@@ -118,8 +109,9 @@ public class PlayerController : MonoBehaviour
 
     #region miscellaneous
     public List<GameObject> grapplePoints;
-    #endregion
     Vector2 playerVel = Vector2.zero;
+    #endregion
+
     // Awake executes only once you start to load the game
     private void Awake()
     {
@@ -213,9 +205,29 @@ public class PlayerController : MonoBehaviour
             //grappling = false;
             grappleCooldown.StartCooldown(GrappleCooldown);
         }
-        
-        //wall jump
 
+        //wall jump
+        if (facingRight)
+        {
+            wallCheck = Physics2D.Raycast(transform.position, new Vector2(wallDistance, 0), wallDistance, wallLayer);
+            Debug.DrawRay(transform.position, new Vector2(wallDistance, 0), Color.black);
+        }
+        else
+        {
+            wallCheck = Physics2D.Raycast(transform.position, new Vector2(-wallDistance, 0), -wallDistance, wallLayer);
+            Debug.DrawRay(transform.position, new Vector2(-wallDistance, 0), Color.red);
+        }
+        if (wallCheck && !isGrounded)
+        {
+            isWallSliding = true;
+            jumpTime = Time.time + wallJumpBuffer;
+            canWallJump = true;
+        }
+        else if (jumpTime < Time.time)
+        {
+            isWallSliding = false;
+            canWallJump = false;
+        }
     }
 
     #region Attack Functions
@@ -249,10 +261,6 @@ public class PlayerController : MonoBehaviour
         {
             grapplePoints.Add(other.gameObject);
         }
-        if (((1 << other.gameObject.layer) & wallLayer) != 0)
-        {
-            canWallJump = true;
-        }
 
     }
 
@@ -264,13 +272,11 @@ public class PlayerController : MonoBehaviour
             isGrounded = false;
         if (((1 << collision.gameObject.layer) & grappleLayer) != 0)
             grapplePoints.Remove(collision.gameObject);
-        if (((1 << collision.gameObject.layer) & wallLayer) != 0)
-            canWallJump = false;
     }
 
     public void Jump(InputAction.CallbackContext ctx)
     {
-        if (coyoteTimeCounter > 0f || canWallJump)
+        if (coyoteTimeCounter > 0f)
         {
             DoJump();
         }
@@ -289,8 +295,6 @@ public class PlayerController : MonoBehaviour
     private void DoJump()
     {
         rb.linearVelocityY = (jumpForce);
-        if (canWallJump)
-            canWallJump = false;
     }
 
     public void Dash(InputAction.CallbackContext ctx)
@@ -342,8 +346,8 @@ public class PlayerController : MonoBehaviour
 
     public void DoWallJump(InputAction.CallbackContext ctx)
     {
-        if(ctx.performed && canWallJump)
-            rb.linearVelocity = new Vector2(5 , jumpForce);
+        if (ctx.performed && canWallJump)
+            rb.linearVelocity = new Vector2(10, jumpForce);
     }
 
     #region Input Boilerplate
