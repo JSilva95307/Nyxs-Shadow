@@ -9,11 +9,9 @@ public class Health : MonoBehaviour
 
     [SerializeField] private float invincibilityTime; //How long the player will be invunerable for after taking damage
 
-    //[SerializeField] private BoxCollider2D hurtbox;
-
     public bool invulnerable = false;
 
-    public float time;
+    //private float time;
 
     private void Start()
     {

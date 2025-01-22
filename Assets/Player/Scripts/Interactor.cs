@@ -1,6 +1,7 @@
-using NUnit.Framework;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 
 
@@ -32,19 +33,37 @@ public class Interactor : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    //void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.F))
+    //    {
+    //        Debug.Log("Tried Interacting");
+    //        collider.Overlap(results);
+
+    //        //Debug.Log(results);
+
+    //        foreach(Collider2D obj in results)
+    //        {
+    //            Debug.Log(obj);
+    //            if (obj.TryGetComponent(out IInteractable interactObj)){
+    //                interactObj.Interact();
+    //            }
+    //        }
+    //    }
+    //}
+
+    public void Interact(InputAction.CallbackContext ctx)
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (ctx.performed)
         {
             Debug.Log("Tried Interacting");
             collider.Overlap(results);
 
-            //Debug.Log(results);
-
-            foreach(Collider2D obj in results)
+            foreach (Collider2D obj in results)
             {
                 Debug.Log(obj);
-                if (obj.TryGetComponent(out IInteractable interactObj)){
+                if (obj.TryGetComponent(out IInteractable interactObj))
+                {
                     interactObj.Interact();
                 }
             }
