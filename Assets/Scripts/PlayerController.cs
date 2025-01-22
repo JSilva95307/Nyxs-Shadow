@@ -65,7 +65,9 @@ public class PlayerController : MonoBehaviour
     bool isWallSliding;
     RaycastHit2D wallCheck;
     float jumpTime;
-
+    public float wallJumpDuration;
+    public bool wallJumping;
+    public bool jumpingRight;
     [Space(20)]
     #endregion
 
@@ -214,7 +216,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            wallCheck = Physics2D.Raycast(transform.position, new Vector2(-wallDistance, 0), -wallDistance, wallLayer);
+            wallCheck = Physics2D.Raycast(transform.position, new Vector2(-wallDistance, 0), wallDistance, wallLayer);
             Debug.DrawRay(transform.position, new Vector2(-wallDistance, 0), Color.red);
         }
         if (wallCheck && !isGrounded)
@@ -227,6 +229,20 @@ public class PlayerController : MonoBehaviour
         {
             isWallSliding = false;
             canWallJump = false;
+        }
+
+        if (wallJumping && wallJumpDuration >= 0)
+        {
+            if (facingRight)
+                rb.linearVelocity = new Vector2(-6, 6);
+            else
+                rb.linearVelocity = new Vector2(6, 6);
+            wallJumpDuration -= Time.deltaTime;
+        }
+        if (wallJumpDuration < 0)
+        {
+            wallJumping = false;
+            move.Enable();
         }
     }
 
@@ -347,7 +363,11 @@ public class PlayerController : MonoBehaviour
     public void DoWallJump(InputAction.CallbackContext ctx)
     {
         if (ctx.performed && canWallJump)
-            rb.linearVelocity = new Vector2(10, jumpForce);
+        {
+            wallJumpDuration = 0.2f;
+            wallJumping = true;
+            move.Disable();
+        }
     }
 
     #region Input Boilerplate
