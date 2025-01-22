@@ -430,9 +430,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 100
   maxHealth: 100
-  invincibilityTime: 2
+  invincibilityTime: 1.2
   invulnerable: 0
-  time: 1
 --- !u!95 &7928505541811204023
 Animator:
   serializedVersion: 7
@@ -513,7 +512,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea94e824fe3db0743b3e1fa63b9a2592, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collider: {fileID: 0}
+  playerCollider: {fileID: 0}
 --- !u!1 &7471091775809398431
 GameObject:
   m_ObjectHideFlags: 0
