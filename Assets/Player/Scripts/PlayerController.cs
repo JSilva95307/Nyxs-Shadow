@@ -370,6 +370,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void GroundPound(InputAction.CallbackContext ctx)
+    {
+        if(ctx.performed && !isGrounded)
+        {
+            rb.linearVelocityY = -20;
+        }
+    }
+
     #region Input Boilerplate
     private void OnEnable()
     {
