@@ -14,6 +14,7 @@ public abstract class BaseEnemy : MonoBehaviour
     public abstract void Attack();
     public abstract void Attack2();
     public abstract void Attack3();
+    
 
     public void CheckGround()
     {
@@ -24,5 +25,10 @@ public abstract class BaseEnemy : MonoBehaviour
         }
         else
             verticalSpeed = Mathf.Lerp(verticalSpeed, -gravityStrength, gravityStrength * Time.deltaTime);
+    }
+
+    public void Die()
+    {
+        Destroy(gameObject);
     }
 }

@@ -16,8 +16,13 @@ public class Health : MonoBehaviour
     private void Start()
     {
         currentHealth = maxHealth;
-        gameObject.BroadcastMessage("SetMaxHealth", maxHealth); // Sets the max value for the health bar
-        gameObject.BroadcastMessage("SetHealth", maxHealth); // Sets the current value for the health bar
+
+        if (gameObject.tag == "Player")
+        {
+            gameObject.BroadcastMessage("SetMaxHealth", maxHealth); // Sets the max value for the health bar
+            gameObject.BroadcastMessage("SetHealth", maxHealth); // Sets the current value for the health bar
+        }
+        
     }
 
     public void TakeDamage(float damage)
@@ -31,8 +36,14 @@ public class Health : MonoBehaviour
                 StartCoroutine(TriggerInvincibility());
                 gameObject.BroadcastMessage("Shake", 0.5f);
                 gameObject.BroadcastMessage("SetHealth", currentHealth); // Update the health bar when taking damage
+
+                if (gameObject.TryGetComponent(out DamageFlash colorStrobe))
+                    StartCoroutine(colorStrobe.StrobeColor());
+                else
+                    Debug.Log("ColorStrobeNotFound");
             }
         }
+
     }
 
     public float GetMaxHealth()

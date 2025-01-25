@@ -41,32 +41,46 @@ public class PlayerController : MonoBehaviour
     public float movementSpeed;
     public float fallingspeedCap;
     public float apexSpeedBoost;
-    public float jumpForce;
-    public float dashStr;
     public bool isGrounded;
     private bool canDash;
     public bool facingRight;
 
+    [Space(10)]
+
     public float coyoteTime;
     public float coyoteTimeCounter;
 
+    [Space(10)]
+
+    public float jumpForce;
     public float jumpBufferTime;
     public float failedJumpTime;
-
     bool bufferJumpToProcess = false;
-    public float dashCD;
+
+    [Space(10)]
+
+    public float dashStr;
+    public float dashLength;
+
+    [Space(10)]
+
     public float grappleCD;
     public bool grappleIsFar;
     public float grappleLaunchPower;
-    public bool canWallJump;
 
+    [Space(10)]
+
+    public bool canWallJump;
     public float wallJumpBuffer;
     public float wallDistance;
-    bool isWallSliding;
-    RaycastHit2D wallCheck;
-    float jumpTime;
     public float wallJumpDuration;
     public bool wallJumping;
+    bool isWallSliding;
+
+    [Space(10)]
+
+    RaycastHit2D wallCheck;
+    float jumpTime;
     public bool jumpingRight;
     [Space(20)]
     #endregion
@@ -114,6 +128,7 @@ public class PlayerController : MonoBehaviour
     Vector2 playerVel = Vector2.zero;
     #endregion
 
+
     // Awake executes only once you start to load the game
     private void Awake()
     {
@@ -121,7 +136,7 @@ public class PlayerController : MonoBehaviour
         canDash = true;
         controls = new PlayerInputs();
         dashCooldown = gameObject.AddComponent<Cooldowns>();
-        dashCooldown.SetCooldown(dashCD);
+        dashCooldown.SetCooldown(dashLength);
         grappleCooldown = gameObject.AddComponent<Cooldowns>();
         grappleCooldown.SetCooldown(grappleCD);
         currentWeapon = "SwoPrim";
@@ -146,6 +161,8 @@ public class PlayerController : MonoBehaviour
             currentWeapon = "SpePrim";
         if (Input.GetKeyDown(KeyCode.P))
             currentWeapon = "TonPrim";
+        if(Input.GetKeyDown(KeyCode.M))
+            animator.SetTrigger("Attack");
 
         if (Input.GetKeyDown(KeyCode.Q))
             EquipArmor(armorList[0]);
@@ -186,18 +203,20 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         rb.linearVelocityX = playerVel.x * movementSpeed;
+
         if (!canDash)
         {
             rb.linearVelocityY = 0;
             if (facingRight)
             {
-                rb.linearVelocityX = 12f;
+                rb.linearVelocityX = dashStr;
             }
             else
             {
-                rb.linearVelocityX = -12f;
+                rb.linearVelocityX = -dashStr;
             }
         }
+
         if (grappleIsFar && grappling)
         {
             //transform.position = grapplePos;
@@ -219,6 +238,7 @@ public class PlayerController : MonoBehaviour
             wallCheck = Physics2D.Raycast(transform.position, new Vector2(-wallDistance, 0), wallDistance, wallLayer);
             Debug.DrawRay(transform.position, new Vector2(-wallDistance, 0), Color.red);
         }
+
         if (wallCheck && !isGrounded)
         {
             isWallSliding = true;
@@ -239,11 +259,13 @@ public class PlayerController : MonoBehaviour
                 rb.linearVelocity = new Vector2(6, 6);
             wallJumpDuration -= Time.deltaTime;
         }
+
         if (wallJumpDuration < 0)
         {
             wallJumping = false;
             move.Enable();
         }
+
     }
 
     #region Attack Functions
@@ -255,6 +277,7 @@ public class PlayerController : MonoBehaviour
         canDash = true;
         rb.gravityScale = 2;
         controls.Enable();
+        Physics2D.IgnoreLayerCollision(8, 6,  false);
     }
 
     private void GrappleCooldown()
@@ -323,6 +346,7 @@ public class PlayerController : MonoBehaviour
             canDash = false;
             controls.Disable();
             rb.gravityScale = 0;
+            Physics2D.IgnoreLayerCollision(8, 6, true); // Ignores collision between the player and enemy layer when dashing;
         }
     }
 

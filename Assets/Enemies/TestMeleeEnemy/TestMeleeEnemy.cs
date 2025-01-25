@@ -120,4 +120,5 @@ public class TestMeleeEnemy : BaseEnemy
 
         transform.localScale = scale;
     }
+
 }
