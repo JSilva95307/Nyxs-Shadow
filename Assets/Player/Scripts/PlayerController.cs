@@ -168,10 +168,20 @@ public class PlayerController : MonoBehaviour
             EquipArmor(armorList[0]);
 
         playerVel = move.ReadValue<Vector2>();
+        
+        Vector3 temp = transform.localScale;
         if (playerVel.x > 0f)
+        {
             facingRight = true;
+            temp.x = 1;
+            transform.localScale = temp;
+        }
         else if (playerVel.x < 0f)
+        {
             facingRight = false;
+            temp.x = -1;
+            transform.localScale = temp; // Flips the player
+        }
 
         if (primary.IsPressed())
         {
