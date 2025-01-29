@@ -161,17 +161,26 @@ public class PlayerController : MonoBehaviour
             currentWeapon = "SpePrim";
         if (Input.GetKeyDown(KeyCode.P))
             currentWeapon = "TonPrim";
-        if(Input.GetKeyDown(KeyCode.M))
-            animator.SetTrigger("Attack");
+        
 
-        if (Input.GetKeyDown(KeyCode.Q))
-            EquipArmor(armorList[0]);
+        //if (Input.GetKeyDown(KeyCode.Q))
+        //    EquipArmor(armorList[0]);
 
         playerVel = move.ReadValue<Vector2>();
+        
+        Vector3 temp = transform.localScale;
         if (playerVel.x > 0f)
+        {
             facingRight = true;
+            temp.x = 1;
+            transform.localScale = temp;
+        }
         else if (playerVel.x < 0f)
+        {
             facingRight = false;
+            temp.x = -1;
+            transform.localScale = temp; // Flips the player
+        }
 
         if (primary.IsPressed())
         {
@@ -198,6 +207,11 @@ public class PlayerController : MonoBehaviour
                 rb.linearVelocityY = 8;
             Debug.Log(rb.linearVelocityY);
         }
+
+        if(playerVel.x != 0)
+            animator.SetBool("Running", true);
+        else
+            animator.SetBool("Running", false);
     }
 
     private void FixedUpdate()
