@@ -1,9 +1,14 @@
+using NUnit.Framework;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerHitbox : MonoBehaviour
 {
     public BoxCollider2D boxCollider;
     public bool active;
+    public float damage = 10f;
+    private List<GameObject> hitEnemies = new List<GameObject>();
+    
     void Start()
     {
         boxCollider = this.GetComponent<BoxCollider2D>();
@@ -17,10 +22,26 @@ public class PlayerHitbox : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.gameObject.GetComponent<Health>())
+        {
+            if (hitEnemies.Contains(other.gameObject))
+                return;
+
+            hitEnemies.Add(other.gameObject);
+        }
+
+
         //Deal Damage
         if (other.gameObject.TryGetComponent(out Health enemyHealth))
         {
-            enemyHealth.TakeDamage(10f);
+            enemyHealth.TakeDamage(damage);
         }
+        
     }
+
+    public void ResetHitbox()
+    {
+        hitEnemies.Clear();
+    }
+
 }
