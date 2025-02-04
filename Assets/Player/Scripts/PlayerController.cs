@@ -416,6 +416,18 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void DisableMovement()
+    {
+        move.Disable();
+        jump.Disable();
+    }
+
+    public void EnableMovement()
+    {
+        move.Enable();
+        jump.Enable();
+    }
+
     #region Input Boilerplate
     private void OnEnable()
     {

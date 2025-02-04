@@ -37,10 +37,10 @@ public class Health : MonoBehaviour
                 gameObject.BroadcastMessage("Shake", 0.5f);
                 gameObject.BroadcastMessage("SetHealth", currentHealth); // Update the health bar when taking damage
 
-                if (gameObject.TryGetComponent(out DamageFlash colorStrobe))
-                    StartCoroutine(colorStrobe.StrobeColor());
-                else
-                    Debug.Log("ColorStrobeNotFound");
+                //if (gameObject.TryGetComponent(out DamageFlash colorStrobe))
+                //    StartCoroutine(colorStrobe.StrobeColor());
+                //else
+                //    Debug.Log("ColorStrobeNotFound");
             }
         }
 
