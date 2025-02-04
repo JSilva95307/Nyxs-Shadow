@@ -192,6 +192,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 611647977663539825, guid: 9adb34462a4f96045be3141185d73653, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1915943603}
     - target: {fileID: 4425730651553921924, guid: 9adb34462a4f96045be3141185d73653, type: 3}
       propertyPath: m_Name
       value: TreeSpiritMiniBoss
@@ -286,6 +290,11 @@ Transform:
   - {fileID: 2091419748}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1915943603 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2848291232546605315, guid: b72d8c964d88367449ee4817d9ddcb48, type: 3}
+  m_PrefabInstance: {fileID: 120498988}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2091419747
 GameObject:
   m_ObjectHideFlags: 0

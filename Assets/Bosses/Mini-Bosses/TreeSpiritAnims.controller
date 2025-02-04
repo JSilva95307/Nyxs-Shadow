@@ -210,6 +210,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3e6ac56daee13948b7a617e19a8b70f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  walkSpeed: 2.5
+  attackRange: 2
 --- !u!1101 &2321294481211245473
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -408,7 +410,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Attack
+    m_ConditionEvent: Phase2
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 6039580220224206966}
