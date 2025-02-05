@@ -5,6 +5,11 @@ public class Boss : MonoBehaviour
     public Transform player;
 
     bool isFlipped = false;
+    public BoxCollider2D primary;
+    //public BoxCollider2D secondary;
+    public float primaryDamage;
+    //do projectile attack functionality
+
 
     public void LookAtPlayer()
     {
@@ -25,10 +30,38 @@ public class Boss : MonoBehaviour
         }
     }
     
+    public void PrimaryAttackActive()
+    {
+        primary.enabled = true;
+    }
+
+    //public void SecondAttackActive()
+    //{
+    //    secondary.enabled = true;
+    //}
+
+    public void PrimaryDisabled()
+    {
+        primary.enabled = false;
+    }
+
+    //public void SecondaryDisabled()
+    //{
+    //    secondary.enabled= false;
+    //}
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Player"))
+        {
+            collision.GetComponent<Health>().TakeDamage(primaryDamage);
+        }
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        primary.enabled = false;
+        //secondary.enabled = false;
     }
 
     // Update is called once per frame
