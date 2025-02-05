@@ -15,7 +15,7 @@ public class PlayerManager : MonoBehaviour
     //Player variables to save
     public float health;
 
-
+    public float k = 3; //k = excitation constant (lower k (~1-2) for sluggish movement, higher k (~10) for move snappish behavior)
 
     private void Awake()
     {
@@ -34,5 +34,11 @@ public class PlayerManager : MonoBehaviour
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+    }
+
+    private void Update()
+    {
+        //lungeDist.x = Mathf.Lerp(lungeDist.x, 0f, 3f * Time.deltaTime);
+        lungeDist.x = Mathf.Lerp(lungeDist.x, 0f, (float)(1 - Mathf.Exp(-k * Time.deltaTime)));
     }
 }
