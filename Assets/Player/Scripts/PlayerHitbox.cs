@@ -42,6 +42,7 @@ public class PlayerHitbox : MonoBehaviour
     public void ResetHitbox()
     {
         hitEnemies.Clear();
+        PlayerManager.Instance.lungeDist.Set(0, 0);
     }
 
 }

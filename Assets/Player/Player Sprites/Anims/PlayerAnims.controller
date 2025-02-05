@@ -242,7 +242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c7c65fccb0bae14ebb37648865efa37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lungeDist: {x: 10, y: 0}
+  lungeDist: {x: 1, y: 0}
   damage: 5
 --- !u!1102 &-5622421021192232081
 AnimatorState:
@@ -445,7 +445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c7c65fccb0bae14ebb37648865efa37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lungeDist: {x: 0, y: 0}
+  lungeDist: {x: 1, y: 0}
   damage: 10
 --- !u!1101 &-640690779764939606
 AnimatorStateTransition:
@@ -784,7 +784,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c7c65fccb0bae14ebb37648865efa37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lungeDist: {x: 0, y: 0}
+  lungeDist: {x: 1.3, y: 0}
   damage: 20
 --- !u!114 &4823631651602297097
 MonoBehaviour:
