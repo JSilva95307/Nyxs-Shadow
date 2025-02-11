@@ -161,10 +161,14 @@ public class PlayerController : MonoBehaviour
             currentWeapon = "SpePrim";
         if (Input.GetKeyDown(KeyCode.P))
             currentWeapon = "TonPrim";
-        
 
-        //if (Input.GetKeyDown(KeyCode.Q))
-        //    EquipArmor(armorList[0]);
+
+        if (Input.GetKeyDown(KeyCode.I))
+            EquipArmor(armorList[0]);
+        if (Input.GetKeyDown(KeyCode.O))
+            EquipArmor(armorList[1]);
+        if (Input.GetKeyDown(KeyCode.P))
+            EquipArmor(armorList[2]);
 
         playerVel = move.ReadValue<Vector2>();
         
@@ -520,6 +524,14 @@ public class PlayerController : MonoBehaviour
         else if (helmet.armorSet == chestplate.armorSet && helmet.armorSet == greaves.armorSet)
         {
             //Use a swich case to determine what set bonus to apply
+            ArmorSet set = helmet.armorSet;
+
+            switch (set)
+            {
+                case ArmorSet.TestSet:
+                    Debug.Log("This is the test armor set bonus");
+                    break;
+            }
         }
     }
 

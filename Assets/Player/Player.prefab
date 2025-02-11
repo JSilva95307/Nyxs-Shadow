@@ -109,6 +109,8 @@ MonoBehaviour:
   greaves: {fileID: 0}
   armorList:
   - {fileID: 11400000, guid: ea27c528caac459408711890664059ca, type: 2}
+  - {fileID: 11400000, guid: 425e03949058b0f45b1e2224ba774b96, type: 2}
+  - {fileID: 11400000, guid: 2e444f073081ca94bb2218803289e2fe, type: 2}
   grapplePoints: []
 --- !u!114 &4362003692211823917
 MonoBehaviour:
