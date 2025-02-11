@@ -202,7 +202,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   primary: {fileID: 2611247735276602674}
-  secondary: {fileID: 0}
   primaryDamage: 5
 --- !u!114 &5251203644714628920
 MonoBehaviour:

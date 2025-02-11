@@ -275,6 +275,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b72d8c964d88367449ee4817d9ddcb48, type: 3}
+--- !u!4 &397442596 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2848291232546605315, guid: b72d8c964d88367449ee4817d9ddcb48, type: 3}
+  m_PrefabInstance: {fileID: 397442595}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1307023151
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -286,14 +291,10 @@ PrefabInstance:
     - target: {fileID: 611647977663539825, guid: 9adb34462a4f96045be3141185d73653, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 397442596}
     - target: {fileID: 4425730651553921924, guid: 9adb34462a4f96045be3141185d73653, type: 3}
       propertyPath: m_Name
       value: TreeSpiritMiniBoss
-      objectReference: {fileID: 0}
-    - target: {fileID: 4425730651553921924, guid: 9adb34462a4f96045be3141185d73653, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9075398882176674984, guid: 9adb34462a4f96045be3141185d73653, type: 3}
       propertyPath: m_LocalPosition.x
@@ -401,6 +402,7 @@ MonoBehaviour:
   lungeDist: {x: 0, y: 0}
   damage: 10
   health: 0
+  k: 3
 --- !u!1 &1903057910
 GameObject:
   m_ObjectHideFlags: 0
