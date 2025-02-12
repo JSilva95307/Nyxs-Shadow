@@ -216,6 +216,7 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("Running", true);
         else
             animator.SetBool("Running", false);
+
     }
 
     private void FixedUpdate()
@@ -477,6 +478,36 @@ public class PlayerController : MonoBehaviour
         openIventory.Disable();
         groundPound.Disable();
     }
+
+    public void DisableAllControls()
+    {
+        move.Disable();
+        jump.Disable();
+        primary.Disable();
+        secondary.Disable();
+        ability1.Disable();
+        ability2.Disable();
+        dash.Disable();
+        grapple.Disable();
+        interact.Disable();
+        openIventory.Disable();
+        groundPound.Disable();
+    }
+
+    public void EnableAllControls()
+    {
+        move.Enable();
+        jump.Enable();
+        primary.Enable();
+        secondary.Enable();
+        ability1.Enable();
+        ability2.Enable();
+        dash.Enable();
+        grapple.Enable();
+        interact.Enable();
+        openIventory.Enable();
+        groundPound.Enable();
+    }
     #endregion
 
     #region Armor Functions
@@ -542,4 +573,6 @@ public class PlayerController : MonoBehaviour
         return input * p;
     }
     #endregion
+
+
 }
