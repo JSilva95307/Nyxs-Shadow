@@ -6,10 +6,10 @@ public class Boss : MonoBehaviour
 
     bool isFlipped = false;
     public BoxCollider2D primary;
-    //public BoxCollider2D secondary;
     public float primaryDamage;
+    public Transform spawnLocation;
     //do projectile attack functionality
-
+    public BaseProjectile projectile;
 
     public void LookAtPlayer()
     {
@@ -35,20 +35,16 @@ public class Boss : MonoBehaviour
         primary.enabled = true;
     }
 
-    //public void SecondAttackActive()
-    //{
-    //    secondary.enabled = true;
-    //}
-
     public void PrimaryDisabled()
     {
         primary.enabled = false;
     }
 
-    //public void SecondaryDisabled()
-    //{
-    //    secondary.enabled= false;
-    //}
+    public void FireProjectile()
+    {
+        projectile.SetDirection(transform.right);
+        Instantiate(projectile, spawnLocation.position, spawnLocation.rotation);
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
