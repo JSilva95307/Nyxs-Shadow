@@ -524,10 +524,15 @@ public class PlayerController : MonoBehaviour
                     //Remove stat boosts from current armor
 
                     playerHealth.SetCurrentHealth(playerHealth.GetCurrentHealth() - helmet.health);
-                    //helmet.attack;
-                    //helmet.defense;
                     movementSpeed -= helmet.speed;
 
+                }
+
+                if(helmet == armor)
+                {
+                    helmet = null;
+                    Debug.Log("Helmet Unequipped");
+                    return; //Unequips the armor if you try to equip the same one twice
                 }
 
                 helmet = armor;
@@ -535,16 +540,62 @@ public class PlayerController : MonoBehaviour
                 //Add new stats to the player
                 Debug.Log("Stats Added");
                 playerHealth.SetCurrentHealth(playerHealth.GetCurrentHealth() + helmet.health);
-                //Set Attack when stat is added
-                //Are we adding a defense stat?
                 movementSpeed += helmet.speed;
 
                 break;
             case ArmorType.Chestplate:
+                
+                if (chestplate != null)
+                {
+                    Debug.Log("Stats Removed");
+                    //Remove stat boosts from current armor
+
+                    playerHealth.SetCurrentHealth(playerHealth.GetCurrentHealth() - chestplate.health);
+                    movementSpeed -= chestplate.speed;
+
+                }
+
+                if (chestplate == armor)
+                {
+                    chestplate = null;
+                    Debug.Log("Chestplate Unequipped");
+                    return; //Unequips the armor if you try to equip the same one twice
+                }
+
                 chestplate = armor;
+
+                //Add new stats to the player
+                Debug.Log("Stats Added");
+                playerHealth.SetCurrentHealth(playerHealth.GetCurrentHealth() + chestplate.health);
+                movementSpeed += chestplate.speed;
+
                 break;
             case ArmorType.Greaves:
+                
+                if (greaves != null)
+                {
+                    Debug.Log("Stats Removed");
+                    //Remove stat boosts from current armor
+
+                    playerHealth.SetCurrentHealth(playerHealth.GetCurrentHealth() - greaves.health);
+                    movementSpeed -= greaves.speed;
+
+                }
+
+                if (greaves == armor)
+                {
+                    greaves = null;
+                    Debug.Log("Greaves Unequipped");
+                    return; //Unequips the armor if you try to equip the same one twice
+                }
+
                 greaves = armor;
+
+                //Add new stats to the player
+                Debug.Log("Stats Added");
+                playerHealth.SetCurrentHealth(playerHealth.GetCurrentHealth() + greaves.health);
+                movementSpeed += greaves.speed;
+
                 break;
         }
 
