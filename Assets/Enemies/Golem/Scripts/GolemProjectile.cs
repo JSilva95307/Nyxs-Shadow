@@ -31,7 +31,7 @@ public class GolemProjectile : MonoBehaviour
             Destroy(gameObject);
     }
 
-    private void FacePlayer()
+    protected void FacePlayer()
     {
         Vector3 target = GameObject.FindGameObjectWithTag("Player").transform.position;
 
