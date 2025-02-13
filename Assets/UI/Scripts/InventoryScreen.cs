@@ -38,6 +38,7 @@ public class InventoryScreen : MonoBehaviour
         else if(canvas.enabled == true)
         {
             canvas.enabled = false;
+            tabList[activeTab].enabled = false;
             EventSystem.current.SetSelectedGameObject(null);
 
             Time.timeScale = 1.0f;
