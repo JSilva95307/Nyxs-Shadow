@@ -161,10 +161,14 @@ public class PlayerController : MonoBehaviour
             currentWeapon = "SpePrim";
         if (Input.GetKeyDown(KeyCode.P))
             currentWeapon = "TonPrim";
-        
 
-        //if (Input.GetKeyDown(KeyCode.Q))
-        //    EquipArmor(armorList[0]);
+
+        if (Input.GetKeyDown(KeyCode.I))
+            EquipArmor(armorList[0]);
+        if (Input.GetKeyDown(KeyCode.O))
+            EquipArmor(armorList[1]);
+        if (Input.GetKeyDown(KeyCode.P))
+            EquipArmor(armorList[2]);
 
         playerVel = move.ReadValue<Vector2>();
         
@@ -212,6 +216,7 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("Running", true);
         else
             animator.SetBool("Running", false);
+
     }
 
     private void FixedUpdate()
@@ -473,6 +478,36 @@ public class PlayerController : MonoBehaviour
         openIventory.Disable();
         groundPound.Disable();
     }
+
+    public void DisableAllControls()
+    {
+        move.Disable();
+        jump.Disable();
+        primary.Disable();
+        secondary.Disable();
+        ability1.Disable();
+        ability2.Disable();
+        dash.Disable();
+        grapple.Disable();
+        interact.Disable();
+        openIventory.Disable();
+        groundPound.Disable();
+    }
+
+    public void EnableAllControls()
+    {
+        move.Enable();
+        jump.Enable();
+        primary.Enable();
+        secondary.Enable();
+        ability1.Enable();
+        ability2.Enable();
+        dash.Enable();
+        grapple.Enable();
+        interact.Enable();
+        openIventory.Enable();
+        groundPound.Enable();
+    }
     #endregion
 
     #region Armor Functions
@@ -489,10 +524,15 @@ public class PlayerController : MonoBehaviour
                     //Remove stat boosts from current armor
 
                     playerHealth.SetCurrentHealth(playerHealth.GetCurrentHealth() - helmet.health);
-                    //helmet.attack;
-                    //helmet.defense;
                     movementSpeed -= helmet.speed;
 
+                }
+
+                if(helmet == armor)
+                {
+                    helmet = null;
+                    Debug.Log("Helmet Unequipped");
+                    return; //Unequips the armor if you try to equip the same one twice
                 }
 
                 helmet = armor;
@@ -500,16 +540,62 @@ public class PlayerController : MonoBehaviour
                 //Add new stats to the player
                 Debug.Log("Stats Added");
                 playerHealth.SetCurrentHealth(playerHealth.GetCurrentHealth() + helmet.health);
-                //Set Attack when stat is added
-                //Are we adding a defense stat?
                 movementSpeed += helmet.speed;
 
                 break;
             case ArmorType.Chestplate:
+                
+                if (chestplate != null)
+                {
+                    Debug.Log("Stats Removed");
+                    //Remove stat boosts from current armor
+
+                    playerHealth.SetCurrentHealth(playerHealth.GetCurrentHealth() - chestplate.health);
+                    movementSpeed -= chestplate.speed;
+
+                }
+
+                if (chestplate == armor)
+                {
+                    chestplate = null;
+                    Debug.Log("Chestplate Unequipped");
+                    return; //Unequips the armor if you try to equip the same one twice
+                }
+
                 chestplate = armor;
+
+                //Add new stats to the player
+                Debug.Log("Stats Added");
+                playerHealth.SetCurrentHealth(playerHealth.GetCurrentHealth() + chestplate.health);
+                movementSpeed += chestplate.speed;
+
                 break;
             case ArmorType.Greaves:
+                
+                if (greaves != null)
+                {
+                    Debug.Log("Stats Removed");
+                    //Remove stat boosts from current armor
+
+                    playerHealth.SetCurrentHealth(playerHealth.GetCurrentHealth() - greaves.health);
+                    movementSpeed -= greaves.speed;
+
+                }
+
+                if (greaves == armor)
+                {
+                    greaves = null;
+                    Debug.Log("Greaves Unequipped");
+                    return; //Unequips the armor if you try to equip the same one twice
+                }
+
                 greaves = armor;
+
+                //Add new stats to the player
+                Debug.Log("Stats Added");
+                playerHealth.SetCurrentHealth(playerHealth.GetCurrentHealth() + greaves.health);
+                movementSpeed += greaves.speed;
+
                 break;
         }
 
@@ -520,6 +606,14 @@ public class PlayerController : MonoBehaviour
         else if (helmet.armorSet == chestplate.armorSet && helmet.armorSet == greaves.armorSet)
         {
             //Use a swich case to determine what set bonus to apply
+            ArmorSet set = helmet.armorSet;
+
+            switch (set)
+            {
+                case ArmorSet.TestSet:
+                    Debug.Log("This is the test armor set bonus");
+                    break;
+            }
         }
     }
 
@@ -530,4 +624,6 @@ public class PlayerController : MonoBehaviour
         return input * p;
     }
     #endregion
+
+
 }

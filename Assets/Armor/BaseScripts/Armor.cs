@@ -9,7 +9,6 @@ public class Armor : ScriptableObject
 
     public bool unlocked;
 
-    //Stats are % based
     public float attack;
     public float defense;
     public float health;
