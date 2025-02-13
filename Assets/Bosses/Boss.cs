@@ -42,7 +42,6 @@ public class Boss : MonoBehaviour
 
     public void FireProjectile()
     {
-        projectile.SetDirection(transform.right);
         Instantiate(projectile, spawnLocation.position, spawnLocation.rotation);
     }
 
