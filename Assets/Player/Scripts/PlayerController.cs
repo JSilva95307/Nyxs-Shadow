@@ -128,6 +128,9 @@ public class PlayerController : MonoBehaviour
     Vector2 playerVel = Vector2.zero;
     #endregion
 
+    public GameObject groundCheck;
+    public Vector2 boxSize;
+    public float castDistance;
 
     // Awake executes only once you start to load the game
     private void Awake()
@@ -170,6 +173,8 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
             EquipArmor(armorList[2]);
 
+        GroundCheck();
+
         playerVel = move.ReadValue<Vector2>();
         
         Vector3 temp = transform.localScale;
@@ -194,7 +199,7 @@ public class PlayerController : MonoBehaviour
         if (isGrounded)
         {
             coyoteTimeCounter = coyoteTime;
-            if (failedJumpTime - Time.time < jumpBufferTime && bufferJumpToProcess)
+            if (Time.time - failedJumpTime  < jumpBufferTime && bufferJumpToProcess)
             {
                 DoJump();
                 bufferJumpToProcess = false;
@@ -311,28 +316,42 @@ public class PlayerController : MonoBehaviour
 
     #region Movement Functions
 
-    private void OnTriggerEnter2D(Collider2D other)
+    //private void OnTriggerEnter2D(Collider2D other)
+    //{
+    //    if (((1 << other.gameObject.layer) & groundLayer) != 0)
+    //    {
+    //        isGrounded = true;
+    //        TouchedGround = true;
+    //    }
+    //    if (((1 << other.gameObject.layer) & grappleLayer) != 0)
+    //    {
+    //        grapplePoints.Add(other.gameObject);
+    //    }
+
+    //}
+
+    //private void OnTriggerExit2D(Collider2D collision)
+    //{
+    //    if (((1 << collision.gameObject.layer) & enemyLayer) != 0)
+    //        return;
+    //    if (((1 << collision.gameObject.layer) & groundLayer) != 0)
+    //        isGrounded = false;
+    //    if (((1 << collision.gameObject.layer) & grappleLayer) != 0)
+    //        grapplePoints.Remove(collision.gameObject);
+    //}
+
+    private void GroundCheck()
     {
-        if (((1 << other.gameObject.layer) & groundLayer) != 0)
+        if (Physics2D.BoxCast(groundCheck.transform.position, boxSize, 0, -transform.up, castDistance, groundLayer))
         {
             isGrounded = true;
             TouchedGround = true;
         }
-        if (((1 << other.gameObject.layer) & grappleLayer) != 0)
+        else
         {
-            grapplePoints.Add(other.gameObject);
-        }
-
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (((1 << collision.gameObject.layer) & enemyLayer) != 0)
-            return;
-        if (((1 << collision.gameObject.layer) & groundLayer) != 0)
             isGrounded = false;
-        if (((1 << collision.gameObject.layer) & grappleLayer) != 0)
-            grapplePoints.Remove(collision.gameObject);
+            TouchedGround = false;
+        }
     }
 
     public void Jump(InputAction.CallbackContext ctx)
@@ -625,5 +644,8 @@ public class PlayerController : MonoBehaviour
     }
     #endregion
 
-
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireCube(groundCheck.transform.position - transform.up * castDistance, boxSize);
+    }
 }
