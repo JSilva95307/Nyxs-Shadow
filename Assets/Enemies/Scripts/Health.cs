@@ -1,6 +1,7 @@
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Health : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class Health : MonoBehaviour
     [SerializeField] private float maxHealth;
 
     [SerializeField] private float invincibilityTime; //How long the player will be invunerable for after taking damage
+    private UnityEvent died;
 
     public bool invulnerable = false;
 
@@ -16,7 +18,7 @@ public class Health : MonoBehaviour
     private void Start()
     {
         currentHealth = maxHealth;
-
+        died = new UnityEvent();
         if (gameObject.tag == "Player")
         {
             gameObject.BroadcastMessage("SetMaxHealth", maxHealth); // Sets the max value for the health bar
@@ -43,7 +45,8 @@ public class Health : MonoBehaviour
                 //    Debug.Log("ColorStrobeNotFound");
             }
         }
-
+        if( currentHealth <= 0 )
+            died.Invoke();
     }
 
     public float GetMaxHealth()
@@ -76,5 +79,10 @@ public class Health : MonoBehaviour
         //Deactivate damage flash here
 
         yield return null;
+    }
+
+    public void AddDeathListener(UnityAction _newListener)
+    {
+        died.AddListener(_newListener);
     }
 }

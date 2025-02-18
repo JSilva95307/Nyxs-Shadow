@@ -554,6 +554,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9adb34462a4f96045be3141185d73653, type: 3}
+--- !u!95 &1344228908 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4066753170721310821, guid: a80b5be8e0c3b8d499ef8af932d4f95a, type: 3}
+  m_PrefabInstance: {fileID: 2724010677097117901}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1699547302
 GameObject:
   m_ObjectHideFlags: 0
@@ -1873,6 +1878,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2924654051996635017, guid: a80b5be8e0c3b8d499ef8af932d4f95a, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1344228908}
     - target: {fileID: 8734190385502490138, guid: a80b5be8e0c3b8d499ef8af932d4f95a, type: 3}
       propertyPath: m_Name
       value: Werewolf
