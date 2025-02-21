@@ -7,11 +7,13 @@ public class WerewolfWalking : StateMachineBehaviour
     [SerializeField] Vector2 patrolPoint = Vector2.zero;
     [SerializeField] bool goingRight = true;
     Rigidbody2D rb;
+    WerewolfBehavior wolf;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         rb = animator.GetComponent<Rigidbody2D>();
+        wolf = animator.GetComponent<WerewolfBehavior>();
         if (goingRight)
         {
             patrolPoint = new Vector2(rb.position.x + patrolDist , rb.position.y);
@@ -20,6 +22,7 @@ public class WerewolfWalking : StateMachineBehaviour
         {
             patrolPoint = new Vector2(rb.position.x - patrolDist , rb.position.y);
         }
+        wolf.FlipWolf();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
