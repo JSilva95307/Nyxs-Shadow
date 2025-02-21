@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7812682969691090770}
   - component: {fileID: 8052519278943896707}
   - component: {fileID: 6956768786281124333}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Werewolf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,13 +49,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb766d2967b0de845a66af85bbbd2f57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0
-  gravityStrength: 0
+  moveSpeed: 5
+  gravityStrength: 2
   groundCheckPos: {fileID: 0}
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 8
   timeBetweenAttacks: 2
+  animator: {fileID: 4066753170721310821}
+  playerCheckRange: 2
+  playerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  playerFound: 0
 --- !u!114 &-5194057422612662527
 MonoBehaviour:
   m_ObjectHideFlags: 0

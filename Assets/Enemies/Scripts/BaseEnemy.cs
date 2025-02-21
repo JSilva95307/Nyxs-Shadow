@@ -17,8 +17,13 @@ public abstract class BaseEnemy : MonoBehaviour
 
     private void Start()
     {
+    }
+
+    private void Awake()
+    {
         player = GameObject.FindGameObjectWithTag("Player");
     }
+
     public void CheckGround()
     {
         RaycastHit2D hit = Physics2D.Raycast(groundCheckPos.position, -Vector2.up, 0.2f, groundLayerMask);
