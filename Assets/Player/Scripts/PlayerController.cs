@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     public LayerMask wallLayer;
     public Animator animator;
 
-    public Collider2D gCheck;
+    //public Collider2D gCheck;
     private Vector2 grapplePos;
     private Vector2 grappleTime;
     private bool grappling;
@@ -42,8 +42,9 @@ public class PlayerController : MonoBehaviour
     public float fallingspeedCap;
     public float apexSpeedBoost;
     public bool isGrounded;
-    private bool canDash;
     public bool facingRight;
+    public bool isDashing;
+    public bool canDash;
 
     [Space(10)]
 
@@ -166,13 +167,6 @@ public class PlayerController : MonoBehaviour
             currentWeapon = "TonPrim";
 
 
-        if (Input.GetKeyDown(KeyCode.I))
-            EquipArmor(armorList[0]);
-        if (Input.GetKeyDown(KeyCode.O))
-            EquipArmor(armorList[1]);
-        if (Input.GetKeyDown(KeyCode.P))
-            EquipArmor(armorList[2]);
-
         GroundCheck();
 
         playerVel = move.ReadValue<Vector2>();
@@ -207,6 +201,7 @@ public class PlayerController : MonoBehaviour
         }
         else
             coyoteTimeCounter -= Time.deltaTime;
+        
         //Debug.Log((Distance2D(transform.position, grapplePos)));
         if ((Distance2D(transform.position, grapplePos)) <= 1f && grappling)
         {
@@ -305,6 +300,7 @@ public class PlayerController : MonoBehaviour
         rb.gravityScale = 2;
         controls.Enable();
         Physics2D.IgnoreLayerCollision(8, 6,  false);
+        isDashing = false;
     }
 
     private void GrappleCooldown()
@@ -345,12 +341,13 @@ public class PlayerController : MonoBehaviour
         if (Physics2D.BoxCast(groundCheck.transform.position, boxSize, 0, -transform.up, castDistance, groundLayer))
         {
             isGrounded = true;
-            TouchedGround = true;
+
+            if(TouchedGround == false)
+                TouchedGround = true;
         }
         else
         {
             isGrounded = false;
-            TouchedGround = false;
         }
     }
 
@@ -385,6 +382,7 @@ public class PlayerController : MonoBehaviour
             if (!isGrounded)
                 TouchedGround = false;
             canDash = false;
+            isDashing = true;
             controls.Disable();
             rb.gravityScale = 0;
             Physics2D.IgnoreLayerCollision(8, 6, true); // Ignores collision between the player and enemy layer when dashing;

@@ -29,23 +29,10 @@ public class AttackController : MonoBehaviour
         if (ctx.performed && !isAttacking)
         {
             isAttacking = true;
-            //controller.transform.position += controller.transform.up * Time.deltaTime * PlayerManager.Instance.lungeDist.x;
-            //controller.rb.AddForce(PlayerManager.Instance.lungeDist * Time.deltaTime);
-            //controller.rb.linearVelocity = PlayerManager.Instance.lungeDist;
-            //StartCoroutine(Lunge());
-            //Debug.Log("Attacked");
-            //Debug.Log("PlayerManager.Instance.lungeDist");
         }
 
     }
 
-    private void Update()
-    {
-        if (isAttacking)
-        {
-            
-        }
-    }
 
 
     IEnumerator Lunge()

@@ -12,7 +12,7 @@ public class TestMeleeEnemy : BaseEnemy
 
     //private bool flip;
 
-    private GameObject player;
+    //private GameObject player;
 
     private bool canAttack = false;
     private float timer = 0f;

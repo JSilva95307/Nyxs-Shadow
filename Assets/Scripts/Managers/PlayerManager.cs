@@ -7,6 +7,7 @@ public class PlayerManager : MonoBehaviour
 
     public static PlayerManager Instance { get { return _instance; } }
     public GameObject player;
+    public PlayerController _playerController;
 
     public Vector2 lungeDist;
     public float damage = 10f;
@@ -34,6 +35,7 @@ public class PlayerManager : MonoBehaviour
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        _playerController = player.GetComponent<PlayerController>();
     }
 
     private void Update()

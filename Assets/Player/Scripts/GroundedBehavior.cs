@@ -11,7 +11,12 @@ public class GroundedBehavior : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (AttackController.instance.isAttacking)
+        if (AttackController.instance.isAttacking && PlayerManager.Instance._playerController.isDashing)
+        {
+            AttackController.instance.animator.Play("DashAttack");
+            Debug.Log("DashAttack");
+        }
+        else if (AttackController.instance.isAttacking)
         {
             AttackController.instance.animator.Play("SwordAttack1");
         }
