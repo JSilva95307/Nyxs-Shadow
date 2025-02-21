@@ -12,6 +12,7 @@ public class WerewolfBehavior : BaseEnemy
     public float playerCheckRange;
     public LayerMask playerMask;
     private bool facingRight = true;
+    public bool playerFound;
 
     RaycastHit2D playerCheck;
 
@@ -20,6 +21,7 @@ public class WerewolfBehavior : BaseEnemy
     {
         health = GetComponent<Health>();
         health.AddDeathListener(PlayDeathAnim);
+        animator.SetBool("Patrol", true);
     }
 
     // Update is called once per frame
@@ -27,13 +29,24 @@ public class WerewolfBehavior : BaseEnemy
     {
         if (facingRight)
         {
-            playerCheck = Physics2D.Raycast(transform.position, new Vector2(playerCheckRange, 0), playerCheckRange, playerMask);
-            Debug.DrawRay(transform.position, new Vector2(playerCheckRange, 0), Color.black);
+            playerCheck = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + 1), new Vector2(playerCheckRange, 0), -playerCheckRange, playerMask);
+            Debug.DrawRay(new Vector2(transform.position.x, transform.position.y + 1), new Vector2(-playerCheckRange, 0), Color.black);
         }
         else
         {
-            playerCheck = Physics2D.Raycast(transform.position, new Vector2(-playerCheckRange, 0), playerCheckRange, playerMask);
-            Debug.DrawRay(transform.position, new Vector2(-playerCheckRange, 0), Color.red);
+            playerCheck = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + 1), new Vector2(-playerCheckRange, 0), -playerCheckRange, playerMask);
+            Debug.DrawRay(new Vector2(transform.position.x, transform.position.y + 1), new Vector2(-playerCheckRange, 0), Color.red);
+        }
+        if (playerCheck)
+        {
+            playerFound = true;
+            Debug.Log("Player Spotted!");
+            animator.SetTrigger("FoundPlayer");
+            animator.SetBool("Patrol", false);
+        }
+        if (playerFound)
+        {
+            FacePlayer();
         }
     }
 
