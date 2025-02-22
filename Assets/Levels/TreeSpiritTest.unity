@@ -600,6 +600,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  _playerController: {fileID: 0}
   lungeDist: {x: 0, y: 0}
   damage: 10
   health: 0
@@ -1859,6 +1860,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 580217597673664968, guid: a80b5be8e0c3b8d499ef8af932d4f95a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2924654051996635017, guid: a80b5be8e0c3b8d499ef8af932d4f95a, type: 3}
+      propertyPath: wolfDamage
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8052519278943896707, guid: a80b5be8e0c3b8d499ef8af932d4f95a, type: 3}
+      propertyPath: m_Mass
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8052519278943896707, guid: a80b5be8e0c3b8d499ef8af932d4f95a, type: 3}
+      propertyPath: m_BodyType
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8734190385502490138, guid: a80b5be8e0c3b8d499ef8af932d4f95a, type: 3}

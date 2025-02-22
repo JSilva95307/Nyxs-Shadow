@@ -214,7 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edf5308e231227647af0c4bda57e8a40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meleeRange: 1
+  meleeRange: 2
   runSpeed: 10
 --- !u!114 &-4819310334109467990
 MonoBehaviour:

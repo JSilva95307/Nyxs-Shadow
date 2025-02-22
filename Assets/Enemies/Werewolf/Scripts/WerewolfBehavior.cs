@@ -5,7 +5,6 @@ public class WerewolfBehavior : BaseEnemy
 {
     public float timeBetweenAttacks = 2f;
 
-    private float timer = 0f;
     private Health health;
 
     public Animator animator;
@@ -13,6 +12,9 @@ public class WerewolfBehavior : BaseEnemy
     public LayerMask playerMask;
     private bool facingRight = true;
     public bool playerFound;
+    public BoxCollider2D meleeCollider;
+    public BoxCollider2D runAttackCollider;
+    public float wolfDamage;
 
     RaycastHit2D playerCheck;
 
@@ -22,6 +24,8 @@ public class WerewolfBehavior : BaseEnemy
         health = GetComponent<Health>();
         health.AddDeathListener(PlayDeathAnim);
         animator.SetBool("Patrol", true);
+        meleeCollider.enabled = false;
+        runAttackCollider.enabled = false;
     }
 
     // Update is called once per frame
@@ -50,14 +54,23 @@ public class WerewolfBehavior : BaseEnemy
         }
     }
 
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            collision.GetComponent<Health>().TakeDamage(wolfDamage);
+        }
+    }
+
+
     public override void Attack()
     {
-
+        meleeCollider.enabled = true;
     }
 
     public override void Attack2()
     {
-
+        runAttackCollider.enabled = true;
     }
 
     public override void Attack3()
@@ -65,6 +78,11 @@ public class WerewolfBehavior : BaseEnemy
 
     }
 
+    public void DisableAttacks()
+    {
+        meleeCollider.enabled = false;
+        runAttackCollider.enabled = false;
+    }
     private void PlayDeathAnim()
     {
         Debug.Log("Died");
