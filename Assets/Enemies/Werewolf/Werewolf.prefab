@@ -65,8 +65,7 @@ MonoBehaviour:
     m_Bits: 256
   playerFound: 0
   meleeCollider: {fileID: 4063107422947792126}
-  runAttackCollider: {fileID: 3214884319588928361}
-  wolfDamage: 0
+  wolfDamage: 5
 --- !u!114 &-5194057422612662527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,7 +171,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 100
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1

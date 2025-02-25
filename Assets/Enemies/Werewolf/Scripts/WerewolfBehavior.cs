@@ -13,7 +13,6 @@ public class WerewolfBehavior : BaseEnemy
     private bool facingRight = true;
     public bool playerFound;
     public BoxCollider2D meleeCollider;
-    public BoxCollider2D runAttackCollider;
     public float wolfDamage;
 
     RaycastHit2D playerCheck;
@@ -25,7 +24,6 @@ public class WerewolfBehavior : BaseEnemy
         health.AddDeathListener(PlayDeathAnim);
         animator.SetBool("Patrol", true);
         meleeCollider.enabled = false;
-        runAttackCollider.enabled = false;
     }
 
     // Update is called once per frame
@@ -70,7 +68,6 @@ public class WerewolfBehavior : BaseEnemy
 
     public override void Attack2()
     {
-        runAttackCollider.enabled = true;
     }
 
     public override void Attack3()
@@ -81,7 +78,6 @@ public class WerewolfBehavior : BaseEnemy
     public void DisableAttacks()
     {
         meleeCollider.enabled = false;
-        runAttackCollider.enabled = false;
     }
     private void PlayDeathAnim()
     {

@@ -1862,23 +1862,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2924654051996635017, guid: a80b5be8e0c3b8d499ef8af932d4f95a, type: 3}
-      propertyPath: wolfDamage
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8052519278943896707, guid: a80b5be8e0c3b8d499ef8af932d4f95a, type: 3}
-      propertyPath: m_Mass
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 8052519278943896707, guid: a80b5be8e0c3b8d499ef8af932d4f95a, type: 3}
-      propertyPath: m_BodyType
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8734190385502490138, guid: a80b5be8e0c3b8d499ef8af932d4f95a, type: 3}
       propertyPath: m_Name
       value: Werewolf
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3214884319588928361, guid: a80b5be8e0c3b8d499ef8af932d4f95a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
