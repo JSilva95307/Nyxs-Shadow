@@ -600,6 +600,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  _playerController: {fileID: 0}
   lungeDist: {x: 0, y: 0}
   damage: 10
   health: 0
@@ -1865,7 +1866,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Werewolf
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3214884319588928361, guid: a80b5be8e0c3b8d499ef8af932d4f95a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
