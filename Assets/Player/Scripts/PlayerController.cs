@@ -313,7 +313,6 @@ public class PlayerController : MonoBehaviour
         if (!attacking)
         {
             controls.Enable();
-            Debug.Log("Dash cooldown");
         }
 
         Physics2D.IgnoreLayerCollision(8, 6,  false);
@@ -528,7 +527,6 @@ public class PlayerController : MonoBehaviour
         openIventory.Disable();
         groundPound.Disable();
         controls.Disable();
-        Debug.Log("all controlls disabled");
     }
 
     public void EnableAllControls()
@@ -545,7 +543,6 @@ public class PlayerController : MonoBehaviour
         openIventory.Enable();
         groundPound.Enable();
         controls.Enable();
-        Debug.Log("all controlls enabled");
     }
     #endregion
 

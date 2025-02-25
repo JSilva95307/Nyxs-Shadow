@@ -34,10 +34,6 @@ public class AttackController : MonoBehaviour
 
     }
 
-    public void SetAttacking(bool _attacking)
-    {
-        controller.attacking = _attacking;
-    }
 
     IEnumerator Lunge()
     {
