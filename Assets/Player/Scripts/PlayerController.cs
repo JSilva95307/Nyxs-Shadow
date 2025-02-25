@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 grapplePos;
     private Vector2 grappleTime;
     private bool grappling;
+    public bool attacking;
     #endregion
 
     #region Inputs
@@ -187,7 +188,7 @@ public class PlayerController : MonoBehaviour
 
         if (primary.IsPressed())
         {
-            animator.SetTrigger(currentWeapon);
+            //animator.SetTrigger(currentWeapon);
         }
 
         if (isGrounded)
@@ -218,6 +219,7 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("Running", false);
 
     }
+
 
     private void FixedUpdate()
     {
@@ -292,13 +294,28 @@ public class PlayerController : MonoBehaviour
 
     #region Attack Functions
 
+    public void SetAttacking()
+    {
+        if(attacking == false)
+            attacking = true;
+        else
+            attacking = false;
+    }
+
+
     private void DashCooldown()
     {
         if (!isGrounded)
             TouchedGround = false;
         canDash = true;
         rb.gravityScale = 2;
-        controls.Enable();
+
+        if (!attacking)
+        {
+            controls.Enable();
+            Debug.Log("Dash cooldown");
+        }
+
         Physics2D.IgnoreLayerCollision(8, 6,  false);
         isDashing = false;
     }
@@ -451,6 +468,7 @@ public class PlayerController : MonoBehaviour
     {
         move.Enable();
         jump.Enable();
+        
     }
 
     #region Input Boilerplate
@@ -509,6 +527,8 @@ public class PlayerController : MonoBehaviour
         interact.Disable();
         openIventory.Disable();
         groundPound.Disable();
+        controls.Disable();
+        Debug.Log("all controlls disabled");
     }
 
     public void EnableAllControls()
@@ -524,6 +544,8 @@ public class PlayerController : MonoBehaviour
         interact.Enable();
         openIventory.Enable();
         groundPound.Enable();
+        controls.Enable();
+        Debug.Log("all controlls enabled");
     }
     #endregion
 

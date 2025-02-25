@@ -29,11 +29,15 @@ public class AttackController : MonoBehaviour
         if (ctx.performed && !isAttacking)
         {
             isAttacking = true;
+            //PlayerManager.Instance._playerController.attacking = true;
         }
 
     }
 
-
+    public void SetAttacking(bool _attacking)
+    {
+        controller.attacking = _attacking;
+    }
 
     IEnumerator Lunge()
     {

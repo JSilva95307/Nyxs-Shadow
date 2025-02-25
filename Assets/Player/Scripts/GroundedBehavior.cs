@@ -26,6 +26,7 @@ public class GroundedBehavior : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         AttackController.instance.isAttacking = false;
+        
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
