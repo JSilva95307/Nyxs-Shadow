@@ -369,9 +369,12 @@ public class PlayerController : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext ctx)
     {
-        if (coyoteTimeCounter > 0f)
+        
+        if (coyoteTimeCounter > 0f && ctx.performed)
         {
-            DoJump();
+            Debug.Log("Jump Input");
+            if(jump.enabled)
+                DoJump();
         }
         else if (ctx.performed)
         {
@@ -467,7 +470,6 @@ public class PlayerController : MonoBehaviour
     {
         move.Enable();
         jump.Enable();
-        
     }
 
     #region Input Boilerplate
@@ -526,7 +528,7 @@ public class PlayerController : MonoBehaviour
         interact.Disable();
         openIventory.Disable();
         groundPound.Disable();
-        controls.Disable();
+        //controls.Disable();
     }
 
     public void EnableAllControls()
@@ -542,7 +544,7 @@ public class PlayerController : MonoBehaviour
         interact.Enable();
         openIventory.Enable();
         groundPound.Enable();
-        controls.Enable();
+        //controls.Enable();
     }
     #endregion
 

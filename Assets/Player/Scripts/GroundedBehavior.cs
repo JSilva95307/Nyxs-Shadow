@@ -14,7 +14,7 @@ public class GroundedBehavior : StateMachineBehaviour
         if (AttackController.instance.isAttacking && PlayerManager.Instance._playerController.isDashing)
         {
             AttackController.instance.animator.Play("DashAttack");
-            Debug.Log("DashAttack");
+            //Debug.Log("DashAttack");
         }
         else if (AttackController.instance.isAttacking)
         {
