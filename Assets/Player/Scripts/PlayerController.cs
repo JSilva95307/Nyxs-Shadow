@@ -166,6 +166,11 @@ public class PlayerController : MonoBehaviour
             currentWeapon = "SpePrim";
         if (Input.GetKeyDown(KeyCode.P))
             currentWeapon = "TonPrim";
+        
+        if (Input.GetKeyDown(KeyCode.M))
+            GetComponent<AfterimageGenerator>().Play();
+        if (Input.GetKeyDown(KeyCode.N))
+            GetComponent<AfterimageGenerator>().Stop();
 
 
         GroundCheck();
@@ -372,7 +377,6 @@ public class PlayerController : MonoBehaviour
         
         if (coyoteTimeCounter > 0f && ctx.performed)
         {
-            Debug.Log("Jump Input");
             if(jump.enabled)
                 DoJump();
         }
