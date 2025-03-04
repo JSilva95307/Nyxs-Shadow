@@ -22,7 +22,7 @@ public class SlimeChase : StateMachineBehaviour
         Vector2 target = new Vector2(player.position.x, rb.position.y);
         Vector2 newPos = Vector2.MoveTowards(rb.position, target, chaseSpeed * Time.fixedDeltaTime);
         if (Vector2.Distance(player.position, rb.position) <= meleeRange)
-            animator.SetTrigger("Melee1");
+            animator.SetTrigger("SitIdle");
         else
             rb.MovePosition(newPos);
     }

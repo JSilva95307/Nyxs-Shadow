@@ -244,6 +244,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fce03d1e7704fc4e9df7fc85fc68924, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chaseSpeed: 5
+  meleeRange: 1
 --- !u!1107 &2109377033363481000
 AnimatorStateMachine:
   serializedVersion: 6
@@ -308,7 +310,10 @@ AnimatorStateTransition:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
-  m_Conditions: []
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: SitIdle
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 69722973012026035}
   m_Solo: 0
@@ -318,7 +323,7 @@ AnimatorStateTransition:
   m_TransitionDuration: 0.081870794
   m_TransitionOffset: 0
   m_ExitTime: 0.9
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
