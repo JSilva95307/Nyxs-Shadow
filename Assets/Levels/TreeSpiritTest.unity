@@ -268,7 +268,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2848291232546605315, guid: b72d8c964d88367449ee4817d9ddcb48, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.24
+      value: 4.47
       objectReference: {fileID: 0}
     - target: {fileID: 2848291232546605315, guid: b72d8c964d88367449ee4817d9ddcb48, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1824,7 +1824,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 580217597673664968, guid: a80b5be8e0c3b8d499ef8af932d4f95a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.6686387
+      value: 5.46
       objectReference: {fileID: 0}
     - target: {fileID: 580217597673664968, guid: a80b5be8e0c3b8d499ef8af932d4f95a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1886,6 +1886,10 @@ PrefabInstance:
     - target: {fileID: 3215755799595922900, guid: df672a3dfe4c42f4a9c0c0d82e60f6a9, type: 3}
       propertyPath: m_Name
       value: Slime
+      objectReference: {fileID: 0}
+    - target: {fileID: 3215755799595922900, guid: df672a3dfe4c42f4a9c0c0d82e60f6a9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7939478721567202715, guid: df672a3dfe4c42f4a9c0c0d82e60f6a9, type: 3}
       propertyPath: m_LocalPosition.x

@@ -60,7 +60,7 @@ public class SlimeBehavior : BaseEnemy
         {
             playerFound = true;
             Debug.Log("Player Spotted!");
-            animator.SetTrigger("FoundPlayer");
+            animator.SetBool("Chasing", true);
             animator.SetBool("Patrol", false);
         }
         if (playerFound)
