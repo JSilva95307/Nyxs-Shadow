@@ -166,6 +166,11 @@ public class PlayerController : MonoBehaviour
             currentWeapon = "SpePrim";
         if (Input.GetKeyDown(KeyCode.P))
             currentWeapon = "TonPrim";
+        
+        if (Input.GetKeyDown(KeyCode.M))
+            GetComponent<AfterimageGenerator>().Play();
+        if (Input.GetKeyDown(KeyCode.N))
+            GetComponent<AfterimageGenerator>().Stop();
 
 
         GroundCheck();
@@ -369,9 +374,11 @@ public class PlayerController : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext ctx)
     {
-        if (coyoteTimeCounter > 0f)
+        
+        if (coyoteTimeCounter > 0f && ctx.performed)
         {
-            DoJump();
+            if(jump.enabled)
+                DoJump();
         }
         else if (ctx.performed)
         {
@@ -467,7 +474,6 @@ public class PlayerController : MonoBehaviour
     {
         move.Enable();
         jump.Enable();
-        
     }
 
     #region Input Boilerplate
@@ -526,7 +532,7 @@ public class PlayerController : MonoBehaviour
         interact.Disable();
         openIventory.Disable();
         groundPound.Disable();
-        controls.Disable();
+        //controls.Disable();
     }
 
     public void EnableAllControls()
@@ -542,7 +548,7 @@ public class PlayerController : MonoBehaviour
         interact.Enable();
         openIventory.Enable();
         groundPound.Enable();
-        controls.Enable();
+        //controls.Enable();
     }
     #endregion
 

@@ -1,0 +1,2795 @@
+fileFormatVersion: 2
+guid: 904524111d25ae74d912171165b99bc8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6368016711817672683
+    second: NewCaptureNormalMap_0
+  - first:
+      213: 3046879745881436341
+    second: NewCaptureNormalMap_1
+  - first:
+      213: -6920771458970723326
+    second: NewCaptureNormalMap_2
+  - first:
+      213: -5424226679853375641
+    second: NewCaptureNormalMap_3
+  - first:
+      213: -5581978206604444580
+    second: NewCaptureNormalMap_4
+  - first:
+      213: -3855083473136331005
+    second: NewCaptureNormalMap_5
+  - first:
+      213: -2286595844349437112
+    second: NewCaptureNormalMap_6
+  - first:
+      213: -3668343915378638988
+    second: NewCaptureNormalMap_7
+  - first:
+      213: -1588761791117302378
+    second: NewCaptureNormalMap_8
+  - first:
+      213: -4477096635278248636
+    second: NewCaptureNormalMap_9
+  - first:
+      213: -4638860970040129665
+    second: NewCaptureNormalMap_10
+  - first:
+      213: -978314932095534635
+    second: NewCaptureNormalMap_11
+  - first:
+      213: 6050795808533169583
+    second: NewCaptureNormalMap_12
+  - first:
+      213: 4224366427725549831
+    second: NewCaptureNormalMap_13
+  - first:
+      213: -7106599486880282190
+    second: NewCaptureNormalMap_14
+  - first:
+      213: 5545924235593360707
+    second: NewCaptureNormalMap_15
+  - first:
+      213: 1190024073161092578
+    second: NewCaptureNormalMap_16
+  - first:
+      213: 8976693774080090979
+    second: NewCaptureNormalMap_17
+  - first:
+      213: -8533395333762426723
+    second: NewCaptureNormalMap_18
+  - first:
+      213: -2223223871409602818
+    second: NewCaptureNormalMap_19
+  - first:
+      213: -1023122474854774194
+    second: NewCaptureNormalMap_20
+  - first:
+      213: -3641904692439452549
+    second: NewCaptureNormalMap_21
+  - first:
+      213: -2513019505396049428
+    second: NewCaptureNormalMap_22
+  - first:
+      213: 2636336300245872537
+    second: NewCaptureNormalMap_23
+  - first:
+      213: 430966000617314740
+    second: NewCaptureNormalMap_24
+  - first:
+      213: 2426962318580565997
+    second: NewCaptureNormalMap_25
+  - first:
+      213: 3501979956704385739
+    second: NewCaptureNormalMap_26
+  - first:
+      213: -2419777494241098926
+    second: NewCaptureNormalMap_27
+  - first:
+      213: -4356445093222828765
+    second: NewCaptureNormalMap_28
+  - first:
+      213: 2822804169903449404
+    second: NewCaptureNormalMap_29
+  - first:
+      213: 3571074265701122505
+    second: NewCaptureNormalMap_30
+  - first:
+      213: -3084863662667501070
+    second: NewCaptureNormalMap_31
+  - first:
+      213: 1805982470701218336
+    second: NewCaptureNormalMap_32
+  - first:
+      213: -8992770459342446369
+    second: NewCaptureNormalMap_33
+  - first:
+      213: -4044699089514967131
+    second: NewCaptureNormalMap_34
+  - first:
+      213: -981557302668083550
+    second: NewCaptureNormalMap_35
+  - first:
+      213: -3624573864433070667
+    second: NewCaptureNormalMap_36
+  - first:
+      213: 4431964960883253998
+    second: NewCaptureNormalMap_37
+  - first:
+      213: 6580992101569956311
+    second: NewCaptureNormalMap_38
+  - first:
+      213: -479470768010398086
+    second: NewCaptureNormalMap_39
+  - first:
+      213: 8786624433743634700
+    second: NewCaptureNormalMap_40
+  - first:
+      213: -8184177961995103360
+    second: NewCaptureNormalMap_41
+  - first:
+      213: 5374462782532859015
+    second: NewCaptureNormalMap_42
+  - first:
+      213: -8058131017680733515
+    second: NewCaptureNormalMap_43
+  - first:
+      213: -6442614173294920553
+    second: NewCaptureNormalMap_44
+  - first:
+      213: 5177920295510896883
+    second: NewCaptureNormalMap_45
+  - first:
+      213: 5048000894896563103
+    second: NewCaptureNormalMap_46
+  - first:
+      213: 6246285714908495459
+    second: NewCaptureNormalMap_47
+  - first:
+      213: -6269752497765144266
+    second: NewCaptureNormalMap_48
+  - first:
+      213: -3159952947719911425
+    second: NewCaptureNormalMap_49
+  - first:
+      213: -2131803071006949947
+    second: NewCaptureNormalMap_50
+  - first:
+      213: -7281275505091585881
+    second: NewCaptureNormalMap_51
+  - first:
+      213: 6721182137615886219
+    second: NewCaptureNormalMap_52
+  - first:
+      213: 9177029867369324518
+    second: NewCaptureNormalMap_53
+  - first:
+      213: -3614944119728694752
+    second: NewCaptureNormalMap_54
+  - first:
+      213: 5329633433444323484
+    second: NewCaptureNormalMap_55
+  - first:
+      213: 1326901999155737752
+    second: NewCaptureNormalMap_56
+  - first:
+      213: 6203945958078657860
+    second: NewCaptureNormalMap_57
+  - first:
+      213: -3643707809437945790
+    second: NewCaptureNormalMap_58
+  - first:
+      213: 8346467430497359704
+    second: NewCaptureNormalMap_59
+  - first:
+      213: -5785823132715467904
+    second: NewCaptureNormalMap_60
+  - first:
+      213: -5189542681650332758
+    second: NewCaptureNormalMap_61
+  - first:
+      213: -7650349899858615591
+    second: NewCaptureNormalMap_62
+  - first:
+      213: 3890728870343487992
+    second: NewCaptureNormalMap_63
+  - first:
+      213: 3296494593855398812
+    second: NewCaptureNormalMap_64
+  - first:
+      213: 1129701344321867079
+    second: NewCaptureNormalMap_65
+  - first:
+      213: -1339015963221550604
+    second: NewCaptureNormalMap_66
+  - first:
+      213: -5273285367767403411
+    second: NewCaptureNormalMap_67
+  - first:
+      213: 7021614282807113645
+    second: NewCaptureNormalMap_68
+  - first:
+      213: -4756033407859933092
+    second: NewCaptureNormalMap_69
+  - first:
+      213: 3266215181743000384
+    second: NewCaptureNormalMap_70
+  - first:
+      213: 4809658794056483777
+    second: NewCaptureNormalMap_71
+  - first:
+      213: 298970633296403276
+    second: NewCaptureNormalMap_72
+  - first:
+      213: 7454984811327434273
+    second: NewCaptureNormalMap_73
+  - first:
+      213: 4038021519285700203
+    second: NewCaptureNormalMap_74
+  - first:
+      213: 1249951421846120155
+    second: NewCaptureNormalMap_75
+  - first:
+      213: -8609339030465357455
+    second: NewCaptureNormalMap_76
+  - first:
+      213: 203170126574656968
+    second: NewCaptureNormalMap_77
+  - first:
+      213: 8927464776080417282
+    second: NewCaptureNormalMap_78
+  - first:
+      213: 3918122746201579199
+    second: NewCaptureNormalMap_79
+  - first:
+      213: 811794180729463466
+    second: NewCaptureNormalMap_80
+  - first:
+      213: 3840348732491909707
+    second: NewCaptureNormalMap_81
+  - first:
+      213: 4216325595094365356
+    second: NewCaptureNormalMap_82
+  - first:
+      213: 3708897619037522270
+    second: NewCaptureNormalMap_83
+  - first:
+      213: 2674474074181652510
+    second: NewCaptureNormalMap_84
+  - first:
+      213: -1123984922109295850
+    second: NewCaptureNormalMap_85
+  - first:
+      213: -1456489756030715151
+    second: NewCaptureNormalMap_86
+  - first:
+      213: 7225901577022140401
+    second: NewCaptureNormalMap_87
+  - first:
+      213: 518891699219187933
+    second: NewCaptureNormalMap_88
+  - first:
+      213: 8899167766605796919
+    second: NewCaptureNormalMap_89
+  - first:
+      213: 8162429816224937921
+    second: NewCaptureNormalMap_90
+  - first:
+      213: -202159728026390801
+    second: NewCaptureNormalMap_91
+  - first:
+      213: 5676235476989893858
+    second: NewCaptureNormalMap_92
+  - first:
+      213: 7511936989471819143
+    second: NewCaptureNormalMap_93
+  - first:
+      213: -1075226474602820484
+    second: NewCaptureNormalMap_94
+  - first:
+      213: -238769461249678819
+    second: NewCaptureNormalMap_95
+  - first:
+      213: 5851209520617317709
+    second: NewCaptureNormalMap_96
+  - first:
+      213: -2481276406334325817
+    second: NewCaptureNormalMap_97
+  - first:
+      213: -2243119813799893661
+    second: NewCaptureNormalMap_98
+  - first:
+      213: 7511217248365363056
+    second: NewCaptureNormalMap_99
+  - first:
+      213: -7470556902939479377
+    second: NewCaptureNormalMap_100
+  - first:
+      213: 6047931930168930069
+    second: NewCaptureNormalMap_101
+  - first:
+      213: 3334732755615426147
+    second: NewCaptureNormalMap_102
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1000
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be7b4afc57dbf5850800000000000000
+      internalID: 6368016711817672683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_1
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 1000
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b0789e5cf0b84a20800000000000000
+      internalID: 3046879745881436341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_2
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 1000
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20c5360a60b74ff90800000000000000
+      internalID: -6920771458970723326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_3
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 1000
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76f942ec29649b4b0800000000000000
+      internalID: -5424226679853375641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_4
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 1000
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5cbe5b4564d882b0800000000000000
+      internalID: -5581978206604444580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_5
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 1000
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 307da3c910eff7ac0800000000000000
+      internalID: -3855083473136331005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_6
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 1000
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84bdaa8c1316440e0800000000000000
+      internalID: -2286595844349437112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_7
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 1000
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47ff3e905ac671dc0800000000000000
+      internalID: -3668343915378638988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_8
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 1000
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6956dbf819593f9e0800000000000000
+      internalID: -1588761791117302378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_9
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 1000
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 445b425b4582ed1c0800000000000000
+      internalID: -4477096635278248636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_10
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 1000
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f77855686847f9fb0800000000000000
+      internalID: -4638860970040129665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 900
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d93cf9a0c35c62f0800000000000000
+      internalID: -978314932095534635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_12
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 900
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa5ca08babeb8f350800000000000000
+      internalID: 6050795808533169583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_13
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 900
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 701daa562e6ff9a30800000000000000
+      internalID: 4224366427725549831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_14
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 900
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b907874b69406d90800000000000000
+      internalID: -7106599486880282190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_15
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 900
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 345a5cd65b417fc40800000000000000
+      internalID: 5545924235593360707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_16
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 900
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ed2eeae690d38010800000000000000
+      internalID: 1190024073161092578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_17
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 900
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 363218d4d6f939c70800000000000000
+      internalID: 8976693774080090979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_18
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 900
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d985d13e72a439980800000000000000
+      internalID: -8533395333762426723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_19
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 900
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efe36780ba58521e0800000000000000
+      internalID: -2223223871409602818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_20
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 900
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4a0094a7832dc1f0800000000000000
+      internalID: -1023122474854774194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_21
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 900
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7471555afa557dc0800000000000000
+      internalID: -3641904692439452549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_22
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 800
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce99d3b0316ff1dd0800000000000000
+      internalID: -2513019505396049428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_23
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 800
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99f6f9ca5e5269420800000000000000
+      internalID: 2636336300245872537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_24
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 800
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b9d0115b491bf500800000000000000
+      internalID: 430966000617314740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_25
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 800
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de7c042ce5d4ea120800000000000000
+      internalID: 2426962318580565997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_26
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 800
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bca17e16738899030800000000000000
+      internalID: 3501979956704385739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_27
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 800
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 253464480393b6ed0800000000000000
+      internalID: -2419777494241098926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_28
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 800
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 325b5f6e44cca83c0800000000000000
+      internalID: -4356445093222828765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_29
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 800
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c352699cf6d9c2720800000000000000
+      internalID: 2822804169903449404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_30
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 800
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c187a1df110f8130800000000000000
+      internalID: 3571074265701122505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_31
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 800
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f17136d7dc5035d0800000000000000
+      internalID: -3084863662667501070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_32
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 800
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02a7ab41d73201910800000000000000
+      internalID: 1805982470701218336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_33
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 700
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd06448b9e2433380800000000000000
+      internalID: -8992770459342446369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_34
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 700
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5af4d1a9b975ed7c0800000000000000
+      internalID: -4044699089514967131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_35
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 700
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ae37cf65dec062f0800000000000000
+      internalID: -981557302668083550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_36
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 700
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bd4d4c264de2bdc0800000000000000
+      internalID: -3624573864433070667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_37
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 700
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee2ac6e76a0818d30800000000000000
+      internalID: 4431964960883253998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_38
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 700
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d98ab3e271645b50800000000000000
+      internalID: 6580992101569956311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_39
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 700
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a767e8870e39859f0800000000000000
+      internalID: -479470768010398086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_40
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 700
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c01ae047e5c50f970800000000000000
+      internalID: 8786624433743634700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_41
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 700
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08393b45185fb6e80800000000000000
+      internalID: -8184177961995103360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_42
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 700
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 784bd63fc6de59a40800000000000000
+      internalID: 5374462782532859015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_43
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 700
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ba35918884cb2090800000000000000
+      internalID: -8058131017680733515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_44
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 600
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79cfbd73b8c3796a0800000000000000
+      internalID: -6442614173294920553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_45
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 600
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f07631331babd740800000000000000
+      internalID: 5177920295510896883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_46
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 600
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f93e926811a1e0640800000000000000
+      internalID: 5048000894896563103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_47
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 600
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36eb7b273c34fa650800000000000000
+      internalID: 6246285714908495459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_48
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 600
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6392715625d5df8a0800000000000000
+      internalID: -6269752497765144266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_49
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 600
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff7c43449879524d0800000000000000
+      internalID: -3159952947719911425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_50
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 600
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5cd3b85d6605a62e0800000000000000
+      internalID: -2131803071006949947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_51
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 600
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a853478186b3fa90800000000000000
+      internalID: -7281275505091585881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_52
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 600
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b87ab473b8f664d50800000000000000
+      internalID: 6721182137615886219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_53
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 600
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6efd2b9da0c5b5f70800000000000000
+      internalID: 9177029867369324518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_54
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 600
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02a1fa4d97325ddc0800000000000000
+      internalID: -3614944119728694752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_55
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 500
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c909e7fbe59a6f940800000000000000
+      internalID: 5329633433444323484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_56
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 500
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 894fe67865a1a6210800000000000000
+      internalID: 1326901999155737752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_57
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 500
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 445bffc9af7d81650800000000000000
+      internalID: 6203945958078657860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_58
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 500
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24072217d03fe6dc0800000000000000
+      internalID: -3643707809437945790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_59
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 500
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 857992418eb94d370800000000000000
+      internalID: 8346467430497359704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_60
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 500
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08bb141f380a4bfa0800000000000000
+      internalID: -5785823132715467904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_61
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 500
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aabf0892d6a0bf7b0800000000000000
+      internalID: -5189542681650332758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_62
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 500
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d26b73ac4f74d590800000000000000
+      internalID: -7650349899858615591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_63
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 500
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f13e2a2b45aef530800000000000000
+      internalID: 3890728870343487992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_64
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 500
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c932fb61e508fbd20800000000000000
+      internalID: 3296494593855398812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_65
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 500
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74d069223618daf00800000000000000
+      internalID: 1129701344321867079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_66
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 400
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f91a9b631cda6de0800000000000000
+      internalID: -1339015963221550604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_67
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 400
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6475f6a5e681d6b0800000000000000
+      internalID: -5273285367767403411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_68
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 400
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da7f684fcf8c17160800000000000000
+      internalID: 7021614282807113645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_69
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 400
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c504e9860dc2ffdb0800000000000000
+      internalID: -4756033407859933092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_70
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 400
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04b87c3176de35d20800000000000000
+      internalID: 3266215181743000384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_71
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 400
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c30296c0375fb240800000000000000
+      internalID: 4809658794056483777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_72
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 400
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4bd7ebf438262400800000000000000
+      internalID: 298970633296403276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_73
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 400
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12eaa1d003d657760800000000000000
+      internalID: 7454984811327434273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_74
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 400
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b66486c6d2fe90830800000000000000
+      internalID: 4038021519285700203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_75
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 400
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd6e1a51238b85110800000000000000
+      internalID: 1249951421846120155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_76
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 400
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 179d43a14cb758880800000000000000
+      internalID: -8609339030465357455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_77
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 300
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8cd1477572ec1d200800000000000000
+      internalID: 203170126574656968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_78
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 300
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 202e5130ae9b4eb70800000000000000
+      internalID: 8927464776080417282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_79
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 300
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbe19b9e0e7ff5630800000000000000
+      internalID: 3918122746201579199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_80
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 300
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa2eb1d9182144b00800000000000000
+      internalID: 811794180729463466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_81
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 300
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4a4dcd33d8ab4530800000000000000
+      internalID: 3840348732491909707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_82
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 300
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca4bcf82ac5638a30800000000000000
+      internalID: 4216325595094365356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_83
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 300
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e590603ebb6a87330800000000000000
+      internalID: 3708897619037522270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_84
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 300
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e10d6902004ad1520800000000000000
+      internalID: 2674474074181652510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_85
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 300
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 613c7c02badc660f0800000000000000
+      internalID: -1123984922109295850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_86
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 300
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fa3bc0a84289cbe0800000000000000
+      internalID: -1456489756030715151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_87
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 300
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ffe658233f874460800000000000000
+      internalID: 7225901577022140401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_88
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 200
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd8cbd05049733700800000000000000
+      internalID: 518891699219187933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_89
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 200
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73615251fe1308b70800000000000000
+      internalID: 8899167766605796919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_90
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 200
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c7f424eba6c64170800000000000000
+      internalID: 8162429816224937921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_91
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 200
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: feee8176cc8c13df0800000000000000
+      internalID: -202159728026390801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_92
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 200
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ecd373a71a06ce40800000000000000
+      internalID: 5676235476989893858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_93
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 200
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 785c59854e2cf3860800000000000000
+      internalID: 7511936989471819143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_94
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 200
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7c0438d7370411f0800000000000000
+      internalID: -1075226474602820484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_95
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 200
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d126007a078bfacf0800000000000000
+      internalID: -238769461249678819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_96
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 200
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4567c6de0ca33150800000000000000
+      internalID: 5851209520617317709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_97
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 200
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cb72ea314cb09dd0800000000000000
+      internalID: -2481276406334325817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_98
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 200
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36521d5f966ded0e0800000000000000
+      internalID: -2243119813799893661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_99
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 100
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07fba9f8a443d3860800000000000000
+      internalID: 7511217248365363056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_100
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 100
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa233f5d310435890800000000000000
+      internalID: -7470556902939479377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_101
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 100
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51f26731c029ee350800000000000000
+      internalID: 6047931930168930069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewCaptureNormalMap_102
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 100
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3662157e5c9574e20800000000000000
+      internalID: 3334732755615426147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 78d8a7de0f89de74ba697e4349861eb7
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      NewCaptureNormalMap_0: 6368016711817672683
+      NewCaptureNormalMap_1: 3046879745881436341
+      NewCaptureNormalMap_10: -4638860970040129665
+      NewCaptureNormalMap_100: -7470556902939479377
+      NewCaptureNormalMap_101: 6047931930168930069
+      NewCaptureNormalMap_102: 3334732755615426147
+      NewCaptureNormalMap_11: -978314932095534635
+      NewCaptureNormalMap_12: 6050795808533169583
+      NewCaptureNormalMap_13: 4224366427725549831
+      NewCaptureNormalMap_14: -7106599486880282190
+      NewCaptureNormalMap_15: 5545924235593360707
+      NewCaptureNormalMap_16: 1190024073161092578
+      NewCaptureNormalMap_17: 8976693774080090979
+      NewCaptureNormalMap_18: -8533395333762426723
+      NewCaptureNormalMap_19: -2223223871409602818
+      NewCaptureNormalMap_2: -6920771458970723326
+      NewCaptureNormalMap_20: -1023122474854774194
+      NewCaptureNormalMap_21: -3641904692439452549
+      NewCaptureNormalMap_22: -2513019505396049428
+      NewCaptureNormalMap_23: 2636336300245872537
+      NewCaptureNormalMap_24: 430966000617314740
+      NewCaptureNormalMap_25: 2426962318580565997
+      NewCaptureNormalMap_26: 3501979956704385739
+      NewCaptureNormalMap_27: -2419777494241098926
+      NewCaptureNormalMap_28: -4356445093222828765
+      NewCaptureNormalMap_29: 2822804169903449404
+      NewCaptureNormalMap_3: -5424226679853375641
+      NewCaptureNormalMap_30: 3571074265701122505
+      NewCaptureNormalMap_31: -3084863662667501070
+      NewCaptureNormalMap_32: 1805982470701218336
+      NewCaptureNormalMap_33: -8992770459342446369
+      NewCaptureNormalMap_34: -4044699089514967131
+      NewCaptureNormalMap_35: -981557302668083550
+      NewCaptureNormalMap_36: -3624573864433070667
+      NewCaptureNormalMap_37: 4431964960883253998
+      NewCaptureNormalMap_38: 6580992101569956311
+      NewCaptureNormalMap_39: -479470768010398086
+      NewCaptureNormalMap_4: -5581978206604444580
+      NewCaptureNormalMap_40: 8786624433743634700
+      NewCaptureNormalMap_41: -8184177961995103360
+      NewCaptureNormalMap_42: 5374462782532859015
+      NewCaptureNormalMap_43: -8058131017680733515
+      NewCaptureNormalMap_44: -6442614173294920553
+      NewCaptureNormalMap_45: 5177920295510896883
+      NewCaptureNormalMap_46: 5048000894896563103
+      NewCaptureNormalMap_47: 6246285714908495459
+      NewCaptureNormalMap_48: -6269752497765144266
+      NewCaptureNormalMap_49: -3159952947719911425
+      NewCaptureNormalMap_5: -3855083473136331005
+      NewCaptureNormalMap_50: -2131803071006949947
+      NewCaptureNormalMap_51: -7281275505091585881
+      NewCaptureNormalMap_52: 6721182137615886219
+      NewCaptureNormalMap_53: 9177029867369324518
+      NewCaptureNormalMap_54: -3614944119728694752
+      NewCaptureNormalMap_55: 5329633433444323484
+      NewCaptureNormalMap_56: 1326901999155737752
+      NewCaptureNormalMap_57: 6203945958078657860
+      NewCaptureNormalMap_58: -3643707809437945790
+      NewCaptureNormalMap_59: 8346467430497359704
+      NewCaptureNormalMap_6: -2286595844349437112
+      NewCaptureNormalMap_60: -5785823132715467904
+      NewCaptureNormalMap_61: -5189542681650332758
+      NewCaptureNormalMap_62: -7650349899858615591
+      NewCaptureNormalMap_63: 3890728870343487992
+      NewCaptureNormalMap_64: 3296494593855398812
+      NewCaptureNormalMap_65: 1129701344321867079
+      NewCaptureNormalMap_66: -1339015963221550604
+      NewCaptureNormalMap_67: -5273285367767403411
+      NewCaptureNormalMap_68: 7021614282807113645
+      NewCaptureNormalMap_69: -4756033407859933092
+      NewCaptureNormalMap_7: -3668343915378638988
+      NewCaptureNormalMap_70: 3266215181743000384
+      NewCaptureNormalMap_71: 4809658794056483777
+      NewCaptureNormalMap_72: 298970633296403276
+      NewCaptureNormalMap_73: 7454984811327434273
+      NewCaptureNormalMap_74: 4038021519285700203
+      NewCaptureNormalMap_75: 1249951421846120155
+      NewCaptureNormalMap_76: -8609339030465357455
+      NewCaptureNormalMap_77: 203170126574656968
+      NewCaptureNormalMap_78: 8927464776080417282
+      NewCaptureNormalMap_79: 3918122746201579199
+      NewCaptureNormalMap_8: -1588761791117302378
+      NewCaptureNormalMap_80: 811794180729463466
+      NewCaptureNormalMap_81: 3840348732491909707
+      NewCaptureNormalMap_82: 4216325595094365356
+      NewCaptureNormalMap_83: 3708897619037522270
+      NewCaptureNormalMap_84: 2674474074181652510
+      NewCaptureNormalMap_85: -1123984922109295850
+      NewCaptureNormalMap_86: -1456489756030715151
+      NewCaptureNormalMap_87: 7225901577022140401
+      NewCaptureNormalMap_88: 518891699219187933
+      NewCaptureNormalMap_89: 8899167766605796919
+      NewCaptureNormalMap_9: -4477096635278248636
+      NewCaptureNormalMap_90: 8162429816224937921
+      NewCaptureNormalMap_91: -202159728026390801
+      NewCaptureNormalMap_92: 5676235476989893858
+      NewCaptureNormalMap_93: 7511936989471819143
+      NewCaptureNormalMap_94: -1075226474602820484
+      NewCaptureNormalMap_95: -238769461249678819
+      NewCaptureNormalMap_96: 5851209520617317709
+      NewCaptureNormalMap_97: -2481276406334325817
+      NewCaptureNormalMap_98: -2243119813799893661
+      NewCaptureNormalMap_99: 7511217248365363056
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
