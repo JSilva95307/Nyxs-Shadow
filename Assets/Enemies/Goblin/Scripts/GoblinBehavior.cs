@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class GoblinBehavior : MonoBehaviour
+public class GoblinBehavior : BaseEnemy
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -13,4 +13,17 @@ public class GoblinBehavior : MonoBehaviour
     {
         
     }
+    public override void Attack()
+    {
+    }
+
+    public override void Attack2()
+    {
+    }
+
+    public override void Attack3()
+    {
+
+    }
+
 }
