@@ -10,18 +10,22 @@ public class GoblinBehavior : BaseEnemy
     public LayerMask playerMask;
     public bool playerFound;
 
+    private float test;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         health = GetComponent<Health>();
         health.AddDeathListener(PlayDeathAnim);
         hitbox.enabled = false;
+        test = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        test += Time.deltaTime;
+        if (test >= 3)
+            animator.SetBool("Chase", true);
     }
     public override void Attack()
     {
@@ -34,7 +38,7 @@ public class GoblinBehavior : BaseEnemy
 
     public override void Attack3()
     {
-
+        
     }
 
     public void DisableAttack()
@@ -53,5 +57,10 @@ public class GoblinBehavior : BaseEnemy
     public void PlayDeathAnim()
     {
         animator.SetTrigger("Die");
+    }
+
+    public void LookAtPlayer()
+    {
+        FacePlayer();
     }
 }
