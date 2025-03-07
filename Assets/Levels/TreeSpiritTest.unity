@@ -2015,8 +2015,24 @@ PrefabInstance:
       value: Gobbo
       objectReference: {fileID: 0}
     - target: {fileID: 3946853555201342044, guid: aab8d6f8e5cb970469360d67e90e3cf7, type: 3}
+      propertyPath: m_Size.x
+      value: 0.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 3946853555201342044, guid: aab8d6f8e5cb970469360d67e90e3cf7, type: 3}
+      propertyPath: m_Size.y
+      value: 0.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 3946853555201342044, guid: aab8d6f8e5cb970469360d67e90e3cf7, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3946853555201342044, guid: aab8d6f8e5cb970469360d67e90e3cf7, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3946853555201342044, guid: aab8d6f8e5cb970469360d67e90e3cf7, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 3946853555201342044, guid: aab8d6f8e5cb970469360d67e90e3cf7, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
