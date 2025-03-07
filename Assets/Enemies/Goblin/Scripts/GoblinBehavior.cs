@@ -19,7 +19,7 @@ public class GoblinBehavior : BaseEnemy
     void Start()
     {
         health = GetComponent<Health>();
-        //health.AddDeathListener(PlayDeathAnim);
+        health.AddDeathListener(PlayDeathAnim);
         animator.SetBool("Patrol", true);
         hitbox.enabled = false;
     }
@@ -42,4 +42,8 @@ public class GoblinBehavior : BaseEnemy
 
     }
 
+    public void PlayDeathAnim()
+    {
+        animator.SetTrigger("Die");
+    }
 }
