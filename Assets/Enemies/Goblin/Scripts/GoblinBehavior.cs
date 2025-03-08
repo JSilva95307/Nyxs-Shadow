@@ -63,4 +63,9 @@ public class GoblinBehavior : BaseEnemy
     {
         FacePlayer();
     }
+
+    public void PlayerListener(bool playerUpdate)
+    {
+        playerFound = playerUpdate;
+    }
 }
