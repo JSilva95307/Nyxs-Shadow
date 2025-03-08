@@ -9,17 +9,38 @@ public class DefenseZone : MonoBehaviour
     public GameObject defenderType;
     public GameObject defenderCount;
 
-    UnityEvent playerEntered;
+    UnityEvent<bool> playerUpdate;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
+
+    }
+
+    private void createDefenders()
+    {
+
+    }
+
+    private void updateDefenders()
+    {
+
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
         
     }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        
+    }
+
 }
