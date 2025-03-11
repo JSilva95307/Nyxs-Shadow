@@ -9,6 +9,7 @@ public class DefenseZone : MonoBehaviour
     public int defenderCount;
     public BaseEnemy enemyType;
 
+    BaseEnemy curEnemy;
     UnityEvent<bool> playerUpdate;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -29,10 +30,7 @@ public class DefenseZone : MonoBehaviour
 
     private void createDefenders()
     {
-        for (int i = 0; i < defenderCount;  ++i)
-        {
-            defendingEnemies[i].GetComponent<BaseEnemy>();
-        }
+        
     }
 
     private void updateDefenders(bool update)

@@ -11,7 +11,6 @@ public class WerewolfBehavior : BaseEnemy
     public float playerCheckRange;
     public LayerMask playerMask;
     private bool facingRight = true;
-    public bool playerFound;
     public BoxCollider2D meleeCollider;
     public float wolfDamage;
 

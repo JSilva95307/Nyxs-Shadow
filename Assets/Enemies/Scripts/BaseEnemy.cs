@@ -10,6 +10,7 @@ public abstract class BaseEnemy : MonoBehaviour
     protected float verticalSpeed;
     protected bool flip;
     protected GameObject player;
+    protected bool playerFound;
 
     public abstract void Attack();
     public abstract void Attack2();
@@ -55,5 +56,10 @@ public abstract class BaseEnemy : MonoBehaviour
         }
 
         transform.localScale = scale;
+    }
+
+    public void PlayerListener(bool playerUpdate)
+    {
+        playerFound = playerUpdate;
     }
 }

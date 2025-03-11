@@ -11,7 +11,6 @@ public class SlimeBehavior : BaseEnemy
     public float playerCheckRange;
     public LayerMask playerMask;
     private bool facingRight = true;
-    public bool playerFound;
 
     RaycastHit2D playerCheck;
 
