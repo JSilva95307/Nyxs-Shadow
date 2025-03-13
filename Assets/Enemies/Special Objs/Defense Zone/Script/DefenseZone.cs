@@ -2,14 +2,16 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using RangeAttribute = UnityEngine.RangeAttribute;
 
 public class DefenseZone : MonoBehaviour
 {
-    public List<GameObject> defendingEnemies;
-    [UnityEngine.Range(1, 6)] public int defenderCount;
+    [SerializeField] List<GameObject> defendingEnemies;
     public BaseEnemy enemyType;
+    public GameObject enemy;
     BoxCollider2D defenseZone;
     List<Vector2> spawnPoints;
+    [Range (1, 6)] public int enemyCount;
 
     BaseEnemy curEnemy;
     UnityEvent<bool> playerUpdate;
@@ -18,6 +20,7 @@ public class DefenseZone : MonoBehaviour
     void Start()
     {
         defenseZone = GetComponent<BoxCollider2D>();
+        spawnPoints = new List<Vector2>();
         if (defendingEnemies != null)
         {
             GenerateSpawnPoints();
@@ -33,9 +36,9 @@ public class DefenseZone : MonoBehaviour
 
     private void SetDefenderSpawns()
     {
-        for(int i = 0; i < defenderCount; ++i)
+        for(int i = 0; i < enemyCount; ++i)
         {
-            
+            defendingEnemies.Add(Instantiate<GameObject>(enemy, transform.position, new Quaternion()));
         }
     }
 
@@ -60,9 +63,9 @@ public class DefenseZone : MonoBehaviour
     {
         float steps = defenseZone.size.x / defendingEnemies.Count;
         Vector2 curPos = new Vector2( transform.position.x - defenseZone.size.x, transform.position.y);
-        for(int i = 0; i < defenderCount; ++i)
+        for(int i = 0; i < enemyCount; ++i)
         {
-            spawnPoints[i] = curPos;
+            spawnPoints.Add(curPos);
             curPos.x += steps;
         }
     }

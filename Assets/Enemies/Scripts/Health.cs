@@ -15,7 +15,7 @@ public class Health : MonoBehaviour
 
     //private float time;
 
-    private void Start()
+    private void Awake()
     {
         currentHealth = maxHealth;
         died = new UnityEvent();
