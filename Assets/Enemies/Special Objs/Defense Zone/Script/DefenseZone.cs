@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class DefenseZone : MonoBehaviour
 {
     [SerializeField] List<GameObject> defendingEnemies;
-    public int defenderCount;
+    [UnityEngine.Range(1, 6)] public int defenderCount;
     public BaseEnemy enemyType;
 
     BaseEnemy curEnemy;

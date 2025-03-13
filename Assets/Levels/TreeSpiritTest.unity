@@ -473,53 +473,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54b33ab71a692da41a55703b4d0075a0, type: 3}
---- !u!1 &1005627801
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1005627802}
-  - component: {fileID: 1005627803}
-  m_Layer: 0
-  m_Name: DefenseZone
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1005627802
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1005627801}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.5018067, y: -2.0583596, z: 0.0068427175}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1005627803
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1005627801}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a91e6216e10ecb6439de783f0e8a6e5e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  defendingEnemies: []
-  defenderCount: 0
-  enemyType: {fileID: 0}
 --- !u!1001 &1307023151
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1861,6 +1814,63 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!1001 &382436022222669695
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2800147608661715046, guid: 8a20fd13613f537488ac91c8f9c81a9f, type: 3}
+      propertyPath: m_Name
+      value: DefenseZone
+      objectReference: {fileID: 0}
+    - target: {fileID: 8985310823168824000, guid: 8a20fd13613f537488ac91c8f9c81a9f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.5018067
+      objectReference: {fileID: 0}
+    - target: {fileID: 8985310823168824000, guid: 8a20fd13613f537488ac91c8f9c81a9f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.0583596
+      objectReference: {fileID: 0}
+    - target: {fileID: 8985310823168824000, guid: 8a20fd13613f537488ac91c8f9c81a9f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.0068427175
+      objectReference: {fileID: 0}
+    - target: {fileID: 8985310823168824000, guid: 8a20fd13613f537488ac91c8f9c81a9f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8985310823168824000, guid: 8a20fd13613f537488ac91c8f9c81a9f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8985310823168824000, guid: 8a20fd13613f537488ac91c8f9c81a9f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8985310823168824000, guid: 8a20fd13613f537488ac91c8f9c81a9f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8985310823168824000, guid: 8a20fd13613f537488ac91c8f9c81a9f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8985310823168824000, guid: 8a20fd13613f537488ac91c8f9c81a9f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8985310823168824000, guid: 8a20fd13613f537488ac91c8f9c81a9f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8a20fd13613f537488ac91c8f9c81a9f, type: 3}
 --- !u!1001 &2724010677097117901
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2053,4 +2063,4 @@ SceneRoots:
   - {fileID: 2724010677097117901}
   - {fileID: 8017760069052269623}
   - {fileID: 3452201891428487533}
-  - {fileID: 1005627802}
+  - {fileID: 382436022222669695}
