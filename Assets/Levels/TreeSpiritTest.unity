@@ -1826,6 +1826,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DefenseZone
       objectReference: {fileID: 0}
+    - target: {fileID: 6128966083448065160, guid: 8a20fd13613f537488ac91c8f9c81a9f, type: 3}
+      propertyPath: m_Size.x
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 8985310823168824000, guid: 8a20fd13613f537488ac91c8f9c81a9f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.5018067
