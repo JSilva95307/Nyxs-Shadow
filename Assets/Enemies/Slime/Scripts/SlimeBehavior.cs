@@ -1,19 +1,17 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class WerewolfBehavior : BaseEnemy
+public class SlimeBehavior : BaseEnemy
 {
-    public float timeBetweenAttacks = 2f;
+    public BoxCollider2D hitbox;
+    public float damage;
+    public Animator animator;
 
     private Health health;
 
-    public Animator animator;
     public float playerCheckRange;
     public LayerMask playerMask;
     private bool facingRight = true;
     public bool playerFound;
-    public BoxCollider2D meleeCollider;
-    public float wolfDamage;
 
     RaycastHit2D playerCheck;
 
@@ -23,7 +21,26 @@ public class WerewolfBehavior : BaseEnemy
         health = GetComponent<Health>();
         health.AddDeathListener(PlayDeathAnim);
         animator.SetBool("Patrol", true);
-        meleeCollider.enabled = false;
+        hitbox.enabled = false;
+    }
+
+    public override void Attack()
+    {
+        hitbox.enabled = true;
+    }
+
+    public override void Attack2()
+    {
+    }
+
+    public override void Attack3()
+    {
+
+    }
+
+    public void DisableAttack()
+    {
+        hitbox.enabled = false;
     }
 
     // Update is called once per frame
@@ -34,7 +51,7 @@ public class WerewolfBehavior : BaseEnemy
             playerCheck = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + 1), new Vector2(playerCheckRange, 0), -playerCheckRange, playerMask);
             Debug.DrawRay(new Vector2(transform.position.x, transform.position.y + 1), new Vector2(-playerCheckRange, 0), Color.black);
         }
-        else if (!facingRight)
+        else
         {
             playerCheck = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + 1), new Vector2(-playerCheckRange, 0), -playerCheckRange, playerMask);
             Debug.DrawRay(new Vector2(transform.position.x, transform.position.y + 1), new Vector2(-playerCheckRange, 0), Color.red);
@@ -43,7 +60,7 @@ public class WerewolfBehavior : BaseEnemy
         {
             playerFound = true;
             Debug.Log("Player Spotted!");
-            animator.SetTrigger("FoundPlayer");
+            animator.SetBool("Chasing", true);
             animator.SetBool("Patrol", false);
         }
         if (playerFound)
@@ -56,36 +73,17 @@ public class WerewolfBehavior : BaseEnemy
     {
         if (collision.CompareTag("Player"))
         {
-            collision.GetComponent<Health>().TakeDamage(wolfDamage);
+            collision.GetComponent<Health>().TakeDamage(damage);
         }
     }
 
-
-    public override void Attack()
-    {
-        meleeCollider.enabled = true;
-    }
-
-    public override void Attack2()
-    {
-    }
-
-    public override void Attack3()
-    {
-
-    }
-
-    public void DisableAttacks()
-    {
-        meleeCollider.enabled = false;
-    }
     private void PlayDeathAnim()
     {
         Debug.Log("Died");
         animator.SetTrigger("Die");
     }
 
-    public void FlipWolf()
+    public void FlipSlime()
     {
         Vector3 scale = transform.localScale;
 
