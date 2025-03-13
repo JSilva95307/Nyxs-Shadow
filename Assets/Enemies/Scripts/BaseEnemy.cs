@@ -6,6 +6,7 @@ public abstract class BaseEnemy : MonoBehaviour
     public float gravityStrength;
     public Transform groundCheckPos;
     public LayerMask groundLayerMask;
+    public bool grounded;
     protected Vector2 movement;
     protected float verticalSpeed;
     protected bool flip;
@@ -30,9 +31,13 @@ public abstract class BaseEnemy : MonoBehaviour
         if (hit.collider)
         {
             verticalSpeed = 0;
+            grounded = true;
         }
         else
+        {
             verticalSpeed = Mathf.Lerp(verticalSpeed, -gravityStrength, gravityStrength * Time.deltaTime);
+            grounded = false;
+        }
     }
 
     public void Die()
@@ -55,5 +60,11 @@ public abstract class BaseEnemy : MonoBehaviour
         }
 
         transform.localScale = scale;
+    }
+
+    protected void ApplyGravity()
+    {
+        movement = new Vector2(0, verticalSpeed);
+        transform.Translate(movement * 2 * Time.deltaTime);
     }
 }

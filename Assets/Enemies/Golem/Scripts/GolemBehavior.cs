@@ -25,7 +25,7 @@ public class GolemBehavior : BaseEnemy
         timer += Time.deltaTime;
         FacePlayer();
 
-        if (timer > timeBetweenAttacks)
+        if (timer > timeBetweenAttacks && !dead)
         {
             Attack();
             timer = 0f;

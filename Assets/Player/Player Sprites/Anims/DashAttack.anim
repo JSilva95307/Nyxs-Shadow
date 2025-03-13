@@ -731,6 +731,13 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 0.016666668
+    functionName: Play
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.4
     functionName: CallResetHitbox
     data: 
@@ -738,8 +745,8 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.5
-    functionName: EnableAllControls
+  - time: 0.48333332
+    functionName: Stop
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
@@ -747,6 +754,13 @@ AnimationClip:
     messageOptions: 0
   - time: 0.5
     functionName: SetAttacking
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.5
+    functionName: EnableAllControls
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
