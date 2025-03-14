@@ -11,6 +11,7 @@ public abstract class BaseEnemy : MonoBehaviour
     protected float verticalSpeed;
     protected bool flip;
     protected GameObject player;
+    protected bool playerFound;
 
     public abstract void Attack();
     public abstract void Attack2();
@@ -66,5 +67,10 @@ public abstract class BaseEnemy : MonoBehaviour
     {
         movement = new Vector2(0, verticalSpeed);
         transform.Translate(movement * 2 * Time.deltaTime);
+    }
+
+    public void PlayerListener(bool playerUpdate)
+    {
+        playerFound = playerUpdate;
     }
 }

@@ -8,7 +8,6 @@ public class GoblinBehavior : BaseEnemy
     private Health health;
 
     public LayerMask playerMask;
-    public bool playerFound;
 
     private float test;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
