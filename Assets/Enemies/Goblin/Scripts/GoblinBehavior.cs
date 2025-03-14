@@ -11,7 +11,7 @@ public class GoblinBehavior : BaseEnemy
 
     private float test;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    private void Awake()
+    void Start()
     {
         health = GetComponent<Health>();
         health.AddDeathListener(PlayDeathAnim);

@@ -46,8 +46,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defendingEnemies: []
-  defenderCount: 1
   enemyType: {fileID: 0}
+  enemy: {fileID: 0}
+  enemyCount: 1
 --- !u!61 &6128966083448065160
 BoxCollider2D:
   m_ObjectHideFlags: 0

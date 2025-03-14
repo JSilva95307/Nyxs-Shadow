@@ -20,10 +20,10 @@ public class DefenseZone : MonoBehaviour
     void Start()
     {
         defenseZone = GetComponent<BoxCollider2D>();
-        spawnPoints = new List<Vector2>();
+        //spawnPoints = new List<Vector2>();
         if (defendingEnemies != null)
         {
-            GenerateSpawnPoints();
+            //GenerateSpawnPoints();
             SetDefenderSpawns();
         }
     }
@@ -38,7 +38,8 @@ public class DefenseZone : MonoBehaviour
     {
         for(int i = 0; i < enemyCount; ++i)
         {
-            defendingEnemies.Add(Instantiate<GameObject>(enemy, transform.position, new Quaternion()));
+            //defendingEnemies.Add(
+            Instantiate(enemy);
         }
     }
 
