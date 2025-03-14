@@ -321,6 +321,7 @@ public class PlayerController : MonoBehaviour
         }
 
         Physics2D.IgnoreLayerCollision(8, 6,  false);
+        GetComponent<AfterimageGenerator>().Stop();
         isDashing = false;
     }
 
@@ -406,6 +407,7 @@ public class PlayerController : MonoBehaviour
                 TouchedGround = false;
             canDash = false;
             isDashing = true;
+            GetComponent<AfterimageGenerator>().Play();
             controls.Disable();
             rb.gravityScale = 0;
             Physics2D.IgnoreLayerCollision(8, 6, true); // Ignores collision between the player and enemy layer when dashing;
