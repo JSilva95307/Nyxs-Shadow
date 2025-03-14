@@ -5,6 +5,9 @@ using UnityEngine.UI;
 public class OgreBehavior : BaseEnemy
 {
     public Animator animator;
+    public Transform projectileSpawn1;
+    public Transform projectileSpawn2;
+    public GameObject shockwave;
 
     //public float timeBetweenAttacks = 2f;
     private float timer = 0f;
@@ -13,6 +16,7 @@ public class OgreBehavior : BaseEnemy
     private bool dead = false;
 
     public bool jumpQueued = false;
+    private bool queueShockwave = false;
 
 
     public AnimationCurve curve; // The animation curve for vertical offset
@@ -33,17 +37,39 @@ public class OgreBehavior : BaseEnemy
         timer += Time.deltaTime;
         FacePlayer();
 
+        if(PlayerManager.Instance.player.transform.position.x > transform.position.x)
+        {
+            projectileSpawn1.transform.eulerAngles = new Vector3(0, 180, 0);
+            projectileSpawn2.transform.eulerAngles = new Vector3(0, 0, 0);
+        }
+        else
+        {
+            projectileSpawn1.transform.eulerAngles = new Vector3(0, 0, 0);
+            projectileSpawn2.transform.eulerAngles = new Vector3(0, 180, 0);
+        }
+
+
         CheckGround();
         ApplyGravity();
 
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            //SpawnShockwaves();
+            jumpQueued = true;
+        }
 
         if(jumpQueued)
         {
             jumpQueued = false;
             StartCoroutine(JumpAttack(transform.position, PlayerManager.Instance.player.transform.position));
+            
         }
 
-
+        if (queueShockwave && grounded)
+        {
+            SpawnShockwaves();
+            queueShockwave = false;
+        }
 
 
         if (health.GetCurrentHealth() <= 0 && dead == false)
@@ -74,6 +100,8 @@ public class OgreBehavior : BaseEnemy
 
             yield return null;
         }
+
+        queueShockwave = true;
     }
 
    
@@ -94,5 +122,12 @@ public class OgreBehavior : BaseEnemy
         //Charging attack
     }
 
+
+    public void SpawnShockwaves()
+    {
+        //rotate proj 1
+        Instantiate(shockwave, projectileSpawn1.transform.position, projectileSpawn1.transform.rotation);
+        Instantiate(shockwave, projectileSpawn2.transform.position, projectileSpawn2.transform.rotation);
+    }
    
 }
