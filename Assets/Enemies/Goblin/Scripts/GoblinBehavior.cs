@@ -26,9 +26,15 @@ public class GoblinBehavior : BaseEnemy
         if (test >= 3)
             animator.SetBool("Chase", true);
 
-        // if (targetSet == true && Vector2.Distance(target, transform.position))
-        //implement the move functionality
-        //else if distance is achieved) targetSet == false, Target location == vector2.zero 
+        if (targetSet == true && Vector2.Distance(targetLocation, transform.position) > 0.25f)
+        {
+            MoveTo();
+        }
+        else if (targetSet == true && Vector2.Distance(targetLocation, transform.position) <= 0.25f)
+        {
+            targetSet = false;
+            targetLocation = Vector2.zero;
+        }
     }
     public override void Attack()
     {

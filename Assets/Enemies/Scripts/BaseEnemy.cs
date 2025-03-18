@@ -94,9 +94,12 @@ public abstract class BaseEnemy : MonoBehaviour
     
     public void ChasePlayer()
     {
-        Vector3 scale = transform.localScale;
         Vector3 target = player.transform.position;
 
-
+        if (transform.position.x > target.x)
+            movement = new Vector2(-1, 0);
+        else
+            movement = new Vector2(1, 0);
+        transform.Translate(movement * moveSpeed * Time.deltaTime);
     }
 }
