@@ -1,3 +1,4 @@
+using UnityEditor.Tilemaps;
 using UnityEngine;
 
 public abstract class BaseEnemy : MonoBehaviour
@@ -12,6 +13,8 @@ public abstract class BaseEnemy : MonoBehaviour
     protected bool flip;
     protected GameObject player;
     protected bool playerFound;
+    protected bool targetSet;
+    protected Vector2 targetLocation;
 
     public abstract void Attack();
     public abstract void Attack2();
@@ -72,5 +75,28 @@ public abstract class BaseEnemy : MonoBehaviour
     public void PlayerListener(bool playerUpdate)
     {
         playerFound = playerUpdate;
+    }
+
+    public void SetTarget(Vector2 targetLoc)
+    {
+        targetLocation = targetLoc;
+        targetSet = true;
+    }
+
+    protected void MoveTo()
+    {
+        if (transform.position.x > targetLocation.x)
+            movement = new Vector2(-1, 0);
+        else
+            movement = new Vector2(1, 0);
+        transform.Translate( movement * moveSpeed * Time.deltaTime );
+    }
+    
+    public void ChasePlayer()
+    {
+        Vector3 scale = transform.localScale;
+        Vector3 target = player.transform.position;
+
+
     }
 }
