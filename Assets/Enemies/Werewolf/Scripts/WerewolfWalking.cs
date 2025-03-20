@@ -3,17 +3,16 @@ using UnityEngine;
 public class WerewolfWalking : StateMachineBehaviour
 {
     public float patrolDist = 10f;
-    public float patrolSpeed = 12f;
     [SerializeField] Vector2 patrolPoint = Vector2.zero;
     [SerializeField] bool goingRight = true;
-    Rigidbody2D rb;
     WerewolfBehavior wolf;
+    Transform rb;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        rb = animator.GetComponent<Rigidbody2D>();
         wolf = animator.GetComponent<WerewolfBehavior>();
+        rb = wolf.GetTransform();
         if (goingRight)
         {
             patrolPoint = new Vector2(rb.position.x + patrolDist , rb.position.y);
@@ -31,8 +30,7 @@ public class WerewolfWalking : StateMachineBehaviour
         if (Vector2.Distance(rb.position, patrolPoint) >= 1)
         {
             Vector2 target = new Vector2(patrolPoint.x, rb.position.y);
-            Vector2 newPos = Vector2.MoveTowards(rb.position, target, patrolSpeed * Time.fixedDeltaTime);
-            rb.MovePosition(newPos);
+            wolf.SetTarget(target);
         }
         else
             animator.SetTrigger("SitIdle");

@@ -45,6 +45,16 @@ public class SlimeBehavior : BaseEnemy
     // Update is called once per frame
     void Update()
     {
+        if (targetSet == true && Vector2.Distance(targetLocation, transform.position) > 0.25f)
+        {
+            MoveTo();
+        }
+        else if (targetSet == true && Vector2.Distance(targetLocation, transform.position) <= 0.25f)
+        {
+            targetSet = false;
+            targetLocation = Vector2.zero;
+        }
+
         if (facingRight)
         {
             playerCheck = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + 1), new Vector2(playerCheckRange, 0), -playerCheckRange, playerMask);
@@ -66,6 +76,8 @@ public class SlimeBehavior : BaseEnemy
         {
             FacePlayer();
         }
+        CheckGround();
+        ApplyGravity();
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
@@ -98,5 +110,10 @@ public class SlimeBehavior : BaseEnemy
         }
 
         transform.localScale = scale;
+    }
+
+    public void LookAtPlayer()
+    {
+        FacePlayer();
     }
 }
