@@ -15,7 +15,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Start()
     {
-        Debug.Log("Started");
+        //Debug.Log("Started");
         canvas.enabled = false;
     }
 

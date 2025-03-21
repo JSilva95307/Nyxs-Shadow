@@ -34,6 +34,6 @@ public class Afterimage : MonoBehaviour
 
         spriteRenderer.color = new Color(origColor.r, origColor.g, origColor.b, 0f);
         Destroy(gameObject);
-        Debug.Log("Destroy");
+        //Debug.Log("Destroy");
     }
 }
