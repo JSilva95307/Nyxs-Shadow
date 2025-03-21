@@ -53,7 +53,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9075398882176674984
 Transform:
   m_ObjectHideFlags: 0
@@ -236,7 +236,7 @@ MonoBehaviour:
   primary: {fileID: 2611247735276602674}
   primaryDamage: 5
   spawnLocation: {fileID: 3721190472842332563}
-  projectile: {fileID: 3613797102332955812, guid: 60d336423d6d65f4da2738d0a60a281e, type: 3}
+  projectile: {fileID: 6951949950290137858, guid: ff7741560abc63541af08ccff75f8b05, type: 3}
 --- !u!114 &5251203644714628920
 MonoBehaviour:
   m_ObjectHideFlags: 0

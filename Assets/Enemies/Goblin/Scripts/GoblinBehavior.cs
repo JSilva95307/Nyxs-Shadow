@@ -22,9 +22,21 @@ public class GoblinBehavior : BaseEnemy
     // Update is called once per frame
     void Update()
     {
+        CheckGround();
+        ApplyGravity();
         test += Time.deltaTime;
-        if (test >= 3)
+        if (test >= 1.5)
             animator.SetBool("Chase", true);
+
+        if (targetSet == true && Vector2.Distance(targetLocation, transform.position) > 0.25f)
+        {
+            MoveTo();
+        }
+        else if (targetSet == true && Vector2.Distance(targetLocation, transform.position) <= 0.25f)
+        {
+            targetSet = false;
+            targetLocation = Vector2.zero;
+        }
     }
     public override void Attack()
     {
@@ -62,4 +74,5 @@ public class GoblinBehavior : BaseEnemy
     {
         FacePlayer();
     }
+   
 }
