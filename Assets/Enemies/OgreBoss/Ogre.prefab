@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5618292670745972296}
   - component: {fileID: 6012380810751053971}
   - component: {fileID: 233885230271152001}
+  - component: {fileID: 145147141994202595}
   m_Layer: 6
   m_Name: Ogre
   m_TagString: Enemy
@@ -37,6 +38,7 @@ Transform:
   - {fileID: 1591138096122169183}
   - {fileID: 7354194968956070979}
   - {fileID: 5497267779128635221}
+  - {fileID: 5093449103368317163}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3519392679669385405
@@ -62,6 +64,9 @@ MonoBehaviour:
   projectileSpawn1: {fileID: 7354194968956070979}
   projectileSpawn2: {fileID: 5497267779128635221}
   shockwave: {fileID: 3000545154034902911, guid: 2d5ce3aba42b8164587f59c493aa59fa, type: 3}
+  wallCheck: {fileID: 5093449103368317163}
+  byWall: 0
+  chargeTimer: 0
   jumpQueued: 0
   curve:
     serializedVersion: 2
@@ -98,6 +103,8 @@ MonoBehaviour:
     m_RotationOrder: 4
   jumpHeight: 5
   duration: 0.75
+  chargeAttackTimeLimit: 10
+  chargeSpeed: 5
 --- !u!212 &5132665986398503872
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -228,6 +235,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &145147141994202595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5102521371474245801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e797d0288d0277743b785724c79df961, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generate: 0
+  afterimage: {fileID: 5376853949949535544, guid: 29687a4be18aa074daa2630b2cf4eb41, type: 3}
+  spriteRendererToCopyFrom: {fileID: 5132665986398503872}
+  spawnFrequency: 0.08
+  fadeSpeed: 0.3
 --- !u!1 &6376903091502137612
 GameObject:
   m_ObjectHideFlags: 0
@@ -252,8 +276,39 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6376903091502137612}
   serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 1.58, y: 1.256, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3752176068082089781}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!1 &6954971847572316879
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5093449103368317163}
+  m_Layer: 6
+  m_Name: WallCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5093449103368317163
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6954971847572316879}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.58, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 2.89, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -315,7 +370,7 @@ Transform:
   m_GameObject: {fileID: 7927307146409798129}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.07, y: 0, z: 0}
+  m_LocalPosition: {x: -2.07, y: 1.256, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
