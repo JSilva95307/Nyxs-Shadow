@@ -10,7 +10,7 @@ public class DefenseZone : MonoBehaviour
     public BaseEnemy enemyType;
     public GameObject enemy;
     BoxCollider2D defenseZone;
-    List<Vector2> spawnPoints;
+    [SerializeField] List<Vector2> spawnPoints;
     [Range (1, 6)] public int enemyCount;
 
     BaseEnemy curEnemy;
@@ -23,7 +23,7 @@ public class DefenseZone : MonoBehaviour
         //spawnPoints = new List<Vector2>();
         if (defendingEnemies != null)
         {
-            //GenerateSpawnPoints();
+            GenerateSpawnPoints();
             SetDefenderSpawns();
         }
     }
@@ -62,11 +62,13 @@ public class DefenseZone : MonoBehaviour
 
     private void GenerateSpawnPoints()
     {
-        float steps = defenseZone.size.x / defendingEnemies.Count;
-        Vector2 curPos = new Vector2( transform.position.x - defenseZone.size.x, transform.position.y);
+        float steps = defenseZone.size.x / enemyCount;
+        Debug.Log(steps);
+        Vector2 curPos = new Vector2( transform.position.x - (defenseZone.size.x * 0.5f), transform.position.y);
         for(int i = 0; i < enemyCount; ++i)
         {
             spawnPoints.Add(curPos);
+            Debug.Log(curPos);
             curPos.x += steps;
         }
     }
