@@ -53,17 +53,21 @@ public abstract class BaseEnemy : MonoBehaviour
     {
         Vector3 scale = transform.localScale;
         Vector3 target = player.transform.position;
+        Quaternion rotation = transform.rotation;
 
         if (target.x > transform.position.x)
         {
-            scale.x = Mathf.Abs(scale.x) * (flip ? -1 : 1);
+            //scale.x = Mathf.Abs(scale.x) * (flip ? -1 : 1);
+            rotation.y = 0;
         }
         else
         {
-            scale.x = Mathf.Abs(scale.x) * -1 * (flip ? -1 : 1);
+            //scale.x = Mathf.Abs(scale.x) * -1 * (flip ? -1 : 1);
+            rotation.y = 180;
         }
 
-        transform.localScale = scale;
+        //transform.localScale = scale;
+        transform.localRotation = rotation;
     }
 
     protected void ApplyGravity()

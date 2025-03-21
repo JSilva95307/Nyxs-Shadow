@@ -7,7 +7,9 @@ public class PlayerManager : MonoBehaviour
 
     public static PlayerManager Instance { get { return _instance; } }
     public GameObject player;
+    public Camera playerCamera;
     public PlayerController _playerController;
+    public CameraShake cameraShake;
 
     public Vector2 lungeDist;
     public float damage = 10f;
@@ -36,6 +38,8 @@ public class PlayerManager : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         _playerController = player.GetComponent<PlayerController>();
+        playerCamera = Camera.main; //_playerController.GetComponent<Camera>();
+        cameraShake = playerCamera.GetComponent<CameraShake>();
     }
 
     private void Update()
