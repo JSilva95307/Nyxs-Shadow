@@ -38,8 +38,7 @@ public class DefenseZone : MonoBehaviour
     {
         for(int i = 0; i < enemyCount; ++i)
         {
-            //defendingEnemies.Add(
-            Instantiate(enemy);
+            defendingEnemies.Add(Instantiate(enemy, spawnPoints[i], transform.rotation));
         }
     }
 
@@ -63,12 +62,12 @@ public class DefenseZone : MonoBehaviour
     private void GenerateSpawnPoints()
     {
         float steps = defenseZone.size.x / enemyCount;
-        Debug.Log(steps);
+        //Debug.Log(steps);
         Vector2 curPos = new Vector2( transform.position.x - (defenseZone.size.x * 0.5f), transform.position.y);
         for(int i = 0; i < enemyCount; ++i)
         {
             spawnPoints.Add(curPos);
-            Debug.Log(curPos);
+            //Debug.Log(curPos);
             curPos.x += steps;
         }
     }
