@@ -79,6 +79,7 @@ public abstract class BaseEnemy : MonoBehaviour
     public void PlayerListener(bool playerUpdate)
     {
         playerFound = playerUpdate;
+        Debug.Log("Update recieved: " + playerUpdate);
     }
 
     public void SetTarget(Vector2 targetLoc)

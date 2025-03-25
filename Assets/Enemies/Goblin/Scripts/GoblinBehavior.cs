@@ -69,5 +69,4 @@ public class GoblinBehavior : BaseEnemy
     {
         FacePlayer();
     }
-   
 }

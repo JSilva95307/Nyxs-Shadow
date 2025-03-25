@@ -46,9 +46,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defendingEnemies: []
-  enemyType: {fileID: 0}
-  enemy: {fileID: 0}
-  enemyCount: 1
+  enemyType: {fileID: 8680979342750261074, guid: aab8d6f8e5cb970469360d67e90e3cf7, type: 3}
+  enemy: {fileID: 2667018485269908518, guid: aab8d6f8e5cb970469360d67e90e3cf7, type: 3}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  spawnPoints: []
+  enemyCount: 3
 --- !u!61 &6128966083448065160
 BoxCollider2D:
   m_ObjectHideFlags: 0

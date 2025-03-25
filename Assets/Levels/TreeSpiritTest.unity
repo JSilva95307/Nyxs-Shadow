@@ -600,7 +600,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  playerCamera: {fileID: 0}
   _playerController: {fileID: 0}
+  cameraShake: {fileID: 0}
   lungeDist: {x: 0, y: 0}
   damage: 10
   health: 0
@@ -1892,57 +1894,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2671257502534490519, guid: 8a20fd13613f537488ac91c8f9c81a9f, type: 3}
-      propertyPath: enemy
-      value: 
-      objectReference: {fileID: 2667018485269908518, guid: aab8d6f8e5cb970469360d67e90e3cf7, type: 3}
-    - target: {fileID: 2671257502534490519, guid: 8a20fd13613f537488ac91c8f9c81a9f, type: 3}
-      propertyPath: enemyType
-      value: 
-      objectReference: {fileID: 8680979342750261074, guid: aab8d6f8e5cb970469360d67e90e3cf7, type: 3}
-    - target: {fileID: 2671257502534490519, guid: 8a20fd13613f537488ac91c8f9c81a9f, type: 3}
-      propertyPath: enemyCount
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2671257502534490519, guid: 8a20fd13613f537488ac91c8f9c81a9f, type: 3}
-      propertyPath: defendingEnemies.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2671257502534490519, guid: 8a20fd13613f537488ac91c8f9c81a9f, type: 3}
-      propertyPath: 'defendingEnemies.Array.data[0]'
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2671257502534490519, guid: 8a20fd13613f537488ac91c8f9c81a9f, type: 3}
-      propertyPath: 'defendingEnemies.Array.data[1]'
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2671257502534490519, guid: 8a20fd13613f537488ac91c8f9c81a9f, type: 3}
-      propertyPath: 'defendingEnemies.Array.data[2]'
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2671257502534490519, guid: 8a20fd13613f537488ac91c8f9c81a9f, type: 3}
-      propertyPath: 'defendingEnemies.Array.data[3]'
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2671257502534490519, guid: 8a20fd13613f537488ac91c8f9c81a9f, type: 3}
-      propertyPath: 'defendingEnemies.Array.data[4]'
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 2800147608661715046, guid: 8a20fd13613f537488ac91c8f9c81a9f, type: 3}
       propertyPath: m_Name
       value: DefenseZone
       objectReference: {fileID: 0}
-    - target: {fileID: 2800147608661715046, guid: 8a20fd13613f537488ac91c8f9c81a9f, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6128966083448065160, guid: 8a20fd13613f537488ac91c8f9c81a9f, type: 3}
-      propertyPath: m_Size.x
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 8985310823168824000, guid: 8a20fd13613f537488ac91c8f9c81a9f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.5018067
+      value: 9.56
       objectReference: {fileID: 0}
     - target: {fileID: 8985310823168824000, guid: 8a20fd13613f537488ac91c8f9c81a9f, type: 3}
       propertyPath: m_LocalPosition.y
