@@ -8,15 +8,13 @@ public class GoblinBehavior : BaseEnemy
     private Health health;
 
     public LayerMask playerMask;
-
-    private float test;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         health = GetComponent<Health>();
         health.AddDeathListener(PlayDeathAnim);
         hitbox.enabled = false;
-        test = 0;
     }
 
     // Update is called once per frame
@@ -24,9 +22,6 @@ public class GoblinBehavior : BaseEnemy
     {
         CheckGround();
         ApplyGravity();
-        test += Time.deltaTime;
-        if (test >= 1.5)
-            animator.SetBool("Chase", true);
 
         if (targetSet == true && Vector2.Distance(targetLocation, transform.position) > 0.25f)
         {
