@@ -100,16 +100,16 @@ public abstract class BaseEnemy : MonoBehaviour
     {
         Vector3 target = player.transform.position;
 
-        if (transform.position.x > target.x)
-        {
-            movement = new Vector2(-1, 0);
-            Debug.Log("Moving left");
-        }
-        else
-        {
-            movement = new Vector2(1, 0);
-            Debug.Log("Moving right");
-        }
+        movement = Vector2.right;
+        //if (transform.position.x > target.x)
+        //{
+        //    Debug.Log("Moving left");
+        //}
+        //else
+        //{
+        //    movement = Vector2.right;
+        //    Debug.Log("Moving right");
+        //}
         transform.Translate(movement * moveSpeed * Time.deltaTime);
     }
 

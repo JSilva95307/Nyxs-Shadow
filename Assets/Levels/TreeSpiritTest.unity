@@ -1898,6 +1898,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DefenseZone
       objectReference: {fileID: 0}
+    - target: {fileID: 2800147608661715046, guid: 8a20fd13613f537488ac91c8f9c81a9f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8985310823168824000, guid: 8a20fd13613f537488ac91c8f9c81a9f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.56
@@ -2026,7 +2030,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7939478721567202715, guid: df672a3dfe4c42f4a9c0c0d82e60f6a9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.253708
+      value: -2.37
       objectReference: {fileID: 0}
     - target: {fileID: 7939478721567202715, guid: df672a3dfe4c42f4a9c0c0d82e60f6a9, type: 3}
       propertyPath: m_LocalPosition.z
