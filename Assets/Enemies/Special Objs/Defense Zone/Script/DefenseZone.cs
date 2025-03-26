@@ -60,7 +60,6 @@ public class DefenseZone : MonoBehaviour
         {
             updateDefenders(true);
             Debug.Log("player entered!");
-            playertest = true;
         }
     }
 
@@ -70,7 +69,6 @@ public class DefenseZone : MonoBehaviour
         {
             updateDefenders(false);
             Debug.Log("player Left!");
-            playertest = false;
         }
     }
 

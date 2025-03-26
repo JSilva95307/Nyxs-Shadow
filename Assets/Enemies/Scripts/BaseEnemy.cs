@@ -79,7 +79,6 @@ public abstract class BaseEnemy : MonoBehaviour
     public void PlayerListener(bool playerUpdate)
     {
         playerFound = playerUpdate;
-        Debug.Log("Update recieved: " + playerUpdate);
     }
 
     public void SetTarget(Vector2 targetLoc)
@@ -102,9 +101,15 @@ public abstract class BaseEnemy : MonoBehaviour
         Vector3 target = player.transform.position;
 
         if (transform.position.x > target.x)
+        {
             movement = new Vector2(-1, 0);
+            Debug.Log("Moving left");
+        }
         else
+        {
             movement = new Vector2(1, 0);
+            Debug.Log("Moving right");
+        }
         transform.Translate(movement * moveSpeed * Time.deltaTime);
     }
 

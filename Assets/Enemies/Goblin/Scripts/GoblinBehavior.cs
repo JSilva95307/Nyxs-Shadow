@@ -32,6 +32,18 @@ public class GoblinBehavior : BaseEnemy
             targetSet = false;
             targetLocation = Vector2.zero;
         }
+        if(playerFound == true)
+        {
+            animator.SetBool("Chase", true);
+            Debug.Log("Chasing Player");
+        }
+        else if (playerFound == false)
+        {
+            animator.SetTrigger("Idle");
+            animator.SetBool("Chase", false);
+            Debug.Log("Stopped Chasing Player");
+        }
+
     }
     public override void Attack()
     {
