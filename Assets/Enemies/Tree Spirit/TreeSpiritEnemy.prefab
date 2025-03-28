@@ -76,6 +76,7 @@ GameObject:
   - component: {fileID: 6742407390011026577}
   - component: {fileID: 1605051866778823279}
   - component: {fileID: 1526085923772117412}
+  - component: {fileID: 7951704789211390095}
   m_Layer: 6
   m_Name: TreeSpiritEnemy
   m_TagString: Enemy
@@ -295,3 +296,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.38, y: 0.64}
   m_EdgeRadius: 0
+--- !u!114 &7951704789211390095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7637152736148171714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 962850506d49fd64b848eb2282ead7d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 50
+  maxHealth: 50
+  invincibilityTime: 0
+  invulnerable: 0

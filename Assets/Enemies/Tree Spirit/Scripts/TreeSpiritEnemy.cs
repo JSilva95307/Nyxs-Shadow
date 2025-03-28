@@ -26,6 +26,16 @@ public class TreeSpiritEnemy : BaseEnemy
     {
         CheckGround();
         ApplyGravity();
+
+        if (targetSet == true && Vector2.Distance(targetLocation, transform.position) > 0.25f)
+        {
+            MoveTo();
+        }
+        else if (targetSet == true && Vector2.Distance(targetLocation, transform.position) <= 0.25f)
+        {
+            targetSet = false;
+            targetLocation = Vector2.zero;
+        }
     }
 
     public override void Attack()
@@ -43,5 +53,21 @@ public class TreeSpiritEnemy : BaseEnemy
     public void PlayDeathAnim()
     {
         animator.SetTrigger("Die");
+    }
+
+    public void LookAtPlayer() { FacePlayer(); }
+    public void FlipTreeSpirit()
+    {
+        Quaternion rotation = transform.rotation;
+        if (facingRight)
+        {
+            rotation.y = 0;
+        }
+        else
+        {
+            rotation.y = 180;
+        }
+        transform.localRotation = rotation;
+        facingRight = !facingRight;
     }
 }
