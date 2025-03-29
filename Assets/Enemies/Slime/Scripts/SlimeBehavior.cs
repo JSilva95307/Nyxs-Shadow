@@ -97,23 +97,28 @@ public class SlimeBehavior : BaseEnemy
     public void FlipSlime()
     {
         Vector3 scale = transform.localScale;
+        Quaternion rotation = transform.rotation;
 
         if (facingRight)
         {
-            scale.x = Mathf.Abs(scale.x) * (flip ? -1 : 1);
+            rotation.y = 180;
+            //scale.x = Mathf.Abs(scale.x) * (flip ? -1 : 1);
             facingRight = false;
         }
         else
         {
-            scale.x = Mathf.Abs(scale.x) * -1 * (flip ? -1 : 1);
+            rotation.y = 0;
+            //scale.x = Mathf.Abs(scale.x) * -1 * (flip ? -1 : 1);
             facingRight = true;
         }
-
-        transform.localScale = scale;
+        Debug.Log("Called Flip");
+        //transform.localScale = scale;
+        //transform.localRotation = rotation;
     }
-
     public void LookAtPlayer()
     {
         FacePlayer();
     }
 }
+
+

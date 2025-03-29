@@ -41,5 +41,6 @@ public class SlimePatrol : StateMachineBehaviour
     {
         goingRight = !goingRight;
         animator.ResetTrigger("SitIdle");
+        slime.SetTarget(slime.transform.position);
     }
 }
