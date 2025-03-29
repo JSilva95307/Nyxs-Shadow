@@ -89,11 +89,11 @@ public abstract class BaseEnemy : MonoBehaviour
 
     protected void MoveTo()
     {
-        if (transform.position.x > targetLocation.x)
-            movement = new Vector2(-1, 0);
-        else
-            movement = new Vector2(1, 0);
-        transform.Translate( movement * moveSpeed * Time.deltaTime );
+        //if (transform.position.x > targetLocation.x)
+        //    movement = new Vector2(-1, 0);
+        //else
+        //    movement = new Vector2(1, 0);
+        transform.Translate( Vector2.right * moveSpeed * Time.deltaTime );
     }
     
     public void ChasePlayer()

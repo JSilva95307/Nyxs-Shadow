@@ -1,20 +1,24 @@
 using UnityEngine;
 
-public class GoblinBehavior : BaseEnemy
+public class TreeSpiritEnemy : BaseEnemy
 {
-    public BoxCollider2D hitbox;
-    public float damage;
-    public Animator animator;
     private Health health;
 
-    //public LayerMask playerMask;
-    
+    public Animator animator;
+    public float playerCheckRange;
+    public LayerMask playerMask;
+    private bool facingRight = true;
+    public BoxCollider2D meleeCollider;
+    public BaseProjectile thorns;
+
+    RaycastHit2D playerCheck;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         health = GetComponent<Health>();
         health.AddDeathListener(PlayDeathAnim);
-        hitbox.enabled = false;
+        meleeCollider.enabled = false;
     }
 
     // Update is called once per frame
@@ -32,22 +36,10 @@ public class GoblinBehavior : BaseEnemy
             targetSet = false;
             targetLocation = Vector2.zero;
         }
-        if(playerFound == true)
-        {
-            animator.SetBool("Chase", true);
-            Debug.Log("Chasing Player");
-        }
-        else if (playerFound == false)
-        {
-            animator.SetTrigger("Idle");
-            animator.SetBool("Chase", false);
-            Debug.Log("Stopped Chasing Player");
-        }
-
     }
+
     public override void Attack()
     {
-        hitbox.enabled = true;
     }
 
     public override void Attack2()
@@ -56,20 +48,6 @@ public class GoblinBehavior : BaseEnemy
 
     public override void Attack3()
     {
-        
-    }
-
-    public void DisableAttack()
-    {
-        hitbox.enabled = false;
-    }
-
-    public void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            collision.GetComponent<Health>().TakeDamage(damage);
-        }
     }
 
     public void PlayDeathAnim()
@@ -77,8 +55,19 @@ public class GoblinBehavior : BaseEnemy
         animator.SetTrigger("Die");
     }
 
-    public void LookAtPlayer()
+    public void LookAtPlayer() { FacePlayer(); }
+    public void FlipTreeSpirit()
     {
-        FacePlayer();
+        Quaternion rotation = transform.rotation;
+        if (facingRight)
+        {
+            rotation.y = 0;
+        }
+        else
+        {
+            rotation.y = 180;
+        }
+        transform.localRotation = rotation;
+        facingRight = !facingRight;
     }
 }
