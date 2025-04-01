@@ -10,6 +10,7 @@ public class TreeSpiritEnemy : BaseEnemy
     private bool facingRight = true;
     public BoxCollider2D meleeCollider;
     public BaseProjectile thorns;
+    public Transform spawnLocation;
 
     RaycastHit2D playerCheck;
 
@@ -48,6 +49,7 @@ public class TreeSpiritEnemy : BaseEnemy
 
     public override void Attack()
     {
+        meleeCollider.enabled = true;
     }
 
     public override void Attack2()
@@ -58,9 +60,19 @@ public class TreeSpiritEnemy : BaseEnemy
     {
     }
 
+    public void DisableAttack()
+    {
+        meleeCollider.enabled = false;
+    }
+
     public void PlayDeathAnim()
     {
         animator.SetTrigger("Die");
+    }
+
+    public void FireProjectile()
+    {
+        Instantiate(thorns, spawnLocation.position, spawnLocation.rotation);
     }
 
     public void LookAtPlayer() { FacePlayer(); }
