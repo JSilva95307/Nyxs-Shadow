@@ -36,6 +36,14 @@ public class TreeSpiritEnemy : BaseEnemy
             targetSet = false;
             targetLocation = Vector2.zero;
         }
+
+        playerCheck = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + 1), new Vector2(playerCheckRange, 0), -playerCheckRange, playerMask);
+        Debug.DrawRay(new Vector2(transform.position.x, transform.position.y + 1), new Vector2(-playerCheckRange, 0), Color.black);
+        if(playerCheck)
+        {
+            Debug.Log("Player Spotted!");
+            animator.SetBool("Chase", true);
+        }
     }
 
     public override void Attack()
