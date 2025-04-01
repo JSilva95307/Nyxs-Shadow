@@ -4,11 +4,14 @@ public class AttackStats : StateMachineBehaviour
 {
     public Vector2 lungeDist;
     public float damage;
+    public float stagger;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         PlayerManager.Instance.lungeDist = lungeDist;
+        PlayerManager.Instance.damage = damage;
+        PlayerManager.Instance.stagger = stagger;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

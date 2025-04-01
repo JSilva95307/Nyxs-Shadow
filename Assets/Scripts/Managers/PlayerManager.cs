@@ -12,7 +12,8 @@ public class PlayerManager : MonoBehaviour
     public CameraShake cameraShake;
 
     public Vector2 lungeDist;
-    public float damage = 10f;
+    public float damage;
+    public float stagger;
 
 
     //Player variables to save

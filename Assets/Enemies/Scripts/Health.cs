@@ -5,15 +5,28 @@ using UnityEngine.Events;
 
 public class Health : MonoBehaviour
 {
+    [Header("Health Vars")]
     [SerializeField] private float currentHealth;
     [SerializeField] private float maxHealth;
-
-    [SerializeField] private float invincibilityTime; //How long the player will be invunerable for after taking damage
-    private UnityEvent died;
-
     public bool invulnerable = false;
 
-    //private float time;
+    [Space(10)]
+
+    [Header("Stagger Vars")]
+    [SerializeField] private float currentStagger = 0;
+    [SerializeField] private float maxStagger = 100f;
+    [SerializeField] private float staggerMultiplier = 1.3f; // Damage multiplier for when an enemy is staggered
+    [SerializeField] private float unstaggeredDecreaseRate = 5f; // The rate the stagger meter will decrease at when the enemy is not staggered
+    [SerializeField] private float staggeredDecreaseRate = 15f; // The rate the stagger meter will decrease at when the enemy is staggered
+    public bool staggered = false;
+
+    [Space(10)]
+
+    [Header("Player Only")]
+    [SerializeField] private float invincibilityTime; //How long the player will be invunerable for after taking damage
+    
+    
+    private UnityEvent died;
 
     private void Awake()
     {
@@ -27,26 +40,67 @@ public class Health : MonoBehaviour
         
     }
 
+    private void Update()
+    {
+        if (staggered)
+        {
+            if (currentStagger > 0)
+            {
+                currentStagger -= Time.deltaTime * staggeredDecreaseRate;
+                currentStagger = Mathf.Clamp(currentStagger, 0, maxStagger);
+            }
+        }
+        else if (!staggered)
+        {
+            if (currentStagger > 0)
+            {
+                currentStagger -= Time.deltaTime * unstaggeredDecreaseRate;
+                currentStagger = Mathf.Clamp(currentStagger, 0, maxStagger);
+            }
+        }
+
+        if(staggered && currentStagger <= 0)
+        {
+            staggered = false;
+        }
+        
+    }
+
     public void TakeDamage(float damage)
     {
         if(invulnerable == false || damage < 0)
         {
-            currentHealth -= damage;
+            if(staggered)
+                currentHealth -= damage * staggerMultiplier;
+            else
+                currentHealth -= damage;
 
             if(gameObject.tag == "Player" && damage > 0)
             {
                 StartCoroutine(TriggerInvincibility());
                 gameObject.BroadcastMessage("Shake", 0.5f);
                 gameObject.BroadcastMessage("SetHealth", currentHealth); // Update the health bar when taking damage
-
-                //if (gameObject.TryGetComponent(out DamageFlash colorStrobe))
-                //    StartCoroutine(colorStrobe.StrobeColor());
-                //else
-                //    Debug.Log("ColorStrobeNotFound");
             }
         }
         if( currentHealth <= 0 )
             died.Invoke();
+    }
+
+    public void TakeStagger(float stagger)
+    {
+        if(staggered) { return; }
+
+
+        if (invulnerable == false || stagger > 0)
+        {
+            currentStagger += stagger;
+            currentStagger = Mathf.Clamp(currentStagger, 0, maxStagger);
+        }
+
+        if(currentStagger >= maxStagger)
+        {
+            staggered = true;
+        }
     }
 
     public float GetMaxHealth()
@@ -58,6 +112,7 @@ public class Health : MonoBehaviour
     {
         maxHealth = health;
     }
+
     public float GetCurrentHealth()
     {
         return currentHealth;
@@ -67,6 +122,28 @@ public class Health : MonoBehaviour
     {
         currentHealth = health;
     }
+
+
+    public float GetMaxStagger()
+    {
+        return maxStagger;
+    }
+
+    public void SetMaxStagger(float _maxStagger)
+    {
+        maxStagger = _maxStagger;
+    }
+
+    public float GetCurrentStagger()
+    {
+        return currentStagger;
+    }
+
+    public void SetCurrentStagger(float _currentStagger)
+    {
+        currentStagger = _currentStagger;
+    }
+
 
     private IEnumerator TriggerInvincibility()
     {

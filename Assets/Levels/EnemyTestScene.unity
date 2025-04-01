@@ -1298,8 +1298,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 30
   maxHealth: 30
-  invincibilityTime: 0
   invulnerable: 0
+  currentStagger: 0
+  maxStagger: 0
+  staggerMultiplier: 0
+  unstaggeredDecreaseRate: 2
+  staggeredDecreaseRate: 15
+  staggered: 0
+  invincibilityTime: 0
 --- !u!1001 &1708420099927458829
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1790,6 +1796,14 @@ PrefabInstance:
     - target: {fileID: 5102521371474245801, guid: 1f5585ec16553fa47a8fe697002306f2, type: 3}
       propertyPath: m_Name
       value: Ogre
+      objectReference: {fileID: 0}
+    - target: {fileID: 6012380810751053971, guid: 1f5585ec16553fa47a8fe697002306f2, type: 3}
+      propertyPath: maxStagger
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6012380810751053971, guid: 1f5585ec16553fa47a8fe697002306f2, type: 3}
+      propertyPath: currentStagger
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
