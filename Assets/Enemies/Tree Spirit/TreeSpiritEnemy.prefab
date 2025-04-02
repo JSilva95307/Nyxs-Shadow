@@ -189,12 +189,13 @@ MonoBehaviour:
     m_Bits: 8
   grounded: 0
   animator: {fileID: 3888341327546779231}
-  playerCheckRange: 0
+  playerCheckRange: 3
   playerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   meleeCollider: {fileID: 1526085923772117412}
   thorns: {fileID: -6370201305273207218, guid: 410a6ffecb479844ba0ce39ff634a143, type: 3}
+  spawnLocation: {fileID: 0}
 --- !u!212 &1605051866778823279
 SpriteRenderer:
   m_ObjectHideFlags: 0

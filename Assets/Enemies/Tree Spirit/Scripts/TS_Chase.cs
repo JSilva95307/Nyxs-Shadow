@@ -23,7 +23,7 @@ public class TS_Chase : StateMachineBehaviour
         ts.LookAtPlayer();
         ts.ChasePlayer();
 
-        maxChaseTime += Time.fixedDeltaTime;
+        maxChaseTime += Time.deltaTime;
         if(Vector2.Distance(curPos.position, player.position) <= meleeRange)
         {
             animator.SetTrigger("Strike");
