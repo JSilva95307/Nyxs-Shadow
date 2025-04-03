@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class SlimePatrol : StateMachineBehaviour
 {
-    public float patrolDist = 5f;
+    public float patrolDist = 3f;
     [SerializeField] Vector2 patrolPoint = Vector2.zero;
     [SerializeField] bool goingRight = true;
     Transform rb;
@@ -41,5 +41,6 @@ public class SlimePatrol : StateMachineBehaviour
     {
         goingRight = !goingRight;
         animator.ResetTrigger("SitIdle");
+        slime.SetTarget(slime.transform.position);
     }
 }

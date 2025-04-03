@@ -6,7 +6,8 @@ public class PlayerHitbox : MonoBehaviour
 {
     public BoxCollider2D boxCollider;
     public bool active;
-    public float damage = 10f;
+    public float damage;
+    public float stagger;
     private List<GameObject> hitEnemies = new List<GameObject>();
     
     void Start()
@@ -34,7 +35,8 @@ public class PlayerHitbox : MonoBehaviour
         //Deal Damage
         if (other.gameObject.TryGetComponent(out Health enemyHealth))
         {
-            enemyHealth.TakeDamage(damage);
+            enemyHealth.TakeDamage(PlayerManager.Instance.damage);
+            enemyHealth.TakeStagger(PlayerManager.Instance.stagger);
         }
         
     }
