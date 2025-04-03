@@ -33,7 +33,7 @@ AnimatorStateTransition:
   m_TransitionDuration: 0.09695923
   m_TransitionOffset: 0
   m_ExitTime: 0.9
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -191,8 +191,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 749248c6f4c83f24e9ec0714a73bd073, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meleeRange: 3
-  maxChaseTime: 0
+  meleeRange: 1.5
+  maxChaseTime: 2
 --- !u!1101 &-2130791140056005983
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -342,7 +342,7 @@ AnimatorStateTransition:
   m_TransitionDuration: 0.25
   m_TransitionOffset: 0
   m_ExitTime: 0.75
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -440,7 +440,7 @@ AnimatorStateTransition:
   m_TransitionDuration: 0.09757507
   m_TransitionOffset: 0
   m_ExitTime: 0.9
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1

@@ -11,6 +11,7 @@ public class TreeSpiritEnemy : BaseEnemy
     public BoxCollider2D meleeCollider;
     public GameObject thorns;
     public Transform spawnLocation;
+    public int meleeDamage;
 
     RaycastHit2D playerCheck;
 
@@ -20,6 +21,7 @@ public class TreeSpiritEnemy : BaseEnemy
         health = GetComponent<Health>();
         health.AddDeathListener(PlayDeathAnim);
         meleeCollider.enabled = false;
+        playerFound = false;
     }
 
     // Update is called once per frame
@@ -38,8 +40,19 @@ public class TreeSpiritEnemy : BaseEnemy
             targetLocation = Vector2.zero;
         }
 
-        playerCheck = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + 1), new Vector2(playerCheckRange, 0), -playerCheckRange, playerMask);
-        Debug.DrawRay(new Vector2(transform.position.x, transform.position.y + 1), new Vector2(-playerCheckRange, 0), Color.black);
+        if (facingRight)
+        {
+            playerCheck = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + 1), new Vector2(playerCheckRange, 0), -playerCheckRange, playerMask);
+            Debug.DrawRay(new Vector2(transform.position.x, transform.position.y + 1), new Vector2(-playerCheckRange, 0), Color.black);
+        }
+        else if (!facingRight)
+        {
+            playerCheck = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + 1), new Vector2(-playerCheckRange, 0), -playerCheckRange, playerMask);
+            Debug.DrawRay(new Vector2(transform.position.x, transform.position.y + 1), new Vector2(-playerCheckRange, 0), Color.red);
+        }
+
+        //playerCheck = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + 1), new Vector2(playerCheckRange, 0), playerCheckRange, playerMask);
+        //Debug.DrawRay(new Vector2(transform.position.x, transform.position.y + 1), new Vector2(playerCheckRange, 0), Color.black);
         if(playerCheck)
         {
             Debug.Log("Player Spotted!");
@@ -72,7 +85,9 @@ public class TreeSpiritEnemy : BaseEnemy
 
     public void FireProjectile()
     {
-        Instantiate(thorns, spawnLocation.position, spawnLocation.rotation);
+        Quaternion rot = new Quaternion();
+        rot.y = spawnLocation.rotation.y + 180;
+        Instantiate(thorns, spawnLocation.position, rot);
     }
 
     public void LookAtPlayer() { FacePlayer(); }
@@ -89,5 +104,13 @@ public class TreeSpiritEnemy : BaseEnemy
         }
         transform.localRotation = rotation;
         facingRight = !facingRight;
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            collision.GetComponent<Health>().TakeDamage(meleeDamage);
+        }
     }
 }
