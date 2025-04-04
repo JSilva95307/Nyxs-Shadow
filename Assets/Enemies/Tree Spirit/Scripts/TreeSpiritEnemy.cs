@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TreeSpiritEnemy : BaseEnemy
@@ -85,9 +86,7 @@ public class TreeSpiritEnemy : BaseEnemy
 
     public void FireProjectile()
     {
-        Quaternion rot = new Quaternion();
-        rot.y = spawnLocation.rotation.y + 180;
-        Instantiate(thorns, spawnLocation.position, rot);
+        Instantiate(thorns, spawnLocation.position, spawnLocation.rotation);
     }
 
     public void LookAtPlayer() { FacePlayer(); }
