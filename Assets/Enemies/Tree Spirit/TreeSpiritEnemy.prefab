@@ -181,7 +181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 376ff575a12dd2944af455a409c51684, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
+  moveSpeed: 5
   gravityStrength: 2
   groundCheckPos: {fileID: 7591833124021019806}
   groundLayerMask:
@@ -189,12 +189,14 @@ MonoBehaviour:
     m_Bits: 8
   grounded: 0
   animator: {fileID: 3888341327546779231}
-  playerCheckRange: 0
+  playerCheckRange: 3
   playerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   meleeCollider: {fileID: 1526085923772117412}
-  thorns: {fileID: -6370201305273207218, guid: 410a6ffecb479844ba0ce39ff634a143, type: 3}
+  thorns: {fileID: 4999800092343073028, guid: 410a6ffecb479844ba0ce39ff634a143, type: 3}
+  spawnLocation: {fileID: 4981142902166731514}
+  meleeDamage: 25
 --- !u!212 &1605051866778823279
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -310,5 +312,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 50
   maxHealth: 50
-  invincibilityTime: 0
   invulnerable: 0
+  currentStagger: 0
+  maxStagger: 100
+  staggerMultiplier: 1.3
+  unstaggeredDecreaseRate: 5
+  staggeredDecreaseRate: 15
+  staggered: 0
+  invincibilityTime: 0
