@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     #region functionality Vars
     public Rigidbody2D rb;
     public PlayerInputs controls;
+    public PlayerHUD playerHUD;
     public LayerMask groundLayer;
     public LayerMask enemyLayer;
     public LayerMask grappleLayer;

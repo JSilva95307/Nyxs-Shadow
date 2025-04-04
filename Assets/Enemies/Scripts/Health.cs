@@ -48,6 +48,7 @@ public class Health : MonoBehaviour
             {
                 currentStagger -= Time.deltaTime * staggeredDecreaseRate;
                 currentStagger = Mathf.Clamp(currentStagger, 0, maxStagger);
+                PlayerManager.Instance.SetEnemyStagger(currentStagger);
             }
         }
         else if (!staggered)
@@ -56,6 +57,7 @@ public class Health : MonoBehaviour
             {
                 currentStagger -= Time.deltaTime * unstaggeredDecreaseRate;
                 currentStagger = Mathf.Clamp(currentStagger, 0, maxStagger);
+                PlayerManager.Instance.SetEnemyStagger(currentStagger);
             }
         }
 
@@ -81,6 +83,17 @@ public class Health : MonoBehaviour
                 gameObject.BroadcastMessage("Shake", 0.5f);
                 gameObject.BroadcastMessage("SetHealth", currentHealth); // Update the health bar when taking damage
             }
+            else
+            {
+                //Displays the health and stagger of the enemy that is hit most recently
+                PlayerManager.Instance.playerHUD.EnableEnemyBars(true);
+
+
+                PlayerManager.Instance.SetEnemyMaxHealth(maxHealth);
+                PlayerManager.Instance.SetEnemyHealth(currentHealth);
+                PlayerManager.Instance.SetEnemyMaxStagger(maxStagger);
+                PlayerManager.Instance.SetEnemyStagger(currentStagger);
+            }
         }
         if( currentHealth <= 0 )
             died.Invoke();
@@ -90,6 +103,7 @@ public class Health : MonoBehaviour
     {
         if(staggered) { return; }
 
+        PlayerManager.Instance.playerHUD.EnableEnemyBars(true);
 
         if (invulnerable == false || stagger > 0)
         {

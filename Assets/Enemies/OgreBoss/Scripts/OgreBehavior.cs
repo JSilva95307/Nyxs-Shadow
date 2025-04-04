@@ -120,7 +120,7 @@ public class OgreBehavior : BaseEnemy
 
         if (Input.GetKeyDown(KeyCode.K))
         {
-            Attack3();
+            SpawnShockwaves();
         }
 
 

@@ -10,10 +10,16 @@ public class PlayerManager : MonoBehaviour
     public Camera playerCamera;
     public PlayerController _playerController;
     public CameraShake cameraShake;
+    public PlayerHUD playerHUD;
 
     public Vector2 lungeDist;
     public float damage;
     public float stagger;
+
+    public float recentEnemyMaxHealth;
+    public float recentEnemyHealth;
+    public float recentEnemyMaxStagger;
+    public float recentEnemyStagger;
 
 
     //Player variables to save
@@ -41,11 +47,32 @@ public class PlayerManager : MonoBehaviour
         _playerController = player.GetComponent<PlayerController>();
         playerCamera = Camera.main; //_playerController.GetComponent<Camera>();
         cameraShake = playerCamera.GetComponent<CameraShake>();
+        playerHUD = _playerController.playerHUD;
     }
 
     private void Update()
     {
         //lungeDist.x = Mathf.Lerp(lungeDist.x, 0f, 3f * Time.deltaTime);
         lungeDist.x = Mathf.Lerp(lungeDist.x, 0f, (float)(1 - Mathf.Exp(-k * Time.deltaTime)));
+    }
+
+    public void SetEnemyHealth(float health)
+    {
+        playerHUD.SetEnemyHealth(health);
+    }
+
+    public void SetEnemyStagger(float stagger)
+    {
+        playerHUD.SetEnemyStagger(stagger);
+    }
+
+    public void SetEnemyMaxHealth(float health)
+    {
+        playerHUD.SetEnemyMaxHealth(health);
+    }
+
+    public void SetEnemyMaxStagger(float stagger)
+    {
+        playerHUD.SetEnemyMaxStagger(stagger);
     }
 }
