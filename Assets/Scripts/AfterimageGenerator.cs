@@ -25,7 +25,10 @@ public class AfterimageGenerator : MonoBehaviour
 
     public void Stop()
     {
-        StopCoroutine(spawnCoroutine);
+        if (spawnCoroutine != null)
+        {
+            StopCoroutine(spawnCoroutine);
+        }
     }
 
     private IEnumerator Spawn()

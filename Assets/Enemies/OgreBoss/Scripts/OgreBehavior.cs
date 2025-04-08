@@ -13,6 +13,8 @@ public class OgreBehavior : BaseEnemy
     private float timer = 0f;
     private float chargeTimer = 0f;
 
+    private bool halfHealth = false;
+
     private bool dead = false;
 
     private bool jumpQueued = false;
@@ -167,7 +169,8 @@ public class OgreBehavior : BaseEnemy
                         break;
 
                     case 2:
-                        chargeQueued = true;
+                        //chargeQueued = true;
+                        Attack3();
                         break;
 
                     case 3:
@@ -177,6 +180,7 @@ public class OgreBehavior : BaseEnemy
             }
             else // Attacks to do below 50% health
             {
+                halfHealth = true;
                 switch (atk)
                 {
                     case 1:
@@ -273,6 +277,12 @@ public class OgreBehavior : BaseEnemy
         chargeQueued = false;
         GetComponent<AfterimageGenerator>().Stop();
         chargeTimer = 0f;
+        timer = 0f;
+
+        if (halfHealth)
+        {
+            jumpQueued = true;
+        }
     }
 
 
@@ -281,5 +291,12 @@ public class OgreBehavior : BaseEnemy
         //rotate proj 1
         Instantiate(shockwave, projectileSpawn1.transform.position, projectileSpawn1.transform.rotation);
         Instantiate(shockwave, projectileSpawn2.transform.position, projectileSpawn2.transform.rotation);
+
+        if(halfHealth)
+        {
+            Instantiate(shockwave, projectileSpawn1.transform.position, projectileSpawn1.transform.rotation);
+            Instantiate(shockwave, projectileSpawn2.transform.position, projectileSpawn2.transform.rotation);
+        }
+        timer = 0f;
     }
 }
