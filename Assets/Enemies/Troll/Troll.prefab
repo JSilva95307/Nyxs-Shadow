@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6838083273403575067}
   - component: {fileID: 8020820202185782694}
   - component: {fileID: 4476108807859518357}
+  - component: {fileID: 4179565014240443345}
   m_Layer: 6
   m_Name: Troll
   m_TagString: Enemy
@@ -123,6 +124,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   grounded: 0
+  slapDamage: 0
+  smashDamage: 0
 --- !u!61 &4476108807859518357
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -169,6 +172,28 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &4179565014240443345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2212365811690797690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 962850506d49fd64b848eb2282ead7d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 150
+  maxHealth: 150
+  invulnerable: 0
+  currentStagger: 0
+  maxStagger: 100
+  staggerMultiplier: 1.3
+  unstaggeredDecreaseRate: 5
+  staggeredDecreaseRate: 15
+  staggered: 0
+  invincibilityTime: 0
 --- !u!1 &6791704339700746039
 GameObject:
   m_ObjectHideFlags: 0
