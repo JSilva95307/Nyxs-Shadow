@@ -92,6 +92,7 @@ public class PlayerController : MonoBehaviour
     [Header("Gameplay Vars")]
     public float attackBufferTime;
     public Health playerHealth;
+    public float money;
     Cooldowns dashCooldown;
     Cooldowns grappleCooldown;
     bool TouchedGround;

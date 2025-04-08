@@ -22,6 +22,8 @@ public class OgreBehavior : BaseEnemy
     public Animator animator;
     public Transform wallCheck;
 
+    public float timeBetweenAttacks;
+
     [Space(10)]
 
     [Header("Jump Attack Vars")]
@@ -146,6 +148,58 @@ public class OgreBehavior : BaseEnemy
         {
             dead = true;
         }
+
+
+        //Ai
+        
+        if(timer >= timeBetweenAttacks)
+        {
+            timer = 0;
+
+            int atk = Random.Range(1, 3);
+
+            if(health.GetCurrentHealth() > health.GetMaxHealth() / 2) //Attacks to do above 50% health
+            {
+                switch (atk)
+                {
+                    case 1:
+                        jumpQueued = true;
+                        break;
+
+                    case 2:
+                        chargeQueued = true;
+                        break;
+
+                    case 3:
+                        SpawnShockwaves();
+                        break;
+                }
+            }
+            else // Attacks to do below 50% health
+            {
+                switch (atk)
+                {
+                    case 1:
+                        jumpQueued = true;
+                        break;
+
+                    case 2:
+                        chargeQueued = true;
+                        break;
+
+                    case 3:
+                        SpawnShockwaves();
+                        break;
+                }
+            }
+            
+
+            //Pick a random attack to do
+
+
+            //Reset the timer after the attack is done
+        }
+
     }
 
 
