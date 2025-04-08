@@ -306,6 +306,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3929436132845275197, guid: b72d8c964d88367449ee4817d9ddcb48, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3929436132845275197, guid: b72d8c964d88367449ee4817d9ddcb48, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4693558692294048527, guid: b72d8c964d88367449ee4817d9ddcb48, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -376,6 +384,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6157813449497382118, guid: b72d8c964d88367449ee4817d9ddcb48, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6885869356568321765, guid: b72d8c964d88367449ee4817d9ddcb48, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6885869356568321765, guid: b72d8c964d88367449ee4817d9ddcb48, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7053361444163274395, guid: b72d8c964d88367449ee4817d9ddcb48, type: 3}
@@ -603,9 +619,14 @@ MonoBehaviour:
   playerCamera: {fileID: 0}
   _playerController: {fileID: 0}
   cameraShake: {fileID: 0}
+  playerHUD: {fileID: 0}
   lungeDist: {x: 0, y: 0}
   damage: 10
   stagger: 0
+  recentEnemyMaxHealth: 0
+  recentEnemyHealth: 0
+  recentEnemyMaxStagger: 0
+  recentEnemyStagger: 0
   health: 0
   k: 3
 --- !u!1 &1903057910
@@ -2369,6 +2390,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a80b5be8e0c3b8d499ef8af932d4f95a, type: 3}
+--- !u!1001 &3947741430668933796
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1167910116664311976, guid: d7573953a651c5d49891353d6e44a2fd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.2105684
+      objectReference: {fileID: 0}
+    - target: {fileID: 1167910116664311976, guid: d7573953a651c5d49891353d6e44a2fd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.3482633
+      objectReference: {fileID: 0}
+    - target: {fileID: 1167910116664311976, guid: d7573953a651c5d49891353d6e44a2fd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.025484132
+      objectReference: {fileID: 0}
+    - target: {fileID: 1167910116664311976, guid: d7573953a651c5d49891353d6e44a2fd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1167910116664311976, guid: d7573953a651c5d49891353d6e44a2fd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1167910116664311976, guid: d7573953a651c5d49891353d6e44a2fd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1167910116664311976, guid: d7573953a651c5d49891353d6e44a2fd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1167910116664311976, guid: d7573953a651c5d49891353d6e44a2fd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1167910116664311976, guid: d7573953a651c5d49891353d6e44a2fd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1167910116664311976, guid: d7573953a651c5d49891353d6e44a2fd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2212365811690797690, guid: d7573953a651c5d49891353d6e44a2fd, type: 3}
+      propertyPath: m_Name
+      value: Troll
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d7573953a651c5d49891353d6e44a2fd, type: 3}
 --- !u!1001 &7838142789823809433
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2444,6 +2522,10 @@ PrefabInstance:
     - target: {fileID: 7637152736148171714, guid: 8a80052b24e229f4b82b710db1ae594e, type: 3}
       propertyPath: m_Name
       value: TreeSpiritEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 7637152736148171714, guid: 8a80052b24e229f4b82b710db1ae594e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2525,3 +2607,4 @@ SceneRoots:
   - {fileID: 8017760069052269623}
   - {fileID: 382436022222669695}
   - {fileID: 7838142789823809433}
+  - {fileID: 3947741430668933796}
