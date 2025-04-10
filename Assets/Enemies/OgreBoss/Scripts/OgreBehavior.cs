@@ -23,6 +23,7 @@ public class OgreBehavior : BaseEnemy
     
     public Animator animator;
     public Transform wallCheck;
+    public GameObject model;
 
     public float timeBetweenAttacks;
 
@@ -55,10 +56,12 @@ public class OgreBehavior : BaseEnemy
     void Update()
     {
         timer += Time.deltaTime;
+
+        //capsuleCollider.transform.position = transform.position;
         
         //Keeps the ogre from turning around mid charge
         if(!chargeQueued)
-            FacePlayer();
+            OgreFacePlayer();
 
 
         //Starts charge attack
@@ -298,5 +301,23 @@ public class OgreBehavior : BaseEnemy
             Instantiate(shockwave, projectileSpawn2.transform.position, projectileSpawn2.transform.rotation);
         }
         timer = 0f;
+    }
+
+    public void OgreFacePlayer()
+    {
+        Vector3 scale = transform.localScale;
+        Vector3 target = player.transform.position;
+        Quaternion rotation = transform.rotation;
+
+        if (target.x > transform.position.x)
+        {
+            rotation.y = -90;
+        }
+        else
+        {
+            rotation.y = 90;
+        }
+
+        model.transform.localRotation = rotation;
     }
 }
