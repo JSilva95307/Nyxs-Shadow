@@ -51,7 +51,7 @@ public class TrollBehavior : BaseEnemy
     public override void Attack3()
     {
     }
-    
+
     public void DisableAttack()
     {
 
@@ -59,11 +59,26 @@ public class TrollBehavior : BaseEnemy
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        
+
+    }
+
+    public void FlipTroll()
+    {
+        Quaternion rotation = transform.rotation;
+        if (facingRight)
+        {
+            rotation.y = 0;
+        }
+        else
+        {
+            rotation.y = 180;
+        }
+        transform.localRotation = rotation;
+        facingRight = !facingRight;
     }
 }
