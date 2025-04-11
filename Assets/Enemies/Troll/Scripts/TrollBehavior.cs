@@ -20,6 +20,7 @@ public class TrollBehavior : BaseEnemy
     void Start()
     {
         health = GetComponent<Health>();
+        meleeCollider.enabled = false;
     }
 
     // Update is called once per frame
@@ -38,10 +39,28 @@ public class TrollBehavior : BaseEnemy
             targetSet = false;
             targetLocation = Vector2.zero;
         }
+
+        if (facingRight)
+        {
+            playerCheck = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + 1), new Vector2(playerCheckRange, 0), -playerCheckRange, playerMask);
+            Debug.DrawRay(new Vector2(transform.position.x, transform.position.y + 1), new Vector2(-playerCheckRange, 0), Color.black);
+        }
+        else if (!facingRight)
+        {
+            playerCheck = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + 1), new Vector2(-playerCheckRange, 0), -playerCheckRange, playerMask);
+            Debug.DrawRay(new Vector2(transform.position.x, transform.position.y + 1), new Vector2(-playerCheckRange, 0), Color.red);
+        }
+
+        if (playerCheck)
+        {
+            Debug.Log("Player Spotted!");
+            animator.SetTrigger("Chase");
+        }
     }
 
     public override void Attack()
     {
+        meleeCollider.enabled = true;
     }
 
     public override void Attack2()
@@ -54,7 +73,7 @@ public class TrollBehavior : BaseEnemy
 
     public void DisableAttack()
     {
-
+        meleeCollider.enabled = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -81,4 +100,5 @@ public class TrollBehavior : BaseEnemy
         transform.localRotation = rotation;
         facingRight = !facingRight;
     }
+    public void LookAtPlayer() { FacePlayer(); }
 }
