@@ -63,8 +63,8 @@
                 normalTex.z *= facing;
 				float3 N = normalize(i.wTangent) * normalTex.r + normalize(i.wBitangent) * normalTex.g + normalize(i.wNormal) * normalTex.b;
                 
-                half3 toonLight = saturate(dot(N, _WorldSpaceLightPos0)) > 0.3 ? _LightColor0 : unity_AmbientSky;
-                half3 diffuse = diffuseTex * (toonLight);
+                half3 toonLight = saturate(dot(N, _WorldSpaceLightPos0)) > 0.1 ? _LightColor0 : unity_AmbientSky; //0.3
+                half3 diffuse = diffuseTex;// * (toonLight);
                 
                 return half4(diffuse, 0);
 			}

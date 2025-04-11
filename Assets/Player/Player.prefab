@@ -589,6 +589,7 @@ MonoBehaviour:
   jumpingRight: 0
   attackBufferTime: 0
   playerHealth: {fileID: 1962167023953275459}
+  money: 0
   cam: {fileID: 8528339702348787020}
   maxDistance: 0
   minDistance: 0
@@ -1378,8 +1379,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 7589607546473502255}
-  mostRecentEnemyHealthBar: {fileID: 0}
-  mostRecentEnemyStaminahBar: {fileID: 0}
+  _mostRecentEnemyHealthBar: {fileID: 0}
+  _mostRecentEnemyStaggerBar: {fileID: 0}
+  EnemyBarTimeLimit: 0
+  timer: 0
 --- !u!1 &3860382455707537530
 GameObject:
   m_ObjectHideFlags: 0
@@ -2649,7 +2652,7 @@ Transform:
   m_GameObject: {fileID: 7471091775809398431}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 3.79, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2771,7 +2774,7 @@ GameObject:
   - component: {fileID: 3433787382464203409}
   - component: {fileID: 9113786629527819865}
   - component: {fileID: 440327411194671842}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3232,8 +3235,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 7990678579639053311}
-  mostRecentEnemyHealthBar: {fileID: 0}
-  mostRecentEnemyStaminahBar: {fileID: 0}
+  _mostRecentEnemyHealthBar: {fileID: 0}
+  _mostRecentEnemyStaggerBar: {fileID: 0}
+  EnemyBarTimeLimit: 0
+  timer: 0
 --- !u!1 &8910913935612805164
 GameObject:
   m_ObjectHideFlags: 0
@@ -4012,8 +4017,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 3173943551495365214}
-  mostRecentEnemyHealthBar: {fileID: 7589607546473502255}
-  mostRecentEnemyStaminahBar: {fileID: 7990678579639053311}
+  _mostRecentEnemyHealthBar: {fileID: 3470826828938858384}
+  _mostRecentEnemyStaggerBar: {fileID: 8339980179615552324}
+  EnemyBarTimeLimit: 3
+  timer: 0
 --- !u!114 &3173943551495365214 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7844286996435208853, guid: 355269a7b819ce14385014352639f938, type: 3}

@@ -8,7 +8,8 @@ public class OgreBehavior : BaseEnemy
     private Health health;
 
     private bool byWall;
-    
+    private bool jumping = false;
+    private bool attacking;
 
     private float timer = 0f;
     private float chargeTimer = 0f;
@@ -17,13 +18,14 @@ public class OgreBehavior : BaseEnemy
 
     private bool dead = false;
 
-    private bool jumpQueued = false;
+    public bool jumpQueued = false;
     private bool queueShockwave = false;
     private bool chargeQueued = false;
     
     public Animator animator;
     public Transform wallCheck;
     public GameObject model;
+    public CapsuleCollider2D collision;
 
     public float timeBetweenAttacks;
 
@@ -57,15 +59,14 @@ public class OgreBehavior : BaseEnemy
     {
         timer += Time.deltaTime;
 
-        //capsuleCollider.transform.position = transform.position;
-        
+
         //Keeps the ogre from turning around mid charge
-        if(!chargeQueued)
+        if (!chargeQueued && !jumping)
             OgreFacePlayer();
 
 
         //Starts charge attack
-        if(!byWall && chargeQueued)
+        if (!byWall && chargeQueued)
         {
             chargeTimer += Time.deltaTime;
             transform.position += transform.right * Time.deltaTime * chargeSpeed;
@@ -127,7 +128,8 @@ public class OgreBehavior : BaseEnemy
 
         if (Input.GetKeyDown(KeyCode.K))
         {
-            SpawnShockwaves();
+            //SpawnShockwaves();
+            Attack3();
         }
 
 
@@ -136,7 +138,6 @@ public class OgreBehavior : BaseEnemy
         {
             jumpQueued = false;
             StartCoroutine(JumpAttack(transform.position, PlayerManager.Instance.player.transform.position));
-            
         }
 
 
@@ -155,20 +156,30 @@ public class OgreBehavior : BaseEnemy
         }
 
 
+        if (attacking)
+        {
+            Physics2D.IgnoreLayerCollision(8, 6, true);
+        }
+        else if (!attacking && PlayerManager.Instance._playerController.isDashing == false)
+        {
+            Physics2D.IgnoreLayerCollision(8, 6, false);
+        }
+
         //Ai
-        
-        if(timer >= timeBetweenAttacks)
+
+        if (timer >= timeBetweenAttacks)
         {
             timer = 0;
 
             int atk = Random.Range(1, 3);
 
-            if(health.GetCurrentHealth() > health.GetMaxHealth() / 2) //Attacks to do above 50% health
+            if (health.GetCurrentHealth() > health.GetMaxHealth() / 2) //Attacks to do above 50% health
             {
                 switch (atk)
                 {
                     case 1:
-                        jumpQueued = true;
+                        //jumpQueued = true;
+                        Attack2();
                         break;
 
                     case 2:
@@ -199,12 +210,6 @@ public class OgreBehavior : BaseEnemy
                         break;
                 }
             }
-            
-
-            //Pick a random attack to do
-
-
-            //Reset the timer after the attack is done
         }
 
     }
@@ -214,7 +219,7 @@ public class OgreBehavior : BaseEnemy
     public IEnumerator JumpAttack(Vector3 start, Vector3 finish)
     {
         var timePast = 0f;
-
+        jumping = true;
 
         while (timePast < duration)
         {
@@ -231,6 +236,8 @@ public class OgreBehavior : BaseEnemy
             yield return null;
         }
 
+        animator.SetTrigger("Landed");
+        jumping = false;
         queueShockwave = true;
     }
 
@@ -261,7 +268,8 @@ public class OgreBehavior : BaseEnemy
     public override void Attack2()
     {
         //Jumping attack that spawns shockwave projectiles on landing
-        jumpQueued = true;
+        //jumpQueued = true;
+        animator.Play("OgreJumpStart");
     }
 
 
@@ -270,18 +278,20 @@ public class OgreBehavior : BaseEnemy
         //Charging attack
         chargeTimer = 0f;
         chargeQueued = true;
-        GetComponent<AfterimageGenerator>().Play();
-        
+        //GetComponent<AfterimageGenerator>().Play();
+        animator.Play("OgreChargeAttack");
+
+
     }
 
 
     public void StopCharge()
     {
         chargeQueued = false;
-        GetComponent<AfterimageGenerator>().Stop();
+        //GetComponent<AfterimageGenerator>().Stop();
         chargeTimer = 0f;
         timer = 0f;
-
+        animator.SetTrigger("ChargeEnded");
         if (halfHealth)
         {
             jumpQueued = true;
@@ -311,13 +321,18 @@ public class OgreBehavior : BaseEnemy
 
         if (target.x > transform.position.x)
         {
-            rotation.y = -90;
+            rotation.y = 0;
         }
         else
         {
-            rotation.y = 90;
+            rotation.y = 180;
         }
 
-        model.transform.localRotation = rotation;
+        transform.localRotation = rotation;
+    }
+
+    public void SetAttacking(bool _attacking)
+    {
+        attacking = _attacking;
     }
 }
