@@ -21,6 +21,7 @@ public class TrollBehavior : BaseEnemy
     {
         health = GetComponent<Health>();
         meleeCollider.enabled = false;
+        health.AddDeathListener(TrollDeath);
     }
 
     // Update is called once per frame
@@ -78,7 +79,10 @@ public class TrollBehavior : BaseEnemy
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
+        if (collision.CompareTag("Player"))
+        {
+            collision.GetComponent<Health>().TakeDamage(meleeDamage);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -101,4 +105,5 @@ public class TrollBehavior : BaseEnemy
         facingRight = !facingRight;
     }
     public void LookAtPlayer() { FacePlayer(); }
+    public void TrollDeath() { animator.SetTrigger("Die"); }
 }

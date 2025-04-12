@@ -27,7 +27,7 @@ public class Troll_Chase : StateMachineBehaviour
         elapsedTime += Time.deltaTime;
         if (Vector2.Distance(curPos.position, player.position) <= meleeRange)
         {
-            animator.SetTrigger("Strike");
+            animator.SetTrigger("Melee1");
         }
         //else if (elapsedTime > maxChaseTime)
         //{
@@ -38,6 +38,6 @@ public class Troll_Chase : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.ResetTrigger("Strik");
+        animator.ResetTrigger("Melee1");
     }
 }

@@ -127,15 +127,15 @@ MonoBehaviour:
   grounded: 0
   slapDamage: 0
   smashDamage: 0
-  animator: {fileID: 0}
+  animator: {fileID: 4717854337890597889}
   playerCheckRange: 0
   playerMask:
     serializedVersion: 2
     m_Bits: 256
-  meleeCollider: {fileID: 0}
+  meleeCollider: {fileID: 4476108807859518357}
   thorns: {fileID: 0}
   spawnLocation: {fileID: 0}
-  meleeDamage: 0
+  meleeDamage: 5
 --- !u!61 &4476108807859518357
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -170,7 +170,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.33, y: 0.06}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -180,7 +180,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.33, y: 0.73}
   m_EdgeRadius: 0
 --- !u!114 &4179565014240443345
 MonoBehaviour:
