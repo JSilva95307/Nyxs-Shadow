@@ -69,6 +69,7 @@ public class TrollBehavior : BaseEnemy
     public override void Attack2()
     {
         slamCollider.enabled = true;
+        ShockwaveSpawn();
     }
 
     public override void Attack3()
