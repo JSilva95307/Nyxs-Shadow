@@ -1,3 +1,4 @@
+using NUnit.Framework;
 using UnityEngine;
 
 public class TrollBehavior : BaseEnemy
@@ -8,7 +9,8 @@ public class TrollBehavior : BaseEnemy
     public float playerCheckRange;
     public LayerMask playerMask;
     public BoxCollider2D meleeCollider;
-    public GameObject thorns;
+    public BoxCollider2D slamCollider;
+    public GameObject shockwave;
     public Transform spawnLocation;
     public int meleeDamage;
     private Health health;
@@ -66,6 +68,7 @@ public class TrollBehavior : BaseEnemy
 
     public override void Attack2()
     {
+        slamCollider.enabled = true;
     }
 
     public override void Attack3()
@@ -75,6 +78,7 @@ public class TrollBehavior : BaseEnemy
     public void DisableAttack()
     {
         meleeCollider.enabled = false;
+        slamCollider.enabled = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -106,4 +110,9 @@ public class TrollBehavior : BaseEnemy
     }
     public void LookAtPlayer() { FacePlayer(); }
     public void TrollDeath() { animator.SetTrigger("Die"); }
+
+    public void ShockwaveSpawn()
+    {
+        Instantiate(shockwave, spawnLocation.position, spawnLocation.rotation);
+    }
 }
