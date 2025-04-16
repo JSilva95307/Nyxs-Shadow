@@ -42,7 +42,6 @@ public class PlayerHUD : MonoBehaviour
 
             if(timer >= EnemyBarTimeLimit)
             {
-                Debug.Log("Enemy bars disabled");
                 EnableEnemyBars(false);
             }
         }
