@@ -23,6 +23,7 @@ public class TrollBehavior : BaseEnemy
     {
         health = GetComponent<Health>();
         meleeCollider.enabled = false;
+        slamCollider.enabled = false;
         health.AddDeathListener(TrollDeath);
     }
 

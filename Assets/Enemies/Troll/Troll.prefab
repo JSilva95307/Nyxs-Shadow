@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4476108807859518357}
   - component: {fileID: 4179565014240443345}
   - component: {fileID: 4360905462744144570}
+  - component: {fileID: 122630704858068582}
   m_Layer: 6
   m_Name: Troll
   m_TagString: Enemy
@@ -36,6 +37,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2822781452033144229}
+  - {fileID: 8628274012030317982}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &4717854337890597889
@@ -133,8 +135,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   meleeCollider: {fileID: 4476108807859518357}
-  thorns: {fileID: 0}
-  spawnLocation: {fileID: 0}
+  slamCollider: {fileID: 122630704858068582}
+  shockwave: {fileID: 485989243225005495, guid: e8f37403e77969040a5c00ad93faeeb1, type: 3}
+  spawnLocation: {fileID: 8628274012030317982}
   meleeDamage: 5
 --- !u!61 &4476108807859518357
 BoxCollider2D:
@@ -259,6 +262,52 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &122630704858068582
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2212365811690797690}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.27, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.43, y: 0.64}
+    newSize: {x: 0.71, y: 0.86}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.43, y: 0.61}
+  m_EdgeRadius: 0
 --- !u!1 &6791704339700746039
 GameObject:
   m_ObjectHideFlags: 0
@@ -290,3 +339,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1167910116664311976}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7649773917235992579
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8628274012030317982}
+  m_Layer: 6
+  m_Name: SpawnLoc
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8628274012030317982
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7649773917235992579}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0.09, y: -0.186, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1167910116664311976}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
