@@ -52,8 +52,6 @@ public class TreeSpiritEnemy : BaseEnemy
             Debug.DrawRay(new Vector2(transform.position.x, transform.position.y + 1), new Vector2(-playerCheckRange, 0), Color.red);
         }
 
-        //playerCheck = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + 1), new Vector2(playerCheckRange, 0), playerCheckRange, playerMask);
-        //Debug.DrawRay(new Vector2(transform.position.x, transform.position.y + 1), new Vector2(playerCheckRange, 0), Color.black);
         if(playerCheck)
         {
             Debug.Log("Player Spotted!");
