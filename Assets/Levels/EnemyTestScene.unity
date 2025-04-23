@@ -1415,6 +1415,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8496411399978335078, guid: 57a94d63e1ff48542b4c52284d4a7e7b, type: 3}
+      propertyPath: maxHealth
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496411399978335078, guid: 57a94d63e1ff48542b4c52284d4a7e7b, type: 3}
+      propertyPath: maxStagger
+      value: 175
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496411399978335078, guid: 57a94d63e1ff48542b4c52284d4a7e7b, type: 3}
+      propertyPath: currentHealth
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496411399978335078, guid: 57a94d63e1ff48542b4c52284d4a7e7b, type: 3}
+      propertyPath: currentStagger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496411399978335078, guid: 57a94d63e1ff48542b4c52284d4a7e7b, type: 3}
+      propertyPath: staggerMultiplier
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496411399978335078, guid: 57a94d63e1ff48542b4c52284d4a7e7b, type: 3}
+      propertyPath: staggeredDecreaseRate
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

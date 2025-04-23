@@ -1286,7 +1286,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2526149530102757013}
   - component: {fileID: 7589607546473502255}
-  - component: {fileID: 8541472451494828138}
   m_Layer: 0
   m_Name: MostRecentHealthBar
   m_TagString: Untagged
@@ -1366,23 +1365,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &8541472451494828138
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3470826828938858384}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd95a869e92060647a98646d6f7fda79, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthBar: {fileID: 7589607546473502255}
-  _mostRecentEnemyHealthBar: {fileID: 0}
-  _mostRecentEnemyStaggerBar: {fileID: 0}
-  EnemyBarTimeLimit: 0
-  timer: 0
 --- !u!1 &3860382455707537530
 GameObject:
   m_ObjectHideFlags: 0
@@ -3156,7 +3138,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6763078889577680381}
   - component: {fileID: 7990678579639053311}
-  - component: {fileID: 7686226448931670518}
   m_Layer: 0
   m_Name: MostRecentStaggerBar
   m_TagString: Untagged
@@ -3236,23 +3217,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &7686226448931670518
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8339980179615552324}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd95a869e92060647a98646d6f7fda79, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthBar: {fileID: 7990678579639053311}
-  _mostRecentEnemyHealthBar: {fileID: 0}
-  _mostRecentEnemyStaggerBar: {fileID: 0}
-  EnemyBarTimeLimit: 0
-  timer: 0
 --- !u!1 &8910913935612805164
 GameObject:
   m_ObjectHideFlags: 0

@@ -198,11 +198,11 @@ public class OgreBehavior : BaseEnemy
                 switch (atk)
                 {
                     case 1:
-                        jumpQueued = true;
+                        Attack2();
                         break;
 
                     case 2:
-                        chargeQueued = true;
+                        Attack3();
                         break;
 
                     case 3:

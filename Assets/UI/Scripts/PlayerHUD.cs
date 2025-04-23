@@ -47,6 +47,11 @@ public class PlayerHUD : MonoBehaviour
         }
     }
 
+    public void SetPlayerHealth(float health)
+    {
+        healthBar.value = health;
+    }
+
     public void SetMaxHealth(float health)
     {
         healthBar.maxValue = health;
