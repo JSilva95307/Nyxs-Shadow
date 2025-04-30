@@ -25,7 +25,6 @@ public class DefenseZone : MonoBehaviour
     {
         defenseZone = GetComponent<BoxCollider2D>();
         playerUpdate = new UnityEvent<bool>();
-        //spawnPoints = new List<Vector2>();
         if (defendingEnemies != null)
         {
             GenerateSpawnPoints();
@@ -75,12 +74,10 @@ public class DefenseZone : MonoBehaviour
     private void GenerateSpawnPoints()
     {
         float steps = defenseZone.size.x / enemyCount;
-        //Debug.Log(steps);
         Vector2 curPos = new Vector2( transform.position.x - (defenseZone.size.x * 0.5f), transform.position.y);
         for(int i = 0; i < enemyCount; ++i)
         {
             spawnPoints.Add(curPos);
-            //Debug.Log(curPos);
             curPos.x += steps;
         }
     }

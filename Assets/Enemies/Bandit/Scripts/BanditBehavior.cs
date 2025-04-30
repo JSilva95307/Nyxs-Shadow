@@ -7,14 +7,23 @@ public class BanditBehavior : BaseEnemy
     public LayerMask playerMask;
     public BoxCollider2D meleeCollider;
     public int meleeDamage;
+    public int moneySteal;
+    private int moneyCollected;
     private Health health;
-    private bool facingRight = true;
+    private bool facingRight;
+    private bool runningAway;
+
 
     private RaycastHit2D playerCheck;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    // Start is called once before the first execution of Update after the Mono Behaviour is created
     void Start()
     {
+        facingRight = true;
+        runningAway = false;
+        moneyCollected = 0;
         health = GetComponent<Health>();
+        health.AddDeathListener(BanditDeath);
+        meleeCollider.enabled = false;
     }
 
     // Update is called once per frame
@@ -22,10 +31,18 @@ public class BanditBehavior : BaseEnemy
     {
         CheckGround();
         ApplyGravity();
+
+        if (playerFound)
+        {
+            animator.SetTrigger("PlayerFound");
+            Debug.Log("Chasing Player");
+        }
+        
     }
 
     public override void Attack()
     {
+        meleeCollider.enabled = true;
     }
 
     public override void Attack2()
@@ -38,7 +55,7 @@ public class BanditBehavior : BaseEnemy
 
     public void DisableAttack()
     {
-        
+        meleeCollider.enabled = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -46,6 +63,11 @@ public class BanditBehavior : BaseEnemy
         if (collision.CompareTag("Player"))
         {
             collision.GetComponent<Health>().TakeDamage(meleeDamage);
+            //call the get and set functions of the player for their money
+
+            //subtract using the moneysteal var
+            //add the amount to the moneytotal var
+            animator.SetBool("RunAway", true);
         }
     }
 
@@ -71,8 +93,13 @@ public class BanditBehavior : BaseEnemy
     public void LookAtPlayer() { FacePlayer(); }
     public void BanditDeath() {  }
 
-    public void KnifeSpawn()
+    public void LookAwayFromPlayer()
     {
-       
+
+    }
+
+    public void AvoidPlayer()
+    {
+
     }
 }

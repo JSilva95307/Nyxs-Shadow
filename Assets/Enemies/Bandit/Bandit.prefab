@@ -64,6 +64,7 @@ MonoBehaviour:
     m_Bits: 256
   meleeCollider: {fileID: 5066515820885387873}
   meleeDamage: 10
+  moneySteal: 5
 --- !u!95 &8901343748883690847
 Animator:
   serializedVersion: 7
@@ -144,8 +145,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962850506d49fd64b848eb2282ead7d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 0
-  maxHealth: 0
+  currentHealth: 100
+  maxHealth: 100
   invulnerable: 0
   currentStagger: 0
   maxStagger: 100
