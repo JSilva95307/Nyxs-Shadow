@@ -504,6 +504,7 @@ GameObject:
   - component: {fileID: 4362003692211823917}
   - component: {fileID: 1962167023953275459}
   - component: {fileID: 1879581671480030498}
+  - component: {fileID: 5999202231339381244}
   - component: {fileID: 5286824670486448839}
   - component: {fileID: 8376380372079916077}
   - component: {fileID: 6373346519556152815}
@@ -589,6 +590,7 @@ MonoBehaviour:
   jumpingRight: 0
   attackBufferTime: 0
   playerHealth: {fileID: 1962167023953275459}
+  playerMoney: {fileID: 5999202231339381244}
   money: 0
   cam: {fileID: 8528339702348787020}
   maxDistance: 0
@@ -886,6 +888,19 @@ MonoBehaviour:
   spriteRendererToCopyFrom: {fileID: 8376380372079916077}
   spawnFrequency: 0.08
   fadeSpeed: 0.3
+--- !u!114 &5999202231339381244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2793163437225728115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26f966d6c2ef76f409fe0d36779d2691, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  money: 0
 --- !u!50 &5286824670486448839
 Rigidbody2D:
   serializedVersion: 5
