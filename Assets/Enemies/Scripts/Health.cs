@@ -81,13 +81,12 @@ public class Health : MonoBehaviour
             {
                 StartCoroutine(TriggerInvincibility());
                 gameObject.BroadcastMessage("Shake", 0.5f);
-                gameObject.BroadcastMessage("SetHealth", currentHealth); // Update the health bar when taking damage
+                PlayerManager.Instance.playerHUD.SetPlayerHealth(currentHealth);
             }
-            else
+            else if (gameObject.tag != "Player")
             {
                 //Displays the health and stagger of the enemy that is hit most recently
                 PlayerManager.Instance.playerHUD.EnableEnemyBars(true);
-
 
                 PlayerManager.Instance.SetEnemyMaxHealth(maxHealth);
                 PlayerManager.Instance.SetEnemyHealth(currentHealth);
@@ -95,6 +94,7 @@ public class Health : MonoBehaviour
                 PlayerManager.Instance.SetEnemyStagger(currentStagger);
             }
         }
+        
         if( currentHealth <= 0 )
             died.Invoke();
     }
@@ -103,7 +103,7 @@ public class Health : MonoBehaviour
     {
         if(staggered) { return; }
 
-        PlayerManager.Instance.playerHUD.EnableEnemyBars(true);
+        //PlayerManager.Instance.playerHUD.EnableEnemyBars(true);
 
         if (invulnerable == false || stagger > 0)
         {

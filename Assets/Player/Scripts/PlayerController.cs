@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -92,6 +93,7 @@ public class PlayerController : MonoBehaviour
     [Header("Gameplay Vars")]
     public float attackBufferTime;
     public Health playerHealth;
+    public Currency playerMoney;
     public float money;
     Cooldowns dashCooldown;
     Cooldowns grappleCooldown;
@@ -324,6 +326,7 @@ public class PlayerController : MonoBehaviour
 
         Physics2D.IgnoreLayerCollision(8, 6,  false);
         GetComponent<AfterimageGenerator>().Stop();
+        playerHealth.invulnerable = false;
         isDashing = false;
     }
 
@@ -412,7 +415,8 @@ public class PlayerController : MonoBehaviour
             GetComponent<AfterimageGenerator>().Play();
             controls.Disable();
             rb.gravityScale = 0;
-            Physics2D.IgnoreLayerCollision(8, 6, true); // Ignores collision between the player and enemy layer when dashing;
+            Physics2D.IgnoreLayerCollision(8, 6, true); // Ignores collision between the player and enemy layer when dashing
+            playerHealth.invulnerable = true; //Makes the player invincible while dashing
         }
     }
 
