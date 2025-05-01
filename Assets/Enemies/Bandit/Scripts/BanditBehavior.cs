@@ -60,13 +60,17 @@ public class BanditBehavior : BaseEnemy
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        float moneyTotal;
         if (collision.CompareTag("Player"))
         {
-            collision.GetComponent<Health>().TakeDamage(meleeDamage);
             //call the get and set functions of the player for their money
+            collision.GetComponent<Health>().TakeDamage(meleeDamage);
+            moneyTotal = collision.GetComponent<Currency>().GetMoney();
+            //subtract using the moneySteal var
+            collision.GetComponent <Currency>().SetMoney(moneyTotal - moneySteal);
+            //add the amount to the moneyCollected var
+            moneyCollected += moneySteal;
 
-            //subtract using the moneysteal var
-            //add the amount to the moneytotal var
             animator.SetBool("RunAway", true);
         }
     }
@@ -95,11 +99,31 @@ public class BanditBehavior : BaseEnemy
 
     public void LookAwayFromPlayer()
     {
+        Vector3 scale = transform.localScale;
+        Vector3 target = player.transform.position;
+        Quaternion rotation = transform.rotation;
 
+        if (target.x > transform.position.x)
+        {
+            //scale.x = Mathf.Abs(scale.x) * (flip ? -1 : 1);
+            rotation.y = 180;
+        }
+        else
+        {
+            //scale.x = Mathf.Abs(scale.x) * -1 * (flip ? -1 : 1);
+            rotation.y = 0;
+        }
+
+        //transform.localScale = scale;
+        transform.localRotation = rotation;
     }
 
     public void AvoidPlayer()
     {
+        Vector3 target = player.transform.position;
 
+        movement = -Vector2.right;
+
+        transform.Translate(movement * moveSpeed * Time.deltaTime);
     }
 }

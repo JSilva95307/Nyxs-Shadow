@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8985310823168824000
 Transform:
   m_ObjectHideFlags: 0
@@ -46,13 +46,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defendingEnemies: []
-  enemyType: {fileID: 8680979342750261074, guid: aab8d6f8e5cb970469360d67e90e3cf7, type: 3}
-  enemy: {fileID: 2667018485269908518, guid: aab8d6f8e5cb970469360d67e90e3cf7, type: 3}
+  enemyType: {fileID: 0}
+  enemy: {fileID: 0}
   playerLayer:
     serializedVersion: 2
     m_Bits: 256
   spawnPoints: []
   enemyCount: 3
+  playertest: 0
 --- !u!61 &6128966083448065160
 BoxCollider2D:
   m_ObjectHideFlags: 0
