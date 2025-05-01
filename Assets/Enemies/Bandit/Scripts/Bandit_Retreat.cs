@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Bandit_Retreat : StateMachineBehaviour
 {
-    public float meleeRange = 1f;
+    public float avoidRange = 20f;
     Transform player;
     Transform rb;
     BanditBehavior bandit;
@@ -17,7 +17,10 @@ public class Bandit_Retreat : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        bandit.AvoidPlayer();
+        if (Vector2.Distance(rb.position, player.position) < avoidRange)
+        {
+            bandit.AvoidPlayer();
+        }
         bandit.LookAwayFromPlayer();
     }
 

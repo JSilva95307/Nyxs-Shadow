@@ -105,12 +105,10 @@ public class BanditBehavior : BaseEnemy
 
         if (target.x > transform.position.x)
         {
-            //scale.x = Mathf.Abs(scale.x) * (flip ? -1 : 1);
             rotation.y = 180;
         }
         else
         {
-            //scale.x = Mathf.Abs(scale.x) * -1 * (flip ? -1 : 1);
             rotation.y = 0;
         }
 
@@ -125,5 +123,10 @@ public class BanditBehavior : BaseEnemy
         movement = -Vector2.right;
 
         transform.Translate(movement * moveSpeed * Time.deltaTime);
+    }
+
+    public void PersuePlayer()
+    {
+        playerFound = true;
     }
 }
