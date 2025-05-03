@@ -120,7 +120,7 @@ public class BanditBehavior : BaseEnemy
     {
         Vector3 target = player.transform.position;
 
-        movement = -Vector2.right;
+        movement = Vector2.right;
 
         transform.Translate(movement * moveSpeed * Time.deltaTime);
     }
