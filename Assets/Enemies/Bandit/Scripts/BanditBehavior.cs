@@ -9,6 +9,7 @@ public class BanditBehavior : BaseEnemy
     public int meleeDamage;
     public int moneySteal;
     private int moneyCollected;
+    private int moneyNeeded;
     private Health health;
     private bool facingRight;
     private bool runningAway;
@@ -24,6 +25,7 @@ public class BanditBehavior : BaseEnemy
         health = GetComponent<Health>();
         health.AddDeathListener(BanditDeath);
         meleeCollider.enabled = false;
+        moneyNeeded = Random.Range(15, 75);
     }
 
     // Update is called once per frame
@@ -70,8 +72,8 @@ public class BanditBehavior : BaseEnemy
             collision.GetComponent <Currency>().SetMoney(moneyTotal - moneySteal);
             //add the amount to the moneyCollected var
             moneyCollected += moneySteal;
-
-            animator.SetBool("RunAway", true);
+            if(moneyNeeded <= moneyCollected)
+                animator.SetBool("RunAway", true);
         }
     }
 
