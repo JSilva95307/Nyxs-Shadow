@@ -6,6 +6,13 @@ public abstract class BaseEnemy : MonoBehaviour
     public float moveSpeed;
     public float gravityStrength;
     public Transform groundCheckPos;
+
+    public Vector3 ledgeDetectOffset = new Vector3(0f, 0f, 0f);
+    public float ledgeDetectSpacing = 1.2f;
+
+    public Vector3 wallDetectOffset = new Vector3(0f, 0f, 0f);
+    public float wallDetectSpacing = 1.4f;
+
     public LayerMask groundLayerMask;
     public bool grounded;
     protected Vector2 movement;
@@ -76,6 +83,42 @@ public abstract class BaseEnemy : MonoBehaviour
         transform.Translate(movement * 2 * Time.deltaTime);
     }
 
+    //Returns true if a ledge is detected
+    protected bool DetectLedge() 
+    {
+        Vector3 pos = groundCheckPos.position + ledgeDetectOffset;
+
+        if (transform.rotation.y == 0)//behind
+            pos.x -= ledgeDetectSpacing;
+        else
+            pos.x += ledgeDetectSpacing;
+
+        RaycastHit2D hit = Physics2D.Raycast(pos, -Vector2.up, 0.2f, groundLayerMask);
+
+        if (hit.collider)
+            return false;
+        else
+            return true;
+    }
+
+    //Returns true if a wall is detected
+    protected bool DetectWall()
+    {
+        Vector3 pos = groundCheckPos.position + wallDetectOffset;
+
+        if (transform.rotation.y == 0)//behind
+            pos.x -= wallDetectSpacing;
+        else
+            pos.x += wallDetectSpacing;
+
+        RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.right, 0.2f, groundLayerMask);
+
+        if (hit.collider)
+            return true;
+        else
+            return false;
+    }
+
     public void PlayerListener(bool playerUpdate)
     {
         playerFound = playerUpdate;
@@ -114,4 +157,39 @@ public abstract class BaseEnemy : MonoBehaviour
     }
 
     public Transform GetTransform() { return transform; }
+
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+
+
+        //Draw Ledge Detection
+        Vector3 v = groundCheckPos.position + ledgeDetectOffset;
+        Vector3 v2 = groundCheckPos.position + ledgeDetectOffset;
+
+        v.x += ledgeDetectSpacing;
+        v2.x += ledgeDetectSpacing;
+        v.y -= 0.2f;
+        Gizmos.DrawLine(v, v2);
+
+        v.x -= ledgeDetectSpacing * 2;
+        v2.x -= ledgeDetectSpacing * 2;
+        Gizmos.DrawLine(v, v2);
+        //
+
+        //Draw Wall Detection
+        v = groundCheckPos.position + wallDetectOffset;
+        v2 = groundCheckPos.position + wallDetectOffset;
+
+        v.x += wallDetectSpacing;
+        v2.x += wallDetectSpacing;
+        v2.x += 0.2f;
+        Gizmos.DrawLine(v, v2);
+
+        v.x -= wallDetectSpacing * 2;
+        v2.x -= wallDetectSpacing * 2;
+        Gizmos.DrawLine(v, v2);
+        //
+    }
 }
