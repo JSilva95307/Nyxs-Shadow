@@ -7,7 +7,6 @@ public class GoblinBehavior : BaseEnemy
     public Animator animator;
     private Health health;
 
-    //public LayerMask playerMask;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
