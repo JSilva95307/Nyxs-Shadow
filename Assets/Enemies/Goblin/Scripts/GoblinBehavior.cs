@@ -6,6 +6,7 @@ public class GoblinBehavior : BaseEnemy
     public float damage;
     public Animator animator;
     private Health health;
+    private Vector2 spawnLocation;
 
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -80,4 +81,7 @@ public class GoblinBehavior : BaseEnemy
     {
         FacePlayer();
     }
+
+    public Vector2 GetSpawn() { return spawnLocation; }
+    public void SetSpawn(Vector2 newSpawn) { spawnLocation = newSpawn; }
 }
