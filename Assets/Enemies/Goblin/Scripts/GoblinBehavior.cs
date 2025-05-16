@@ -6,7 +6,8 @@ public class GoblinBehavior : BaseEnemy
     public float damage;
     public Animator animator;
     private Health health;
-    private Vector2 spawnLocation;
+    private bool facingRight;
+    [SerializeField]private Vector2 spawnLocation;
 
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -22,7 +23,7 @@ public class GoblinBehavior : BaseEnemy
     {
         CheckGround();
         ApplyGravity();
-
+        facingRight = true;
         if (targetSet == true && Vector2.Distance(targetLocation, transform.position) > 0.25f)
         {
             MoveTo();
@@ -31,8 +32,9 @@ public class GoblinBehavior : BaseEnemy
         {
             targetSet = false;
             targetLocation = Vector2.zero;
+            animator.SetTrigger("Idle");
         }
-        if(playerFound == true)
+        if (playerFound == true)
         {
             animator.SetBool("Chase", true);
             Debug.Log("Chasing Player");
@@ -80,6 +82,21 @@ public class GoblinBehavior : BaseEnemy
     public void LookAtPlayer()
     {
         FacePlayer();
+    }
+
+    public void FlipGoblin()
+    {
+        Quaternion rotation = transform.rotation;
+        if (facingRight)
+        {
+            rotation.y = 0;
+        }
+        else
+        {
+            rotation.y = 180;
+        }
+        transform.localRotation = rotation;
+        facingRight = !facingRight;
     }
 
     public Vector2 GetSpawn() { return spawnLocation; }

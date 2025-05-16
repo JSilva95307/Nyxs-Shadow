@@ -686,6 +686,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gobbo
       objectReference: {fileID: 0}
+    - target: {fileID: 2667018485269908518, guid: aab8d6f8e5cb970469360d67e90e3cf7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7318701788839672038, guid: aab8d6f8e5cb970469360d67e90e3cf7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.5018067
@@ -2069,9 +2073,17 @@ PrefabInstance:
       propertyPath: enemyType
       value: 
       objectReference: {fileID: 8680979342750261074, guid: aab8d6f8e5cb970469360d67e90e3cf7, type: 3}
+    - target: {fileID: 2671257502534490519, guid: 8a20fd13613f537488ac91c8f9c81a9f, type: 3}
+      propertyPath: enemyCount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2800147608661715046, guid: 8a20fd13613f537488ac91c8f9c81a9f, type: 3}
       propertyPath: m_Name
       value: DefenseZone
+      objectReference: {fileID: 0}
+    - target: {fileID: 2800147608661715046, guid: 8a20fd13613f537488ac91c8f9c81a9f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8985310823168824000, guid: 8a20fd13613f537488ac91c8f9c81a9f, type: 3}
       propertyPath: m_LocalPosition.x
