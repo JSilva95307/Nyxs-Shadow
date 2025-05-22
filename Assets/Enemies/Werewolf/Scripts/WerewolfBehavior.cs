@@ -103,12 +103,12 @@ public class WerewolfBehavior : BaseEnemy
 
         if (facingRight)
         {
-            scale.x = Mathf.Abs(scale.x) * (flip ? -1 : 1);
+            scale.x = Mathf.Abs(scale.x) * (facingRight ? -1 : 1);
             facingRight = false;
         }
         else
         {
-            scale.x = Mathf.Abs(scale.x) * -1 * (flip ? -1 : 1);
+            scale.x = Mathf.Abs(scale.x) * -1 * (facingRight ? -1 : 1);
             facingRight = true;
         }
 
