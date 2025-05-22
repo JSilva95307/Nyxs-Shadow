@@ -674,6 +674,67 @@ Transform:
   - {fileID: 2091419748}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1979232778
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2667018485269908518, guid: aab8d6f8e5cb970469360d67e90e3cf7, type: 3}
+      propertyPath: m_Name
+      value: Gobbo
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667018485269908518, guid: aab8d6f8e5cb970469360d67e90e3cf7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7318701788839672038, guid: aab8d6f8e5cb970469360d67e90e3cf7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.5018067
+      objectReference: {fileID: 0}
+    - target: {fileID: 7318701788839672038, guid: aab8d6f8e5cb970469360d67e90e3cf7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.0583596
+      objectReference: {fileID: 0}
+    - target: {fileID: 7318701788839672038, guid: aab8d6f8e5cb970469360d67e90e3cf7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.0068427175
+      objectReference: {fileID: 0}
+    - target: {fileID: 7318701788839672038, guid: aab8d6f8e5cb970469360d67e90e3cf7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7318701788839672038, guid: aab8d6f8e5cb970469360d67e90e3cf7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7318701788839672038, guid: aab8d6f8e5cb970469360d67e90e3cf7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7318701788839672038, guid: aab8d6f8e5cb970469360d67e90e3cf7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7318701788839672038, guid: aab8d6f8e5cb970469360d67e90e3cf7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7318701788839672038, guid: aab8d6f8e5cb970469360d67e90e3cf7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7318701788839672038, guid: aab8d6f8e5cb970469360d67e90e3cf7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: aab8d6f8e5cb970469360d67e90e3cf7, type: 3}
 --- !u!1 &2091419747
 GameObject:
   m_ObjectHideFlags: 0
@@ -2012,9 +2073,17 @@ PrefabInstance:
       propertyPath: enemyType
       value: 
       objectReference: {fileID: 8680979342750261074, guid: aab8d6f8e5cb970469360d67e90e3cf7, type: 3}
+    - target: {fileID: 2671257502534490519, guid: 8a20fd13613f537488ac91c8f9c81a9f, type: 3}
+      propertyPath: enemyCount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2800147608661715046, guid: 8a20fd13613f537488ac91c8f9c81a9f, type: 3}
       propertyPath: m_Name
       value: DefenseZone
+      objectReference: {fileID: 0}
+    - target: {fileID: 2800147608661715046, guid: 8a20fd13613f537488ac91c8f9c81a9f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8985310823168824000, guid: 8a20fd13613f537488ac91c8f9c81a9f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2252,7 +2321,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2212365811690797690, guid: d7573953a651c5d49891353d6e44a2fd, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8628274012030317982, guid: d7573953a651c5d49891353d6e44a2fd, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2491,3 +2560,4 @@ SceneRoots:
   - {fileID: 3947741430668933796}
   - {fileID: 2539144478351805269}
   - {fileID: 9155199627314230268}
+  - {fileID: 1979232778}

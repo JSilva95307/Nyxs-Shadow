@@ -8,7 +8,7 @@ using RangeAttribute = UnityEngine.RangeAttribute;
 public class DefenseZone : MonoBehaviour
 {
     [SerializeField] List<GameObject> defendingEnemies;
-    public BaseEnemy enemyType;
+    public GoblinBehavior enemyType;
     public GameObject enemy;
     BoxCollider2D defenseZone;
     public LayerMask playerLayer;
@@ -17,7 +17,7 @@ public class DefenseZone : MonoBehaviour
 
     public bool playertest = false;
 
-    BaseEnemy curEnemy;
+    GoblinBehavior curEnemy;
     UnityEvent<bool> playerUpdate;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -43,7 +43,8 @@ public class DefenseZone : MonoBehaviour
         for(int i = 0; i < enemyCount; ++i)
         {
             defendingEnemies.Add(Instantiate(enemy, spawnPoints[i], transform.rotation));
-            curEnemy = defendingEnemies[i].GetComponent<BaseEnemy>();
+            curEnemy = defendingEnemies[i].GetComponent<GoblinBehavior>();
+            curEnemy.SetSpawn(spawnPoints[i]);
             playerUpdate.AddListener(curEnemy.PlayerListener);
         }
     }
@@ -67,6 +68,10 @@ public class DefenseZone : MonoBehaviour
         if (((1 << collision.gameObject.layer) & playerLayer) != 0)
         {
             updateDefenders(false);
+            for(int i = 0;i < enemyCount; ++i)
+            {
+                defendingEnemies[i].GetComponent<GoblinBehavior>().animator.SetTrigger("Retreat");
+            }
             Debug.Log("player Left!");
         }
     }
