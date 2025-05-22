@@ -40,7 +40,9 @@ public class GolemBehavior : BaseEnemy
             PlayDeathAnimation();
             dead = true;
         }
-            
+
+        if (Input.GetKeyDown(KeyCode.T))
+            TeleportToPlayer();
     }
 
 

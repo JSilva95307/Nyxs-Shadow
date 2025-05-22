@@ -1,5 +1,7 @@
+using Unity.VisualScripting;
 using UnityEditor.Tilemaps;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 public abstract class BaseEnemy : MonoBehaviour
 {
@@ -14,10 +16,11 @@ public abstract class BaseEnemy : MonoBehaviour
     public float wallDetectSpacing = 1.4f;
 
     public LayerMask groundLayerMask;
+    public LayerMask collisionLayerMask;
+    public bool facingRight;
     public bool grounded;
     protected Vector2 movement;
     protected float verticalSpeed;
-    protected bool flip;
     protected GameObject player;
     protected bool playerFound;
     protected bool targetSet;
@@ -34,6 +37,12 @@ public abstract class BaseEnemy : MonoBehaviour
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.T))
+            TeleportToPlayer();
     }
 
     public void CheckGround()
@@ -66,11 +75,13 @@ public abstract class BaseEnemy : MonoBehaviour
         {
             //scale.x = Mathf.Abs(scale.x) * (flip ? -1 : 1);
             rotation.y = 0;
+            facingRight = true;
         }
         else
         {
             //scale.x = Mathf.Abs(scale.x) * -1 * (flip ? -1 : 1);
             rotation.y = 180;
+            facingRight = false;
         }
 
         //transform.localScale = scale;
@@ -156,8 +167,77 @@ public abstract class BaseEnemy : MonoBehaviour
         transform.Translate(movement * moveSpeed * Time.deltaTime);
     }
 
+    public void Teleport(Vector2 location)
+    {
+        //Add some visual effect here
+
+        transform.position = location;
+    }
+
+    public void TeleportToPlayer()
+    {
+        Vector2 target = player.transform.position;
+        Vector2 pos = target;
+        float offset = 2f;
+        int attempts = 0;
+
+        pos.x = target.x + offset;
+        pos.y += 2f;
+
+
+        RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.right, 2f, collisionLayerMask);
+        RaycastHit2D groundHit = Physics2D.Raycast(pos, -Vector2.up, 5f, groundLayerMask);
+
+        if (hit.collider == null && groundHit.collider != null)
+            transform.position = pos;
+
+        //while (true)
+        //{
+        //    attempts++;
+        //    pos.x = target.x + offset;
+        //    pos.y += 2f;
+        //    Collider2D hit = Physics2D.OverlapCircle(target, 1, collisionLayerMask);
+
+        //    if (hit == null)
+        //    {
+        //        Teleport(pos);
+        //        Debug.Log(offset);
+        //        break;
+        //    }
+
+        //    pos.x = target.x - offset;
+        //    hit = Physics2D.OverlapCircle(target, 1, collisionLayerMask);
+            
+        //    if (hit == null)
+        //    {
+        //        Teleport(pos);
+        //        Debug.Log(offset);
+        //        break;
+        //    }
+
+        //    offset += 2;
+        //    Debug.Log(offset);
+
+        //    if (attempts > 5)
+        //    {
+        //        Debug.Log("failed teleport");
+        //        break;
+        //    }
+        //}
+        
+    }
+
     public Transform GetTransform() { return transform; }
 
+    public float GetMoveSpeed()
+    {
+        return moveSpeed;
+    }
+
+    public void SetMoveSpeed(float _moveSpeed)
+    {
+        moveSpeed = _moveSpeed;
+    }
 
     private void OnDrawGizmos()
     {

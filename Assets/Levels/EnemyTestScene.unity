@@ -1279,33 +1279,6 @@ Transform:
   - {fileID: 679869421}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1800067541 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5027786179316383145, guid: 54b33ab71a692da41a55703b4d0075a0, type: 3}
-  m_PrefabInstance: {fileID: 7694413161821558803}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1800067547
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1800067541}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 962850506d49fd64b848eb2282ead7d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentHealth: 30
-  maxHealth: 30
-  invulnerable: 0
-  currentStagger: 0
-  maxStagger: 0
-  staggerMultiplier: 0
-  unstaggeredDecreaseRate: 2
-  staggeredDecreaseRate: 15
-  staggered: 0
-  invincibilityTime: 0
 --- !u!1001 &1708420099927458829
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1374,6 +1347,10 @@ PrefabInstance:
     - target: {fileID: 264264727871223625, guid: 57a94d63e1ff48542b4c52284d4a7e7b, type: 3}
       propertyPath: m_Name
       value: Ogre
+      objectReference: {fileID: 0}
+    - target: {fileID: 264264727871223625, guid: 57a94d63e1ff48542b4c52284d4a7e7b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1163848078681587804, guid: 57a94d63e1ff48542b4c52284d4a7e7b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1634,21 +1611,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 188842148074545056, guid: 54b33ab71a692da41a55703b4d0075a0, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 5027786179316383145, guid: 54b33ab71a692da41a55703b4d0075a0, type: 3}
       propertyPath: m_Name
       value: Golem
-      objectReference: {fileID: 0}
-    - target: {fileID: 5027786179316383145, guid: 54b33ab71a692da41a55703b4d0075a0, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5027786179316383145, guid: 54b33ab71a692da41a55703b4d0075a0, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7117896005127123647, guid: 54b33ab71a692da41a55703b4d0075a0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1690,21 +1655,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7797911662944418892, guid: 54b33ab71a692da41a55703b4d0075a0, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8281040261049851320, guid: 54b33ab71a692da41a55703b4d0075a0, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5027786179316383145, guid: 54b33ab71a692da41a55703b4d0075a0, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1800067547}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54b33ab71a692da41a55703b4d0075a0, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

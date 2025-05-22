@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7122870048885649984}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ProjectileSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,8 @@ GameObject:
   - component: {fileID: 2136318876111220851}
   - component: {fileID: 6740228670636189923}
   - component: {fileID: 3299884675804310687}
-  m_Layer: 0
+  - component: {fileID: 4022166034603779789}
+  m_Layer: 6
   m_Name: Golem
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -161,9 +162,18 @@ MonoBehaviour:
   moveSpeed: 0
   gravityStrength: 4
   groundCheckPos: {fileID: 8292060612791771080}
+  ledgeDetectOffset: {x: 0, y: 0, z: 0}
+  ledgeDetectSpacing: 1.2
+  wallDetectOffset: {x: 0, y: 0, z: 0}
+  wallDetectSpacing: 1.4
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  collisionLayerMask:
+    serializedVersion: 2
+    m_Bits: 329
+  facingRight: 0
+  grounded: 0
   animator: {fileID: 2136318876111220851}
   timeBetweenAttacks: 2
   projectile: {fileID: 3613797102332955812, guid: 60d336423d6d65f4da2738d0a60a281e, type: 3}
@@ -205,6 +215,28 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.8, y: 1.25}
   m_Direction: 0
+--- !u!114 &4022166034603779789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5027786179316383145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 962850506d49fd64b848eb2282ead7d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 30
+  maxHealth: 30
+  invulnerable: 0
+  currentStagger: 0
+  maxStagger: 0
+  staggerMultiplier: 0
+  unstaggeredDecreaseRate: 2
+  staggeredDecreaseRate: 15
+  staggered: 0
+  invincibilityTime: 0
 --- !u!1 &7797911662944418892
 GameObject:
   m_ObjectHideFlags: 0
@@ -214,7 +246,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8292060612791771080}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -246,7 +278,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1711584100173405632}
   - component: {fileID: 2712482975457123764}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Effects
   m_TagString: Untagged
   m_Icon: {fileID: 0}

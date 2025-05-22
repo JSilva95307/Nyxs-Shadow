@@ -109,12 +109,12 @@ public class TestMeleeEnemy : BaseEnemy
 
         if (target.x > transform.position.x)
         {
-            scale.x = Mathf.Abs(scale.x) * (flip ? -1 : 1);
+            //scale.x = Mathf.Abs(scale.x) * (flip ? -1 : 1);
             transform.Translate(x:speed * Time.deltaTime, y: 0, z: 0);
         }
         else
         {
-            scale.x = Mathf.Abs(scale.x) * -1 * (flip ? -1 : 1);
+            //scale.x = Mathf.Abs(scale.x) * -1 * (flip ? -1 : 1);
             transform.Translate(x:speed * Time.deltaTime * -1, y: 0, z: 0);
         }
 
