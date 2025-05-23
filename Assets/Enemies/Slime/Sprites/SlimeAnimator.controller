@@ -244,7 +244,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fce03d1e7704fc4e9df7fc85fc68924, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chaseSpeed: 5
   meleeRange: 1
 --- !u!1107 &2109377033363481000
 AnimatorStateMachine:
@@ -260,7 +259,7 @@ AnimatorStateMachine:
     m_Position: {x: 30, y: 220, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7817580165500585574}
-    m_Position: {x: 260, y: 20, z: 0}
+    m_Position: {x: 540, y: 50, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5530585262000374047}
     m_Position: {x: -120, y: 350, z: 0}
@@ -273,7 +272,7 @@ AnimatorStateMachine:
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
-  m_AnyStatePosition: {x: 50, y: 20, z: 0}
+  m_AnyStatePosition: {x: 800, y: 60, z: 0}
   m_EntryPosition: {x: 50, y: 120, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
@@ -341,7 +340,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   patrolDist: 7
-  patrolSpeed: 4
   patrolPoint: {x: 0, y: 0}
   goingRight: 1
 --- !u!1101 &7252474014087675314

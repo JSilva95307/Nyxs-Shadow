@@ -187,14 +187,14 @@ AnimatorStateMachine:
     m_Position: {x: -530, y: 210, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 4113312787261126145}
-    m_Position: {x: -530, y: 100, z: 0}
+    m_Position: {x: -830, y: 110, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: 6925916648886393750}
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
-  m_AnyStatePosition: {x: -510, y: 20, z: 0}
+  m_AnyStatePosition: {x: -810, y: 30, z: 0}
   m_EntryPosition: {x: 50, y: 120, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
@@ -212,7 +212,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meleeRange: 2
-  runSpeed: 10
 --- !u!114 &-4819310334109467990
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -226,7 +225,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   patrolDist: 15
-  patrolSpeed: 5
   patrolPoint: {x: 0, y: 0}
   goingRight: 1
 --- !u!1101 &-1955084263610167735
