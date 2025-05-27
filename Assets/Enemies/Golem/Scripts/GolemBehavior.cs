@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class GolemBehavior : BaseEnemy
@@ -14,9 +15,18 @@ public class GolemBehavior : BaseEnemy
 
     private bool dead = false;
 
+    //retreat vars
+    private float retreatTime;
+    private float retreatCD;
+    private bool canRetreat;
+
+
     void Start()
     {
         health = GetComponent<Health>();
+        health.AddDeathListener(PlayDeathAnimation);
+        canRetreat = true;
+        retreatCD = 3.0f;
     }
 
 
@@ -31,20 +41,22 @@ public class GolemBehavior : BaseEnemy
             timer = 0f;
         }
 
-        CheckGround();
-        movement = new Vector2(0, verticalSpeed);
-        transform.Translate(movement * 2 * Time.deltaTime);
-        
-        if(health.GetCurrentHealth() <= 0 && dead == false)
+        if (Vector2.Distance(transform.position, player.transform.position) <= 3 && canRetreat)
         {
-            PlayDeathAnimation();
-            dead = true;
+            animator.SetTrigger("Retreat");
+            transform.Translate(-transform.right * moveSpeed);
+            retreatTime = Time.time;
+            canRetreat = false;
         }
+        else if (retreatTime + retreatCD <= Time.time)
+            canRetreat = true;
+
+        CheckGround();
+        ApplyGravity();
 
         if (Input.GetKeyDown(KeyCode.T))
             TeleportToPlayer();
     }
-
 
     public override void Attack()
     {
