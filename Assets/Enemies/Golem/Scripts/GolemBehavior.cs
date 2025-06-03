@@ -7,7 +7,7 @@ public class GolemBehavior : BaseEnemy
     
     public float timeBetweenAttacks = 2f;
     public GameObject projectile;
-    public Transform spawnLocation;
+    public GameObject spawnLocation;
     
     
     private float timer = 0f;
@@ -56,6 +56,8 @@ public class GolemBehavior : BaseEnemy
 
         if (Input.GetKeyDown(KeyCode.T))
             TeleportToPlayer();
+
+        
     }
 
     public override void Attack()
@@ -75,11 +77,13 @@ public class GolemBehavior : BaseEnemy
 
     public void SpawnProjectile()
     {
-        Instantiate(projectile, spawnLocation.position, spawnLocation.rotation);
+        GameObject bullet = Instantiate(projectile, spawnLocation.transform.position, transform.rotation);
+        bullet.GetComponent<GolemProjectile>().FacePlayer();
     }
 
     public void PlayDeathAnimation()
     {
         animator.SetTrigger("Death"); // Animation calls function to destroy the gameobject
+        dead = true;
     }
 }
