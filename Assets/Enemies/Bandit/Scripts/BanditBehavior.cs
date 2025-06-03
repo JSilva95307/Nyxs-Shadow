@@ -11,7 +11,6 @@ public class BanditBehavior : BaseEnemy
     private int moneyCollected;
     private int moneyNeeded;
     private Health health;
-    private bool facingRight;
     private bool runningAway;
 
 

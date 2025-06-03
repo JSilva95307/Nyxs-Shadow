@@ -25,6 +25,7 @@ public class PlayerHunt : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         wolf.ChasePlayer();
+        wolf.LookAtPlayer();
         if (shouldMelee)
         {
             if (Vector2.Distance(player.position, rb.position) <= meleeRange)
