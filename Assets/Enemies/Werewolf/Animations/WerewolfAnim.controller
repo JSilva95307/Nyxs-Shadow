@@ -272,7 +272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meleeRange: 2
-  runAttackRange: 0
+  runAttackRange: 4
 --- !u!114 &-4819310334109467990
 MonoBehaviour:
   m_ObjectHideFlags: 1

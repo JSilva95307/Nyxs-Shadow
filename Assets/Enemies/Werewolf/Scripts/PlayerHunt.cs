@@ -7,7 +7,7 @@ public class PlayerHunt : StateMachineBehaviour
     Transform player;
     Transform rb;
     WerewolfBehavior wolf;
-    bool shouldMelee;
+    bool shouldRunAttack;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -15,10 +15,10 @@ public class PlayerHunt : StateMachineBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
         wolf = animator.GetComponent<WerewolfBehavior>();
         rb = wolf.GetTransform();
-        if (Vector2.Distance(player.position, rb.position) > 10)
-            shouldMelee = false;
+        if (Vector2.Distance(player.position, rb.position) < 10)
+            shouldRunAttack = false;
         else
-            shouldMelee = true;
+            shouldRunAttack = true;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -26,10 +26,10 @@ public class PlayerHunt : StateMachineBehaviour
     {
         wolf.ChasePlayer();
         wolf.LookAtPlayer();
-        if (shouldMelee)
+        if (!shouldRunAttack)
         {
             if (Vector2.Distance(player.position, rb.position) <= meleeRange)
-                animator.SetTrigger("Melee1");
+                animator.SetTrigger("Space");
         }
         else
         {
@@ -41,7 +41,7 @@ public class PlayerHunt : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.ResetTrigger("Melee1");
+        animator.ResetTrigger("Space");
         animator.ResetTrigger("RunAttack");
     }
 }
