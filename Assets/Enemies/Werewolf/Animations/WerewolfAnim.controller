@@ -570,8 +570,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 705f0f65fb1dbf74a9adc9cd01741770, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minFollowDist: 5
-  maxFollowDist: 8
+  minFollowDist: 3
+  maxFollowDist: 5
 --- !u!1101 &3946919815521076680
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
