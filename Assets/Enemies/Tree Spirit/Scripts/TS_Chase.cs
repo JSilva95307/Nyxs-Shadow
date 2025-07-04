@@ -19,12 +19,13 @@ public class TS_Chase : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         ts.LookAtPlayer();
-        ts.ChasePlayer();
 
         if(Vector2.Distance(curPos.position, player.position) <= spaceRange)
         {
             animator.SetTrigger("Space");
         }
+        else
+            ts.ChasePlayer();
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

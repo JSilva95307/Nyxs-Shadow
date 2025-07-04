@@ -27,18 +27,20 @@ public class TS_Space : StateMachineBehaviour
             curPos.Translate(-Vector2.right * (ts.GetMoveSpeed() * 0.5f) * Time.deltaTime);
             meleeTimer += Time.fixedDeltaTime;
         }
-        if (Vector2.Distance(curPos.position, player.position) > maxDist)
+        else if (Vector2.Distance(curPos.position, player.position) > maxDist)
         {
             curPos.Translate(Vector2.right * (ts.GetMoveSpeed() * 0.5f) * Time.deltaTime);
             runTimer += Time.fixedDeltaTime;
         }
+        else 
+            runTimer += Time.fixedDeltaTime;
         if (meleeTimer >= 0.75)
         {
-            animator.SetTrigger("Melee1");
+            animator.SetTrigger("Strike");
         }
         else if (runTimer >= 0.5)
         {
-            animator.SetTrigger("RunAttack");
+            animator.SetTrigger("Shoot");
         }
     }
 

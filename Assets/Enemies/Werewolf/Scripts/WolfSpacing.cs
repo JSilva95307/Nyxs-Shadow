@@ -29,11 +29,13 @@ public class WolfSpacing : StateMachineBehaviour
             wolfPos.Translate(-Vector2.right * (wolf.GetMoveSpeed() * 0.5f) * Time.deltaTime);
             meleeTimer += Time.fixedDeltaTime;
         }
-        if(Vector2.Distance(wolfPos.position, playerPos.position) > maxFollowDist)
+        else if (Vector2.Distance(wolfPos.position, playerPos.position) > maxFollowDist)
         {
             wolfPos.Translate(Vector2.right * (wolf.GetMoveSpeed() * 0.5f) * Time.deltaTime);
             runATimer += Time.fixedDeltaTime;
         }
+        else
+            runATimer += Time.fixedDeltaTime;
         if(meleeTimer >= 0.75)
         {
             animator.SetTrigger("Melee1");
