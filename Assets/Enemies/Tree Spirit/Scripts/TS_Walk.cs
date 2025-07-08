@@ -3,7 +3,7 @@ using UnityEngine;
 public class TS_Walk : StateMachineBehaviour
 {
     public float patrolDist = 3f;
-    bool goingRight = true;
+    bool goingRight = false;
     Vector2 patrolPoint = Vector2.zero;
     TreeSpiritEnemy ts;
     Transform rb;

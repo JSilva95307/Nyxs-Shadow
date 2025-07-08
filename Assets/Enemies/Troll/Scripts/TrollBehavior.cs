@@ -14,7 +14,6 @@ public class TrollBehavior : BaseEnemy
     public Transform spawnLocation;
     public int meleeDamage;
     private Health health;
-    private bool facingRight = true;
 
     private RaycastHit2D playerCheck;
 

@@ -8,7 +8,6 @@ public class TreeSpiritEnemy : BaseEnemy
     public Animator animator;
     public float playerCheckRange;
     public LayerMask playerMask;
-    private bool facingRight = true;
     public BoxCollider2D meleeCollider;
     public GameObject thorns;
     public Transform spawnLocation;

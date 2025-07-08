@@ -1,36 +1,27 @@
 using UnityEngine;
 
-public class TS_Chase : StateMachineBehaviour
+public class WerewolfRAttack : StateMachineBehaviour
 {
-    TreeSpiritEnemy ts;
-    Transform curPos;
+    WerewolfBehavior wolf;
+    Transform wolfPos;
     Transform player;
-    public float spaceRange;
-
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        ts = animator.GetComponent<TreeSpiritEnemy>();
-        curPos = ts.GetTransform();
+        wolf = animator.GetComponent<WerewolfBehavior>();
+        wolfPos = wolf.GetTransform();
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        ts.LookAtPlayer();
-
-        if(Vector2.Distance(curPos.position, player.position) <= spaceRange)
-        {
-            animator.SetTrigger("Space");
-        }
-        else
-            ts.ChasePlayer();
+        wolf.ChasePlayer();
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.ResetTrigger("Space");
+
     }
 }

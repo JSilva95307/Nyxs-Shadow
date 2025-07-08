@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class WerewolfBehavior : BaseEnemy
 {
@@ -10,7 +11,6 @@ public class WerewolfBehavior : BaseEnemy
     public Animator animator;
     public float playerCheckRange;
     public LayerMask playerMask;
-    private bool facingRight = true;
     public BoxCollider2D meleeCollider;
     public float wolfDamage;
 
@@ -40,12 +40,12 @@ public class WerewolfBehavior : BaseEnemy
 
         if (facingRight)
         {
-            playerCheck = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + 1), new Vector2(playerCheckRange, 0), -playerCheckRange, playerMask);
-            Debug.DrawRay(new Vector2(transform.position.x, transform.position.y + 1), new Vector2(-playerCheckRange, 0), Color.black);
+            playerCheck = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + 1), new Vector2(playerCheckRange, 0), playerCheckRange, playerMask);
+            Debug.DrawRay(new Vector2(transform.position.x, transform.position.y + 1), new Vector2(playerCheckRange, 0), Color.black);
         }
         else if (!facingRight)
         {
-            playerCheck = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + 1), new Vector2(-playerCheckRange, 0), -playerCheckRange, playerMask);
+            playerCheck = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + 1), new Vector2(-playerCheckRange, 0), playerCheckRange, playerMask);
             Debug.DrawRay(new Vector2(transform.position.x, transform.position.y + 1), new Vector2(-playerCheckRange, 0), Color.red);
         }
         if (playerCheck)
@@ -54,10 +54,6 @@ public class WerewolfBehavior : BaseEnemy
             Debug.Log("Player Spotted!");
             animator.SetTrigger("FoundPlayer");
             animator.SetBool("Patrol", false);
-        }
-        if (playerFound)
-        {
-            FacePlayer();
         }
 
         CheckGround();
@@ -99,20 +95,19 @@ public class WerewolfBehavior : BaseEnemy
 
     public void FlipWolf()
     {
-        Vector3 scale = transform.localScale;
+        Quaternion rotation = transform.rotation;
 
-        if (facingRight)
+        if (!facingRight)
         {
-            scale.x = Mathf.Abs(scale.x) * (facingRight ? -1 : 1);
-            facingRight = false;
+            rotation.y = 0;
+            facingRight = true;
         }
         else
         {
-            scale.x = Mathf.Abs(scale.x) * -1 * (facingRight ? -1 : 1);
-            facingRight = true;
+            rotation.y = 180;
+            facingRight = false;
         }
-
-        transform.localScale = scale;
+        transform.localRotation = rotation;
     }
     public void LookAtPlayer()
     {

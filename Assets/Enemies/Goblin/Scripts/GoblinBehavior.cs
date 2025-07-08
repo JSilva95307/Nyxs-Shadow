@@ -7,7 +7,6 @@ public class GoblinBehavior : BaseEnemy
     public float damage;
     public Animator animator;
     private Health health;
-    private bool facingRight;
     [SerializeField]private Vector2 spawnLocation;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
