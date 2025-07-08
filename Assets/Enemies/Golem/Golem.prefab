@@ -63,7 +63,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.13, y: -2.37, z: 0.15978718}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 1
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1711584100173405632}
   - {fileID: 7122870048885649984}
@@ -159,7 +159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab71c17f01c7ff84babfc7e9ff523a34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0
+  moveSpeed: 5
   gravityStrength: 4
   groundCheckPos: {fileID: 8292060612791771080}
   ledgeDetectOffset: {x: 0, y: 0, z: 0}
@@ -177,7 +177,13 @@ MonoBehaviour:
   animator: {fileID: 2136318876111220851}
   timeBetweenAttacks: 2
   projectile: {fileID: 3613797102332955812, guid: 60d336423d6d65f4da2738d0a60a281e, type: 3}
-  spawnLocation: {fileID: 7122870048885649984}
+  spawnLocation: {fileID: 188842148074545056}
+  retreatTime: 0
+  retreatCD: 3
+  retreatDistance: 3
+  canRetreat: 0
+  retreatQueued: 0
+  retreatDest: {x: 0, y: 0, z: 0}
 --- !u!70 &3299884675804310687
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

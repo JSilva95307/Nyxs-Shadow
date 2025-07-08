@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data.SqlTypes;
 using UnityEngine;
@@ -134,9 +135,14 @@ public class PlayerController : MonoBehaviour
     Vector2 playerVel = Vector2.zero;
     #endregion
 
+
+    public PlayerStates state;
     public GameObject groundCheck;
     public Vector2 boxSize;
     public float castDistance;
+
+    public bool isOnPlatform;
+    private BoxCollider2D playerCollider;
 
     // Awake executes only once you start to load the game
     private void Awake()
@@ -157,6 +163,7 @@ public class PlayerController : MonoBehaviour
     {
         isGrounded = false;
         playerHealth.SetCurrentHealth(playerHealth.GetMaxHealth());
+        playerCollider = GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
@@ -226,6 +233,15 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("Running", true);
         else
             animator.SetBool("Running", false);
+
+        if (Input.GetKey(KeyCode.S))
+        {
+            state = PlayerStates.Crouching;
+        }
+        else
+        {
+            state = PlayerStates.Standing;
+        }
 
     }
 
@@ -380,6 +396,11 @@ public class PlayerController : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext ctx)
     {
+        if (state == PlayerStates.Crouching)
+        {
+            Drop();
+            return;
+        }
         
         if (coyoteTimeCounter > 0f && ctx.performed)
         {
@@ -395,6 +416,38 @@ public class PlayerController : MonoBehaviour
         {
             rb.linearVelocityY = 0;
             coyoteTimeCounter = 0f;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Platform"))
+        {
+            isOnPlatform = true;
+        }
+    }
+
+    private void Drop()
+    {
+        if (isGrounded && isOnPlatform && playerCollider.enabled)
+        {
+            StartCoroutine(DisablePlayerCollider(.5f));
+        }
+        
+    }
+
+    private IEnumerator DisablePlayerCollider(float disableTime)
+    {
+        playerCollider.enabled = false;
+        yield return new WaitForSeconds(disableTime);
+        playerCollider.enabled = true;
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Platform"))
+        {
+            isOnPlatform = false;
         }
     }
 
