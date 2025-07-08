@@ -1,5 +1,7 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 public class GolemBehavior : BaseEnemy
 {
@@ -7,7 +9,7 @@ public class GolemBehavior : BaseEnemy
     
     public float timeBetweenAttacks = 2f;
     public GameObject projectile;
-    public Transform spawnLocation;
+    public GameObject spawnLocation;
     
     
     private float timer = 0f;
@@ -16,9 +18,12 @@ public class GolemBehavior : BaseEnemy
     private bool dead = false;
 
     //retreat vars
-    private float retreatTime;
-    private float retreatCD;
-    private bool canRetreat;
+    public float retreatTime;
+    public float retreatCD;
+    public float retreatDistance;
+    public bool canRetreat;
+    public bool retreatQueued;
+    public Vector3 retreatDest;
 
 
     void Start()
@@ -26,7 +31,6 @@ public class GolemBehavior : BaseEnemy
         health = GetComponent<Health>();
         health.AddDeathListener(PlayDeathAnimation);
         canRetreat = true;
-        retreatCD = 3.0f;
     }
 
 
@@ -34,6 +38,7 @@ public class GolemBehavior : BaseEnemy
     {
         timer += Time.deltaTime;
         FacePlayer();
+        
 
         if (timer > timeBetweenAttacks && !dead)
         {
@@ -41,22 +46,55 @@ public class GolemBehavior : BaseEnemy
             timer = 0f;
         }
 
-        if (Vector2.Distance(transform.position, player.transform.position) <= 3 && canRetreat)
+        if (Vector2.Distance(transform.position, player.transform.position) <= 3 && canRetreat && DetectWall() == false && DetectLedge() == false)
         {
-            animator.SetTrigger("Retreat");
-            transform.Translate(-transform.right * moveSpeed);
-            retreatTime = Time.time;
             canRetreat = false;
+            Retreat();
         }
         else if (retreatTime + retreatCD <= Time.time)
+        {
             canRetreat = true;
+        }
 
         CheckGround();
         ApplyGravity();
 
         if (Input.GetKeyDown(KeyCode.T))
             TeleportToPlayer();
+
+        if (retreatQueued)
+        {
+            transform.position = Vector3.Lerp(transform.position, retreatDest, moveSpeed * Time.deltaTime);
+        }
     }
+
+    
+    public void Retreat()
+    {
+        retreatDest = transform.position;
+        
+        if (facingRight)
+            retreatDest.x = transform.position.x - retreatDistance;
+        else
+            retreatDest.x = transform.position.x + retreatDistance;
+
+        animator.SetTrigger("Retreat"); // Retreat animation sets retreatQueued variable
+        retreatTime = Time.time;
+        canRetreat = false;
+    }
+
+
+    public void QueueRetreat()
+    {
+        retreatQueued = true;
+    }
+
+    public void UnQueueRetreat()
+    {
+        retreatQueued = false;
+        retreatDest = Vector3.zero;
+    }
+
 
     public override void Attack()
     {
@@ -75,11 +113,13 @@ public class GolemBehavior : BaseEnemy
 
     public void SpawnProjectile()
     {
-        Instantiate(projectile, spawnLocation.position, spawnLocation.rotation);
+        GameObject bullet = Instantiate(projectile, spawnLocation.transform.position, transform.rotation);
+        bullet.GetComponent<GolemProjectile>().FacePlayer();
     }
 
     public void PlayDeathAnimation()
     {
         animator.SetTrigger("Death"); // Animation calls function to destroy the gameobject
+        dead = true;
     }
 }
