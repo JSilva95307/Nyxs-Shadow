@@ -168,7 +168,7 @@ MonoBehaviour:
   wallDetectSpacing: 1.4
   groundLayerMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 4104
   collisionLayerMask:
     serializedVersion: 2
     m_Bits: 329

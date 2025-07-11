@@ -3,7 +3,7 @@ using UnityEngine;
 public class PassThroughPlatform : MonoBehaviour
 {
     private Collider2D collider;
-    private bool playerOnPlatform;
+    public bool playerOnPlatform;
 
     void Start()
     {
@@ -15,6 +15,12 @@ public class PassThroughPlatform : MonoBehaviour
         if (playerOnPlatform && Input.GetAxisRaw("Vertical") < 0)
         {
             //disable collision between platform and player here
+            Physics2D.IgnoreLayerCollision(8, 12, true);
+            Debug.Log("Passthrough");
+        }
+        else
+        {
+            Physics2D.IgnoreLayerCollision(8, 12, false);
         }
     }
 

@@ -433,14 +433,17 @@ public class PlayerController : MonoBehaviour
         {
             StartCoroutine(DisablePlayerCollider(.5f));
         }
-        
+
     }
 
     private IEnumerator DisablePlayerCollider(float disableTime)
     {
-        playerCollider.enabled = false;
+        //playerCollider.enabled = false;
+        //playerCollider.excludeLayers.
+        Physics2D.IgnoreLayerCollision(8, 12, true);
         yield return new WaitForSeconds(disableTime);
-        playerCollider.enabled = true;
+        //playerCollider.enabled = true;
+        Physics2D.IgnoreLayerCollision(8, 12, false);
     }
 
     private void OnCollisionExit2D(Collision2D collision)

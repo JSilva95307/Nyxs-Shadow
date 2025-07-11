@@ -1244,9 +1244,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1306693293}
   - component: {fileID: 1306693292}
+  - component: {fileID: 1306693296}
   - component: {fileID: 1306693294}
   - component: {fileID: 1306693295}
-  m_Layer: 3
+  m_Layer: 12
   m_Name: Test Platform
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -1377,10 +1378,10 @@ PlatformEffector2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1306693291}
   m_Enabled: 1
-  m_UseColliderMask: 1
+  m_UseColliderMask: 0
   m_ColliderMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 0
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
@@ -1388,6 +1389,19 @@ PlatformEffector2D:
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
+--- !u!114 &1306693296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1306693291}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b44d1bf589151b2499ee5db61eee48db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerOnPlatform: 0
 --- !u!1 &1517124448
 GameObject:
   m_ObjectHideFlags: 0
@@ -1607,10 +1621,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2526149530102757013, guid: b72d8c964d88367449ee4817d9ddcb48, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 77.6
-      objectReference: {fileID: 0}
     - target: {fileID: 2793163437225728115, guid: b72d8c964d88367449ee4817d9ddcb48, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1662,14 +1672,6 @@ PrefabInstance:
     - target: {fileID: 3929436132845275197, guid: b72d8c964d88367449ee4817d9ddcb48, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6600197960533121160, guid: b72d8c964d88367449ee4817d9ddcb48, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.22
-      objectReference: {fileID: 0}
-    - target: {fileID: 6763078889577680381, guid: b72d8c964d88367449ee4817d9ddcb48, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 69.89995
       objectReference: {fileID: 0}
     - target: {fileID: 6885869356568321765, guid: b72d8c964d88367449ee4817d9ddcb48, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1769,13 +1771,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Golem
       objectReference: {fileID: 0}
-    - target: {fileID: 5027786179316383145, guid: 54b33ab71a692da41a55703b4d0075a0, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7117896005127123647, guid: 54b33ab71a692da41a55703b4d0075a0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.72
+      value: 10.01
       objectReference: {fileID: 0}
     - target: {fileID: 7117896005127123647, guid: 54b33ab71a692da41a55703b4d0075a0, type: 3}
       propertyPath: m_LocalPosition.y

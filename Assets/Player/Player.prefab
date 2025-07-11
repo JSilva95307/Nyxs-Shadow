@@ -553,7 +553,7 @@ MonoBehaviour:
   playerHUD: {fileID: 7289704333276040269}
   groundLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 4104
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -608,9 +608,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 425e03949058b0f45b1e2224ba774b96, type: 2}
   - {fileID: 11400000, guid: 2e444f073081ca94bb2218803289e2fe, type: 2}
   grapplePoints: []
+  state: 0
   groundCheck: {fileID: 8090934320059184598}
   boxSize: {x: 0.74, y: 0.14}
   castDistance: 0.71
+  isOnPlatform: 0
 --- !u!114 &4362003692211823917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1326,7 +1328,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 315.60004, y: 94.50003}
+  m_AnchoredPosition: {x: 315.60004, y: 77.6}
   m_SizeDelta: {x: 100, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7589607546473502255
@@ -2650,7 +2652,7 @@ Transform:
   m_GameObject: {fileID: 7471091775809398431}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.79, z: -10}
+  m_LocalPosition: {x: 0, y: 2.22, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3178,7 +3180,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 315.6, y: 86.8}
+  m_AnchoredPosition: {x: 315.6, y: 69.89995}
   m_SizeDelta: {x: 100, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7990678579639053311
