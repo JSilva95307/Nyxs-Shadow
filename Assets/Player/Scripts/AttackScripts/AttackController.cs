@@ -32,6 +32,12 @@ public class AttackController : MonoBehaviour
 
     }
 
+    public void UpAttack(InputAction.CallbackContext ctx)
+    {
+        if (ctx.performed)
+            Debug.Log("UpAttack");
+    }
+
     public void CallResetHitbox()
     {
         BroadcastMessage("ResetHitbox");
