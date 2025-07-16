@@ -218,7 +218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c7c65fccb0bae14ebb37648865efa37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lungeDist: {x: 2, y: 6}
+  lungeDist: {x: 2, y: 10}
   damage: 20
   stagger: 10
 --- !u!114 &-7490320497099881060
@@ -440,7 +440,7 @@ AnimatorStateTransition:
   serializedVersion: 3
   m_TransitionDuration: 0.25
   m_TransitionOffset: 0
-  m_ExitTime: 0.75409836
+  m_ExitTime: 0.9
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0

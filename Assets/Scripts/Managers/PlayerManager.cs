@@ -53,6 +53,8 @@ public class PlayerManager : MonoBehaviour
     private void Update()
     {
         //lungeDist.x = Mathf.Lerp(lungeDist.x, 0f, 3f * Time.deltaTime);
+        lungeDist.y = Mathf.Lerp(lungeDist.y, 0f, (float)(1 - Mathf.Exp(-k * Time.deltaTime)));
+        Debug.Log(lungeDist.y);
         lungeDist.x = Mathf.Lerp(lungeDist.x, 0f, (float)(1 - Mathf.Exp(-k * Time.deltaTime)));
     }
 
