@@ -38,7 +38,6 @@ public class AttackController : MonoBehaviour
         if (ctx.performed && !isAttacking && !didUpAttackGround)
         { 
             didUpAttackGround = true;
-            isAttacking = true;
             Debug.Log("Up Attack Pt. 1");
         }
     }
