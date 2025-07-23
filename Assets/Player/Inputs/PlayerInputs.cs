@@ -170,6 +170,15 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""DownAttack"",
+                    ""type"": ""Button"",
+                    ""id"": ""a6be789d-230d-46e6-bbae-b9a09bf74295"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -495,11 +504,44 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""binding"",
                     ""id"": ""7cc1085f-f039-4adc-84ff-f09440605517"",
-                    ""path"": ""<Mouse>/leftButton"",
+                    ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""UpAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""One Modifier"",
+                    ""id"": ""ab416d2b-81a6-4c47-9195-a4a9ca1ab347"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DownAttack"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""d05442ca-7f80-4647-85fa-2e3fde3b1362"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DownAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""2f82a354-152e-48c1-a5a5-ecef5443517b"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DownAttack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 }
@@ -1103,6 +1145,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         m_Player_OpenInventory = m_Player.FindAction("OpenInventory", throwIfNotFound: true);
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
         m_Player_UpAttack = m_Player.FindAction("UpAttack", throwIfNotFound: true);
+        m_Player_DownAttack = m_Player.FindAction("DownAttack", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1198,6 +1241,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_OpenInventory;
     private readonly InputAction m_Player_Pause;
     private readonly InputAction m_Player_UpAttack;
+    private readonly InputAction m_Player_DownAttack;
     public struct PlayerActions
     {
         private @PlayerInputs m_Wrapper;
@@ -1218,6 +1262,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         public InputAction @OpenInventory => m_Wrapper.m_Player_OpenInventory;
         public InputAction @Pause => m_Wrapper.m_Player_Pause;
         public InputAction @UpAttack => m_Wrapper.m_Player_UpAttack;
+        public InputAction @DownAttack => m_Wrapper.m_Player_DownAttack;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1275,6 +1320,9 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @UpAttack.started += instance.OnUpAttack;
             @UpAttack.performed += instance.OnUpAttack;
             @UpAttack.canceled += instance.OnUpAttack;
+            @DownAttack.started += instance.OnDownAttack;
+            @DownAttack.performed += instance.OnDownAttack;
+            @DownAttack.canceled += instance.OnDownAttack;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -1327,6 +1375,9 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @UpAttack.started -= instance.OnUpAttack;
             @UpAttack.performed -= instance.OnUpAttack;
             @UpAttack.canceled -= instance.OnUpAttack;
+            @DownAttack.started -= instance.OnDownAttack;
+            @DownAttack.performed -= instance.OnDownAttack;
+            @DownAttack.canceled -= instance.OnDownAttack;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1525,6 +1576,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         void OnOpenInventory(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
         void OnUpAttack(InputAction.CallbackContext context);
+        void OnDownAttack(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

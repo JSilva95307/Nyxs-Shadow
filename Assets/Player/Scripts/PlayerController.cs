@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     public LayerMask grappleLayer;
     public LayerMask wallLayer;
     public Animator animator;
+    public Transform playerCenter;
 
     //public Collider2D gCheck;
     private Vector2 grapplePos;
