@@ -7,6 +7,8 @@ public class MoneyPickup : MonoBehaviour
     public float value;
     public float waitTime;
 
+    public float collectDist;
+
     private bool move = false;
 
     private void Start()
@@ -17,15 +19,15 @@ public class MoneyPickup : MonoBehaviour
 
     private void Update()
     {
-        if (move && Vector2.Distance(transform.position, PlayerManager.Instance.player.transform.position) >= 0.2f)
+        if (move /*&& Vector2.Distance(transform.position, PlayerManager.Instance._playerController.playerCenter.position) >= collectDist*/)
         {
-            transform.position = Vector2.Lerp(transform.position, PlayerManager.Instance.player.transform.position, speed * Time.deltaTime);
+            transform.position = Vector2.LerpUnclamped(transform.position, PlayerManager.Instance._playerController.playerCenter.position, speed * Time.deltaTime);
         }
-        else if(move && Vector2.Distance(transform.position, PlayerManager.Instance.player.transform.position) <= 0.2f)
+        
+        if (move && Vector2.Distance(transform.position, PlayerManager.Instance._playerController.playerCenter.position) <= collectDist)
         {
             Collect();
         }
-
     }
 
     public IEnumerator MoveToPlayer()
@@ -40,15 +42,9 @@ public class MoneyPickup : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        Debug.Log("COLLIDED");
-
-        if (other.gameObject.tag == "Player")
-        {
-            PlayerManager.Instance._playerController.money += value;
-            Debug.Log("Arrived");
-            Destroy(gameObject);
-        }
-    }
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.color = Color.green;
+    //    Gizmos.DrawLine(transform.position, PlayerManager.Instance._playerController.playerCenter.position);
+    //}
 }
