@@ -34,8 +34,10 @@ public class GolemBehavior : BaseEnemy
     }
 
 
-    private void Update()
+    protected override void Update()
     {
+        base.Update();
+
         timer += Time.deltaTime;
         FacePlayer();
         

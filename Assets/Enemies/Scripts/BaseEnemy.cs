@@ -19,6 +19,10 @@ public abstract class BaseEnemy : MonoBehaviour
     public LayerMask collisionLayerMask;
     public bool facingRight;
     public bool grounded;
+
+    public Vector2 launchDir;
+    public float k = 3; //k = excitation constant (lower k (~1-2) for sluggish movement, higher k (~10) for move snappish behavior)
+
     protected Vector2 movement;
     protected float verticalSpeed;
     protected GameObject player;
@@ -39,10 +43,52 @@ public abstract class BaseEnemy : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
-    private void Update()
+    protected virtual void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T))
-            TeleportToPlayer();
+        //if (Input.GetKeyDown(KeyCode.T))
+        //    TeleportToPlayer();
+
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            launchDir.y += 10f;
+            Debug.Log("Launched");
+        }
+
+
+        launchDir.x = Mathf.Lerp(launchDir.x, 0f, (float)(1 - Mathf.Exp(-k * Time.deltaTime)));
+        launchDir.y = Mathf.Lerp(launchDir.y, 0f, (float)(1 - Mathf.Exp(-k * Time.deltaTime)));
+
+        if(launchDir.x > 0.5f)
+        {
+            launchDir.x = 0;
+        }
+        
+        if (launchDir.y > 0.5f)
+        {
+            launchDir.y = 0;
+        }
+    }
+
+    protected virtual void FixedUpdate()
+    {
+        ApplyLaunch();
+
+
+    }
+
+    private void ApplyLaunch()
+    {
+        if(launchDir != Vector2.zero)
+        {
+            Vector3 temp = Vector3.zero;
+            float tempX = (movement.x + (launchDir.x + transform.localScale.x)) * moveSpeed;
+            float tempY = (movement.y + (launchDir.y + transform.localScale.y)) * moveSpeed;
+
+            temp.x = tempX;
+            temp.y = tempY;
+
+            transform.position = temp;
+        }
     }
 
     public void CheckGround()
