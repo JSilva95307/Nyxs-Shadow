@@ -249,8 +249,13 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         rb.linearVelocityX = (playerVel.x + (PlayerManager.Instance.lungeDist.x * transform.localScale.x)) * movementSpeed ;
-
-
+        if (PlayerManager.Instance.lungeDist.y >= 1)
+            rb.linearVelocityY = (playerVel.y + (PlayerManager.Instance.lungeDist.y * transform.localScale.y));
+        else
+        {
+            PlayerManager.Instance.lungeDist.y = 0;
+        }
+            
         //rb.MovePosition(transform.position + );
 
         if (!canDash)

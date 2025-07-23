@@ -161,6 +161,15 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""UpAttack"",
+                    ""type"": ""Button"",
+                    ""id"": ""e9c6695d-cb9e-4345-9221-286b0c46b24c"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -460,6 +469,39 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""One Modifier"",
+                    ""id"": ""73520261-4db2-40f3-b095-5a8bc6649ab8"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UpAttack"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""9c531292-9d7b-432d-8b18-f29f37a0769a"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UpAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""7cc1085f-f039-4adc-84ff-f09440605517"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UpAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         },
@@ -1060,6 +1102,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         m_Player_UIState = m_Player.FindAction("UIState", throwIfNotFound: true);
         m_Player_OpenInventory = m_Player.FindAction("OpenInventory", throwIfNotFound: true);
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
+        m_Player_UpAttack = m_Player.FindAction("UpAttack", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1154,6 +1197,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_UIState;
     private readonly InputAction m_Player_OpenInventory;
     private readonly InputAction m_Player_Pause;
+    private readonly InputAction m_Player_UpAttack;
     public struct PlayerActions
     {
         private @PlayerInputs m_Wrapper;
@@ -1173,6 +1217,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         public InputAction @UIState => m_Wrapper.m_Player_UIState;
         public InputAction @OpenInventory => m_Wrapper.m_Player_OpenInventory;
         public InputAction @Pause => m_Wrapper.m_Player_Pause;
+        public InputAction @UpAttack => m_Wrapper.m_Player_UpAttack;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1227,6 +1272,9 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @Pause.started += instance.OnPause;
             @Pause.performed += instance.OnPause;
             @Pause.canceled += instance.OnPause;
+            @UpAttack.started += instance.OnUpAttack;
+            @UpAttack.performed += instance.OnUpAttack;
+            @UpAttack.canceled += instance.OnUpAttack;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -1276,6 +1324,9 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @Pause.started -= instance.OnPause;
             @Pause.performed -= instance.OnPause;
             @Pause.canceled -= instance.OnPause;
+            @UpAttack.started -= instance.OnUpAttack;
+            @UpAttack.performed -= instance.OnUpAttack;
+            @UpAttack.canceled -= instance.OnUpAttack;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1473,6 +1524,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         void OnUIState(InputAction.CallbackContext context);
         void OnOpenInventory(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
+        void OnUpAttack(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
