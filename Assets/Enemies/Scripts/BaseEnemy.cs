@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor.Tilemaps;
 using UnityEngine;
@@ -20,6 +21,12 @@ public abstract class BaseEnemy : MonoBehaviour
     public bool facingRight;
     public bool grounded;
 
+    public bool dropMoney;
+    public float dropAmount;
+    public GameObject moneyPickup;
+    protected MoneyPickup pickupRef;
+    protected List<MoneyPickup> drops;
+
     public Vector2 launchDir;
     public float k = 3; //k = excitation constant (lower k (~1-2) for sluggish movement, higher k (~10) for move snappish behavior)
 
@@ -34,8 +41,22 @@ public abstract class BaseEnemy : MonoBehaviour
     public abstract void Attack2();
     public abstract void Attack3();
 
-    private void Start()
+    protected virtual void Start()
     {
+        drops = new List<MoneyPickup>();
+
+        if (dropMoney)
+        {
+            for (int i = 0; i < dropAmount; i++)
+            {
+                Debug.Log("spawned pickup");
+                GameObject money = Instantiate(moneyPickup);
+                pickupRef = money.GetComponent<MoneyPickup>();
+                money.transform.position = transform.position;
+                money.transform.parent = transform;
+                drops.Add(pickupRef);
+            }
+        }
     }
 
     private void Awake()

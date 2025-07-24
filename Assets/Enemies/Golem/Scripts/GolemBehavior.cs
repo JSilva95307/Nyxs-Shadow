@@ -26,8 +26,10 @@ public class GolemBehavior : BaseEnemy
     public Vector3 retreatDest;
 
 
-    void Start()
+    protected override void Start()
     {
+        base.Start();
+
         health = GetComponent<Health>();
         health.AddDeathListener(PlayDeathAnimation);
         canRetreat = true;
@@ -36,6 +38,8 @@ public class GolemBehavior : BaseEnemy
 
     protected override void Update()
     {
+        if(dead) return;
+
         base.Update();
 
         timer += Time.deltaTime;
@@ -123,5 +127,11 @@ public class GolemBehavior : BaseEnemy
     {
         animator.SetTrigger("Death"); // Animation calls function to destroy the gameobject
         dead = true;
+
+        for (int i = 0; i < drops.Count; i++)
+        {
+            drops[i].StartCoroutine(drops[i].MoveToPlayer());
+        }
+
     }
 }
