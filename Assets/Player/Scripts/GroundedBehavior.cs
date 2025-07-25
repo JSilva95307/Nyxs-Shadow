@@ -23,7 +23,21 @@ public class GroundedBehavior : StateMachineBehaviour
         else if (AttackController.instance.didUpAttackGround && PlayerManager.Instance._playerController.isGrounded)
         {
             AttackController.instance.animator.Play("SwordUpAttack");
-            Debug.Log("Sword Up Attack Pt. 2");
+        }
+        else if (AttackController.instance.downAttackLv1 && PlayerManager.Instance._playerController.isGrounded)
+        {
+            AttackController.instance.animator.Play("DL1");
+            Debug.Log("Down attack level 1");
+        }
+        else if (AttackController.instance.downAttackLv2 && PlayerManager.Instance._playerController.isGrounded)
+        {
+            AttackController.instance.animator.Play("DL2");
+            Debug.Log("Down attack level 2");
+        }
+        else if (AttackController.instance.downAttackLv3 && PlayerManager.Instance._playerController.isGrounded)
+        {
+            AttackController.instance.animator.Play("DL3");
+            Debug.Log("Down attack level 3");
         }
     }
 
@@ -32,6 +46,10 @@ public class GroundedBehavior : StateMachineBehaviour
     {
         AttackController.instance.isAttacking = false;
         AttackController.instance.didUpAttackGround = false;
+        AttackController.instance.downAttackLv1 = false;
+        AttackController.instance.downAttackLv2 = false;
+        AttackController.instance.downAttackLv3 = false;
+        AttackController.instance.downAttacking = false;
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
