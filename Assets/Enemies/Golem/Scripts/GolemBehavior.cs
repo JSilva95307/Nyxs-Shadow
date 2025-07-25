@@ -5,25 +5,31 @@ using UnityEngine.PlayerLoop;
 
 public class GolemBehavior : BaseEnemy
 {
+    [Space(10)]
+    [Header("Functionality Vars")]
     public Animator animator;
-    
+    private float timer = 0f;
+    private Health health;
+    //private bool dead = false;
+
+
+    [Space(10)]
+    [Header("Attack Vars")]
     public float timeBetweenAttacks = 2f;
     public GameObject projectile;
     public GameObject spawnLocation;
     
     
-    private float timer = 0f;
-    private Health health;
-
-    private bool dead = false;
-
-    //retreat vars
+    [Space(10)]
+    [Header("Retreat Vars")]
     public float retreatTime;
     public float retreatCD;
     public float retreatDistance;
     public bool canRetreat;
     public bool retreatQueued;
     public Vector3 retreatDest;
+
+
 
 
     protected override void Start()
@@ -68,7 +74,7 @@ public class GolemBehavior : BaseEnemy
         if (Input.GetKeyDown(KeyCode.T))
             TeleportToPlayer();
 
-        if (retreatQueued)
+        if (retreatQueued && DetectWall() == false && DetectLedge() == false)
         {
             transform.position = Vector3.Lerp(transform.position, retreatDest, moveSpeed * Time.deltaTime);
         }
@@ -126,6 +132,8 @@ public class GolemBehavior : BaseEnemy
     public void PlayDeathAnimation()
     {
         animator.SetTrigger("Death"); // Animation calls function to destroy the gameobject
+        mainCollision.enabled = false;
+
         dead = true;
 
         for (int i = 0; i < drops.Count; i++)

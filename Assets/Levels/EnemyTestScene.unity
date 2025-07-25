@@ -1341,67 +1341,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 633594caebd16404a85076b48f8c0385, type: 3}
---- !u!1001 &5118438386803554422
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2952828320719631703, guid: 3d0012ef3cf1a644d95dbc166e470821, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 7.1321344
-      objectReference: {fileID: 0}
-    - target: {fileID: 2952828320719631703, guid: 3d0012ef3cf1a644d95dbc166e470821, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.40535098
-      objectReference: {fileID: 0}
-    - target: {fileID: 2952828320719631703, guid: 3d0012ef3cf1a644d95dbc166e470821, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -2.2076478
-      objectReference: {fileID: 0}
-    - target: {fileID: 2952828320719631703, guid: 3d0012ef3cf1a644d95dbc166e470821, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2952828320719631703, guid: 3d0012ef3cf1a644d95dbc166e470821, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2952828320719631703, guid: 3d0012ef3cf1a644d95dbc166e470821, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2952828320719631703, guid: 3d0012ef3cf1a644d95dbc166e470821, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2952828320719631703, guid: 3d0012ef3cf1a644d95dbc166e470821, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2952828320719631703, guid: 3d0012ef3cf1a644d95dbc166e470821, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2952828320719631703, guid: 3d0012ef3cf1a644d95dbc166e470821, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8554566041734466576, guid: 3d0012ef3cf1a644d95dbc166e470821, type: 3}
-      propertyPath: m_Name
-      value: Money Pickup
-      objectReference: {fileID: 0}
-    - target: {fileID: 8554566041734466576, guid: 3d0012ef3cf1a644d95dbc166e470821, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 3d0012ef3cf1a644d95dbc166e470821, type: 3}
 --- !u!1001 &5750559383252141524
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1677,6 +1616,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Golem
       objectReference: {fileID: 0}
+    - target: {fileID: 6740228670636189923, guid: 54b33ab71a692da41a55703b4d0075a0, type: 3}
+      propertyPath: showDetection
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6740228670636189923, guid: 54b33ab71a692da41a55703b4d0075a0, type: 3}
+      propertyPath: wallDetectSpacing
+      value: 0.71
+      objectReference: {fileID: 0}
+    - target: {fileID: 6740228670636189923, guid: 54b33ab71a692da41a55703b4d0075a0, type: 3}
+      propertyPath: ledgeDetectSpacing
+      value: 0.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 6740228670636189923, guid: 54b33ab71a692da41a55703b4d0075a0, type: 3}
+      propertyPath: wallDetectOffset.x
+      value: -0.12
+      objectReference: {fileID: 0}
     - target: {fileID: 7117896005127123647, guid: 54b33ab71a692da41a55703b4d0075a0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.43
@@ -1734,4 +1689,3 @@ SceneRoots:
   - {fileID: 6668402597142067829}
   - {fileID: 1708420099927458829}
   - {fileID: 5750559383252141524}
-  - {fileID: 5118438386803554422}

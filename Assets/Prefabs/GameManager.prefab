@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e49bf7f4575059049932d5fdd7c6e3e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moneyPickup: {fileID: 8554566041734466576, guid: 3d0012ef3cf1a644d95dbc166e470821, type: 3}
 --- !u!114 &6379350398026913869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58,7 +59,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  playerCamera: {fileID: 0}
+  _playerController: {fileID: 0}
+  cameraShake: {fileID: 0}
+  playerHUD: {fileID: 0}
   lungeDist: {x: 0, y: 0}
   damage: 10
+  stagger: 0
+  recentEnemyMaxHealth: 0
+  recentEnemyHealth: 0
+  recentEnemyMaxStagger: 0
+  recentEnemyStagger: 0
   health: 0
   k: 10

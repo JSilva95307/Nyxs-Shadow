@@ -166,14 +166,13 @@ MonoBehaviour:
   ledgeDetectSpacing: 1.2
   wallDetectOffset: {x: 0, y: 0, z: 0}
   wallDetectSpacing: 1.4
+  mainCollision: {fileID: 3299884675804310687}
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 4104
   collisionLayerMask:
     serializedVersion: 2
     m_Bits: 329
-  facingRight: 0
-  grounded: 0
   dropMoney: 1
   dropAmount: 5
   moneyPickup: {fileID: 8554566041734466576, guid: 3d0012ef3cf1a644d95dbc166e470821, type: 3}
