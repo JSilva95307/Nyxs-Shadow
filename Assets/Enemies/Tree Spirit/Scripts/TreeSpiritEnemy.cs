@@ -5,7 +5,7 @@ public class TreeSpiritEnemy : BaseEnemy
 {
     private Health health;
 
-    public Animator animator;
+    //public Animator animator;
     public float playerCheckRange;
     public LayerMask playerMask;
     public BoxCollider2D meleeCollider;
@@ -16,17 +16,19 @@ public class TreeSpiritEnemy : BaseEnemy
     RaycastHit2D playerCheck;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         health = GetComponent<Health>();
-        health.AddDeathListener(PlayDeathAnim);
+        health.AddDeathListener(Die);
         meleeCollider.enabled = false;
         playerFound = false;
     }
 
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
+        base.Update();
         CheckGround();
         ApplyGravity();
 
@@ -76,10 +78,10 @@ public class TreeSpiritEnemy : BaseEnemy
         meleeCollider.enabled = false;
     }
 
-    public void PlayDeathAnim()
-    {
-        animator.SetTrigger("Die");
-    }
+    //public void PlayDeathAnim()
+    //{
+    //    animator.SetTrigger("Die");
+    //}
 
     public void FireProjectile()
     {

@@ -5,21 +5,25 @@ public class GoblinBehavior : BaseEnemy
 {
     public BoxCollider2D hitbox;
     public float damage;
-    public Animator animator;
+    //public Animator animator;
     private Health health;
     [SerializeField]private Vector2 spawnLocation;
-    
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    protected override void Start()
     {
+        base.Start();
+
         health = GetComponent<Health>();
         health.AddDeathListener(PlayDeathAnim);
         hitbox.enabled = false;
     }
 
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
+        base.Update();
+
         CheckGround();
         ApplyGravity();
         facingRight = true;
@@ -75,6 +79,11 @@ public class GoblinBehavior : BaseEnemy
     public void PlayDeathAnim()
     {
         animator.SetTrigger("Die");
+
+        for (int i = 0; i < drops.Count; i++)
+        {
+            drops[i].StartCoroutine(drops[i].MoveToPlayer());
+        }
     }
 
     public void LookAtPlayer()

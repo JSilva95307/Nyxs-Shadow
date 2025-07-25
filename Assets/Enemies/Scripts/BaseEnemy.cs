@@ -6,6 +6,10 @@ using static UnityEditor.PlayerSettings;
 
 public abstract class BaseEnemy : MonoBehaviour
 {
+    [Header("Functionality")]
+    public Animator animator;
+
+    [Space(10)]
     [Header("Movement")]
     public float moveSpeed;
     public float gravityStrength;
@@ -21,6 +25,7 @@ public abstract class BaseEnemy : MonoBehaviour
     public Vector3 wallDetectOffset = new Vector3(0f, 0f, 0f);
     public float wallDetectSpacing = 1.4f;
     public Collider2D mainCollision;
+    protected Rigidbody2D rb;
 
     [Space(5)]
     public bool showDetection;
@@ -65,7 +70,9 @@ public abstract class BaseEnemy : MonoBehaviour
     protected virtual void Start()
     {
         drops = new List<MoneyPickup>();
-        
+        rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+
         if (dropMoney)
         {
             for (int i = 0; i < dropAmount; i++)
@@ -89,28 +96,30 @@ public abstract class BaseEnemy : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.L))
         {
-            launchDir.y += 10f;
+            launchDir.y += 5f;
+            rb.AddForce(launchDir);
             Debug.Log("Launched");
         }
-
 
         launchDir.x = Mathf.Lerp(launchDir.x, 0f, (float)(1 - Mathf.Exp(-k * Time.deltaTime)));
         launchDir.y = Mathf.Lerp(launchDir.y, 0f, (float)(1 - Mathf.Exp(-k * Time.deltaTime)));
 
-        if(launchDir.x > 0.5f)
+        if(launchDir.x < 0.5f)
         {
             launchDir.x = 0;
         }
         
-        if (launchDir.y > 0.5f)
+        if (launchDir.y < 0.5f)
         {
             launchDir.y = 0;
         }
+
+        ApplyLaunch();
     }
 
     protected virtual void FixedUpdate()
     {
-        ApplyLaunch();
+        
 
 
     }
@@ -119,14 +128,17 @@ public abstract class BaseEnemy : MonoBehaviour
     {
         if(launchDir != Vector2.zero)
         {
-            Vector3 temp = Vector3.zero;
-            float tempX = (movement.x + (launchDir.x + transform.localScale.x)) * moveSpeed;
-            float tempY = (movement.y + (launchDir.y + transform.localScale.y)) * moveSpeed;
+            //Vector3 temp = Vector3.zero;
+            //float tempX = (movement.x + (launchDir.x + transform.localScale.x)) * moveSpeed;
+            //float tempY = (movement.y + (launchDir.y + transform.localScale.y)) * moveSpeed;
 
-            temp.x = tempX;
-            temp.y = tempY;
+            //temp.x = tempX;
+            //temp.y = tempY;
 
-            transform.position = temp;
+            //transform.position = temp;
+
+            rb.linearVelocityX = (movement.x + (launchDir.x * transform.localScale.x)) * moveSpeed;
+            rb.linearVelocityY = (movement.y + (launchDir.y * transform.localScale.y)) * moveSpeed;
         }
     }
 
@@ -146,6 +158,22 @@ public abstract class BaseEnemy : MonoBehaviour
     }
 
     public void Die()
+    {
+        animator.SetTrigger("Die");
+        mainCollision.enabled = false;
+
+        if (rb != null)
+            rb.gravityScale = 0;
+
+        dead = true;
+
+        for (int i = 0; i < drops.Count; i++)
+        {
+            drops[i].StartCoroutine(drops[i].MoveToPlayer());
+        }
+    }
+
+    public void DestroyEnemy()
     {
         Destroy(gameObject);
     }

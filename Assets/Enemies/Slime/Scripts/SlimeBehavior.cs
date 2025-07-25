@@ -4,7 +4,7 @@ public class SlimeBehavior : BaseEnemy
 {
     public BoxCollider2D hitbox;
     public float damage;
-    public Animator animator;
+    //public Animator animator;
 
     private Health health;
 
@@ -14,10 +14,11 @@ public class SlimeBehavior : BaseEnemy
     RaycastHit2D playerCheck;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         health = GetComponent<Health>();
-        health.AddDeathListener(PlayDeathAnim);
+        health.AddDeathListener(Die);
         animator.SetBool("Patrol", true);
         hitbox.enabled = false;
     }
@@ -42,8 +43,9 @@ public class SlimeBehavior : BaseEnemy
     }
 
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
+        base.Update();
         if (targetSet == true && Vector2.Distance(targetLocation, transform.position) > 0.25f)
         {
             MoveTo();
@@ -87,11 +89,10 @@ public class SlimeBehavior : BaseEnemy
         }
     }
 
-    private void PlayDeathAnim()
-    {
-        Debug.Log("Died");
-        animator.SetTrigger("Die");
-    }
+    //private void PlayDeathAnim()
+    //{
+    //    Die();
+    //}
 
     public void FlipSlime()
     {

@@ -7,7 +7,7 @@ public class GolemBehavior : BaseEnemy
 {
     [Space(10)]
     [Header("Functionality Vars")]
-    public Animator animator;
+    //public Animator animator;
     private float timer = 0f;
     private Health health;
     //private bool dead = false;
@@ -131,8 +131,11 @@ public class GolemBehavior : BaseEnemy
 
     public void PlayDeathAnimation()
     {
-        animator.SetTrigger("Death"); // Animation calls function to destroy the gameobject
+        animator.SetTrigger("Die"); // Animation calls function to destroy the gameobject
         mainCollision.enabled = false;
+        
+        if(rb != null)
+            rb.gravityScale = 0;
 
         dead = true;
 

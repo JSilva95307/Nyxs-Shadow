@@ -8,7 +8,7 @@ public class WerewolfBehavior : BaseEnemy
 
     private Health health;
 
-    public Animator animator;
+    //public Animator animator;
     public float playerCheckRange;
     public LayerMask playerMask;
     public BoxCollider2D meleeCollider;
@@ -17,17 +17,19 @@ public class WerewolfBehavior : BaseEnemy
     RaycastHit2D playerCheck;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         health = GetComponent<Health>();
-        health.AddDeathListener(PlayDeathAnim);
+        health.AddDeathListener(Die);
         animator.SetBool("Patrol", true);
         meleeCollider.enabled = false;
     }
 
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
+        base.Update();
         if (targetSet == true && Vector2.Distance(targetLocation, transform.position) > 0.25f)
         {
             MoveTo();
@@ -87,11 +89,11 @@ public class WerewolfBehavior : BaseEnemy
     {
         meleeCollider.enabled = false;
     }
-    private void PlayDeathAnim()
-    {
-        Debug.Log("Died");
-        animator.SetTrigger("Die");
-    }
+    //private void PlayDeathAnim()
+    //{
+    //    Debug.Log("Died");
+    //    animator.SetTrigger("Die");
+    //}
 
     public void FlipWolf()
     {

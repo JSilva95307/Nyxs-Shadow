@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class BanditBehavior : BaseEnemy
 {
-    public Animator animator;
+    //public Animator animator;
     public float playerCheckRange;
     public LayerMask playerMask;
     public BoxCollider2D meleeCollider;
@@ -16,20 +16,22 @@ public class BanditBehavior : BaseEnemy
 
     private RaycastHit2D playerCheck;
     // Start is called once before the first execution of Update after the Mono Behaviour is created
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         facingRight = true;
         runningAway = false;
         moneyCollected = 0;
         health = GetComponent<Health>();
-        health.AddDeathListener(BanditDeath);
+        health.AddDeathListener(Die);
         meleeCollider.enabled = false;
         moneyNeeded = Random.Range(15, 75);
     }
 
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
+        base.Update();
         CheckGround();
         ApplyGravity();
 
@@ -96,7 +98,7 @@ public class BanditBehavior : BaseEnemy
         facingRight = !facingRight;
     }
     public void LookAtPlayer() { FacePlayer(); }
-    public void BanditDeath() {  }
+    //public void BanditDeath() {  }
 
     public void LookAwayFromPlayer()
     {
