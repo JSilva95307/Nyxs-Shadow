@@ -120,16 +120,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 594c3c39a6ee63d46a79f09c25e78266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 4717854337890597889}
   moveSpeed: 3
   gravityStrength: 8
   groundCheckPos: {fileID: 2822781452033144229}
+  ledgeDetectOffset: {x: 0, y: 0, z: 0}
+  ledgeDetectSpacing: 1.2
+  wallDetectOffset: {x: 0, y: 0, z: 0}
+  wallDetectSpacing: 1.4
+  mainCollision: {fileID: 6838083273403575067}
+  showDetection: 0
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 8
-  grounded: 0
+  collisionLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  dropMoney: 1
+  dropAmount: 20
+  launchDir: {x: 0, y: 0}
+  k: 3
   slapDamage: 0
   smashDamage: 0
-  animator: {fileID: 4717854337890597889}
   playerCheckRange: 0
   playerMask:
     serializedVersion: 2

@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance {  get { return _instance; } }
 
+    public GameObject moneyPickup;
+
     private void Awake()
     {
         if (_instance != null && _instance != this)

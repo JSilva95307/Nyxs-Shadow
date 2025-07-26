@@ -5,19 +5,23 @@ using UnityEngine.PlayerLoop;
 
 public class GolemBehavior : BaseEnemy
 {
-    public Animator animator;
-    
+    [Space(10)]
+    [Header("Functionality Vars")]
+    //public Animator animator;
+    private float timer = 0f;
+    private Health health;
+    //private bool dead = false;
+
+
+    [Space(10)]
+    [Header("Attack Vars")]
     public float timeBetweenAttacks = 2f;
     public GameObject projectile;
     public GameObject spawnLocation;
     
     
-    private float timer = 0f;
-    private Health health;
-
-    private bool dead = false;
-
-    //retreat vars
+    [Space(10)]
+    [Header("Retreat Vars")]
     public float retreatTime;
     public float retreatCD;
     public float retreatDistance;
@@ -26,16 +30,24 @@ public class GolemBehavior : BaseEnemy
     public Vector3 retreatDest;
 
 
-    void Start()
+
+
+    protected override void Start()
     {
+        base.Start();
+
         health = GetComponent<Health>();
         health.AddDeathListener(PlayDeathAnimation);
         canRetreat = true;
     }
 
 
-    private void Update()
+    protected override void Update()
     {
+        if(dead) return;
+
+        base.Update();
+
         timer += Time.deltaTime;
         FacePlayer();
         
@@ -62,7 +74,7 @@ public class GolemBehavior : BaseEnemy
         if (Input.GetKeyDown(KeyCode.T))
             TeleportToPlayer();
 
-        if (retreatQueued)
+        if (retreatQueued && DetectWall() == false && DetectLedge() == false)
         {
             transform.position = Vector3.Lerp(transform.position, retreatDest, moveSpeed * Time.deltaTime);
         }
@@ -119,7 +131,18 @@ public class GolemBehavior : BaseEnemy
 
     public void PlayDeathAnimation()
     {
-        animator.SetTrigger("Death"); // Animation calls function to destroy the gameobject
+        animator.SetTrigger("Die"); // Animation calls function to destroy the gameobject
+        mainCollision.enabled = false;
+        
+        if(rb != null)
+            rb.gravityScale = 0;
+
         dead = true;
+
+        for (int i = 0; i < drops.Count; i++)
+        {
+            drops[i].StartCoroutine(drops[i].MoveToPlayer());
+        }
+
     }
 }

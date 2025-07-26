@@ -5,7 +5,7 @@ public class TrollBehavior : BaseEnemy
 {
     public float slapDamage;
     public float smashDamage;
-    public Animator animator;
+    //public Animator animator;
     public float playerCheckRange;
     public LayerMask playerMask;
     public BoxCollider2D meleeCollider;
@@ -18,17 +18,19 @@ public class TrollBehavior : BaseEnemy
     private RaycastHit2D playerCheck;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         health = GetComponent<Health>();
         meleeCollider.enabled = false;
         slamCollider.enabled = false;
-        health.AddDeathListener(TrollDeath);
+        health.AddDeathListener(Die);
     }
 
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
+        base.Update();
         CheckGround();
         ApplyGravity();
 
@@ -110,7 +112,7 @@ public class TrollBehavior : BaseEnemy
         facingRight = !facingRight;
     }
     public void LookAtPlayer() { FacePlayer(); }
-    public void TrollDeath() { animator.SetTrigger("Die"); }
+    //public void TrollDeath() { animator.SetTrigger("Die"); }
 
     public void ShockwaveSpawn()
     {

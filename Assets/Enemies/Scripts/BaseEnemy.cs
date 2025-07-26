@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor.Tilemaps;
 using UnityEngine;
@@ -5,33 +6,85 @@ using static UnityEditor.PlayerSettings;
 
 public abstract class BaseEnemy : MonoBehaviour
 {
+    [Header("Functionality")]
+    public Animator animator;
+
+    [Space(10)]
+    [Header("Movement")]
     public float moveSpeed;
     public float gravityStrength;
     public Transform groundCheckPos;
+    protected Vector2 movement;
+    protected float verticalSpeed;
 
+    [Space(10)]
+    [Header("Detection")]
     public Vector3 ledgeDetectOffset = new Vector3(0f, 0f, 0f);
     public float ledgeDetectSpacing = 1.2f;
 
     public Vector3 wallDetectOffset = new Vector3(0f, 0f, 0f);
     public float wallDetectSpacing = 1.4f;
+    public Collider2D mainCollision;
+    protected Rigidbody2D rb;
 
+    [Space(5)]
+    public bool showDetection;
+
+
+
+
+    [Space(10)]
+    [Header("Layer Masks")]
     public LayerMask groundLayerMask;
     public LayerMask collisionLayerMask;
-    public bool facingRight;
-    public bool grounded;
-    protected Vector2 movement;
-    protected float verticalSpeed;
+
+    [Space(10)]
+    [Header("Money Vars")]
+    public bool dropMoney;
+    public float dropAmount;
+    //public GameObject moneyPickup;
+    protected MoneyPickup pickupRef;
+    protected List<MoneyPickup> drops;
+
+
+    [Space(10)]
+    [Header("Launch Vars")]
+    public Vector2 launchDir;
+    public float k = 3; //k = excitation constant (lower k (~1-2) for sluggish movement, higher k (~10) for move snappish behavior)
+
     protected GameObject player;
     protected bool playerFound;
+    
+    protected bool facingRight;
+    protected bool grounded;
+    
     protected bool targetSet;
     protected Vector2 targetLocation;
+
+    protected bool dead;
 
     public abstract void Attack();
     public abstract void Attack2();
     public abstract void Attack3();
 
-    private void Start()
+    protected virtual void Start()
     {
+        drops = new List<MoneyPickup>();
+        rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+
+        if (dropMoney)
+        {
+            for (int i = 0; i < dropAmount; i++)
+            {
+                Debug.Log("spawned pickup");
+                GameObject money = Instantiate(GameManager.Instance.moneyPickup);
+                pickupRef = money.GetComponent<MoneyPickup>();
+                money.transform.position = transform.position;
+                money.transform.parent = transform;
+                drops.Add(pickupRef);
+            }
+        }
     }
 
     private void Awake()
@@ -39,10 +92,54 @@ public abstract class BaseEnemy : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
-    private void Update()
+    protected virtual void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T))
-            TeleportToPlayer();
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            launchDir.y += 5f;
+            rb.AddForce(launchDir);
+            Debug.Log("Launched");
+        }
+
+        launchDir.x = Mathf.Lerp(launchDir.x, 0f, (float)(1 - Mathf.Exp(-k * Time.deltaTime)));
+        launchDir.y = Mathf.Lerp(launchDir.y, 0f, (float)(1 - Mathf.Exp(-k * Time.deltaTime)));
+
+        if(launchDir.x < 0.5f)
+        {
+            launchDir.x = 0;
+        }
+        
+        if (launchDir.y < 0.5f)
+        {
+            launchDir.y = 0;
+        }
+
+        ApplyLaunch();
+    }
+
+    protected virtual void FixedUpdate()
+    {
+        
+
+
+    }
+
+    private void ApplyLaunch()
+    {
+        if(launchDir != Vector2.zero)
+        {
+            //Vector3 temp = Vector3.zero;
+            //float tempX = (movement.x + (launchDir.x + transform.localScale.x)) * moveSpeed;
+            //float tempY = (movement.y + (launchDir.y + transform.localScale.y)) * moveSpeed;
+
+            //temp.x = tempX;
+            //temp.y = tempY;
+
+            //transform.position = temp;
+
+            rb.linearVelocityX = (movement.x + (launchDir.x * transform.localScale.x)) * moveSpeed;
+            rb.linearVelocityY = (movement.y + (launchDir.y * transform.localScale.y)) * moveSpeed;
+        }
     }
 
     public void CheckGround()
@@ -61,6 +158,22 @@ public abstract class BaseEnemy : MonoBehaviour
     }
 
     public void Die()
+    {
+        animator.SetTrigger("Die");
+        mainCollision.enabled = false;
+
+        if (rb != null)
+            rb.gravityScale = 0;
+
+        dead = true;
+
+        for (int i = 0; i < drops.Count; i++)
+        {
+            drops[i].StartCoroutine(drops[i].MoveToPlayer());
+        }
+    }
+
+    public void DestroyEnemy()
     {
         Destroy(gameObject);
     }
@@ -243,33 +356,35 @@ public abstract class BaseEnemy : MonoBehaviour
     {
         Gizmos.color = Color.red;
 
+        if (showDetection)
+        {
+            //Draw Ledge Detection
+            Vector3 v = groundCheckPos.position + ledgeDetectOffset;
+            Vector3 v2 = groundCheckPos.position + ledgeDetectOffset;
 
-        //Draw Ledge Detection
-        Vector3 v = groundCheckPos.position + ledgeDetectOffset;
-        Vector3 v2 = groundCheckPos.position + ledgeDetectOffset;
+            v.x += ledgeDetectSpacing;
+            v2.x += ledgeDetectSpacing;
+            v.y -= 0.2f;
+            Gizmos.DrawLine(v, v2);
 
-        v.x += ledgeDetectSpacing;
-        v2.x += ledgeDetectSpacing;
-        v.y -= 0.2f;
-        Gizmos.DrawLine(v, v2);
+            v.x -= ledgeDetectSpacing * 2;
+            v2.x -= ledgeDetectSpacing * 2;
+            Gizmos.DrawLine(v, v2);
+            //
 
-        v.x -= ledgeDetectSpacing * 2;
-        v2.x -= ledgeDetectSpacing * 2;
-        Gizmos.DrawLine(v, v2);
-        //
+            //Draw Wall Detection
+            v = groundCheckPos.position + wallDetectOffset;
+            v2 = groundCheckPos.position + wallDetectOffset;
 
-        //Draw Wall Detection
-        v = groundCheckPos.position + wallDetectOffset;
-        v2 = groundCheckPos.position + wallDetectOffset;
+            v.x += wallDetectSpacing;
+            v2.x += wallDetectSpacing;
+            v2.x += 0.2f;
+            Gizmos.DrawLine(v, v2);
 
-        v.x += wallDetectSpacing;
-        v2.x += wallDetectSpacing;
-        v2.x += 0.2f;
-        Gizmos.DrawLine(v, v2);
-
-        v.x -= wallDetectSpacing * 2;
-        v2.x -= wallDetectSpacing * 2;
-        Gizmos.DrawLine(v, v2);
-        //
+            v.x -= wallDetectSpacing * 2;
+            v2.x -= wallDetectSpacing * 2;
+            Gizmos.DrawLine(v, v2);
+            //
+        }
     }
 }
