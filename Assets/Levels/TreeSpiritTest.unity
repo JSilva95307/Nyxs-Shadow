@@ -374,6 +374,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e49bf7f4575059049932d5fdd7c6e3e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moneyPickup: {fileID: 0}
 --- !u!4 &1699547304
 Transform:
   m_ObjectHideFlags: 0
@@ -489,6 +490,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6885869356568321765, guid: b72d8c964d88367449ee4817d9ddcb48, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7676636219512127005, guid: b72d8c964d88367449ee4817d9ddcb48, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8376380372079916077, guid: b72d8c964d88367449ee4817d9ddcb48, type: 3}
+      propertyPath: m_MaskInteraction
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
