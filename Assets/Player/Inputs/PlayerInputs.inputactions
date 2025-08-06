@@ -33,6 +33,24 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "DownAttack",
+                    "type": "Button",
+                    "id": "a6be789d-230d-46e6-bbae-b9a09bf74295",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "UpAttack",
+                    "type": "Button",
+                    "id": "e9c6695d-cb9e-4345-9221-286b0c46b24c",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Secondary",
                     "type": "Button",
                     "id": "c820667e-7540-4145-bdca-330bd716673a",
@@ -105,15 +123,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Climb",
-                    "type": "Value",
-                    "id": "6d1c74c4-8037-4884-a5b1-6e6270aa5063",
-                    "expectedControlType": "Axis",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
                     "name": "UIState",
                     "type": "Button",
                     "id": "12d3f837-5412-4bf4-b332-92f1da211ae9",
@@ -135,24 +144,6 @@
                     "name": "Pause",
                     "type": "Button",
                     "id": "f731b451-1fe3-41cf-87f6-662b09a00567",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "UpAttack",
-                    "type": "Button",
-                    "id": "e9c6695d-cb9e-4345-9221-286b0c46b24c",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "DownAttack",
-                    "type": "Button",
-                    "id": "a6be789d-230d-46e6-bbae-b9a09bf74295",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -392,39 +383,6 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "1D Axis",
-                    "id": "b5f4741c-6223-4ad7-b233-ece5a5e9816a",
-                    "path": "1DAxis",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Climb",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "negative",
-                    "id": "251b4ea4-0c95-4506-bfb3-abfb72283860",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "Climb",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "positive",
-                    "id": "218ebaca-466a-4003-81f0-5f2a262dceec",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "Climb",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
                     "name": "",
                     "id": "2d8157db-6ee5-4ed0-97e9-3e2272a55a28",
                     "path": "<Keyboard>/escape",
@@ -474,7 +432,7 @@
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Keyboard&Mouse",
                     "action": "UpAttack",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -485,7 +443,7 @@
                     "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Keyboard&Mouse",
                     "action": "UpAttack",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -494,7 +452,7 @@
                     "name": "One Modifier",
                     "id": "ab416d2b-81a6-4c47-9195-a4a9ca1ab347",
                     "path": "OneModifier",
-                    "interactions": "",
+                    "interactions": "Hold",
                     "processors": "",
                     "groups": "",
                     "action": "DownAttack",
@@ -504,10 +462,10 @@
                 {
                     "name": "modifier",
                     "id": "d05442ca-7f80-4647-85fa-2e3fde3b1362",
-                    "path": "<Keyboard>/d",
+                    "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Keyboard&Mouse",
                     "action": "DownAttack",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -515,10 +473,10 @@
                 {
                     "name": "binding",
                     "id": "2f82a354-152e-48c1-a5a5-ecef5443517b",
-                    "path": "<Mouse>/rightButton",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Keyboard&Mouse",
                     "action": "DownAttack",
                     "isComposite": false,
                     "isPartOfComposite": true

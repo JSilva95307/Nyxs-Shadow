@@ -11,5 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Levels/MainMenu.unity
     guid: a5963d2ca40f92d49a625c4258a25721
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: 5ae1c68b5159cb84d8970bdb66a06362, type: 2}
   m_UseUCBPForAssetBundles: 0
