@@ -26,17 +26,17 @@ public class GroundedBehavior : StateMachineBehaviour
         }
         else if (AttackController.instance.downAttackLv1 && PlayerManager.Instance._playerController.isGrounded)
         {
-            AttackController.instance.animator.Play("DL1");
+            AttackController.instance.animator.Play("SwordD1");
             Debug.Log("Down attack level 1");
         }
         else if (AttackController.instance.downAttackLv2 && PlayerManager.Instance._playerController.isGrounded)
         {
-            AttackController.instance.animator.Play("DL2");
+            AttackController.instance.animator.Play("SwordD2");
             Debug.Log("Down attack level 2");
         }
         else if (AttackController.instance.downAttackLv3 && PlayerManager.Instance._playerController.isGrounded)
         {
-            AttackController.instance.animator.Play("DL3");
+            AttackController.instance.animator.Play("SwordD3");
             Debug.Log("Down attack level 3");
         }
     }

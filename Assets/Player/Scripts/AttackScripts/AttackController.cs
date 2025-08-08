@@ -30,6 +30,7 @@ public class AttackController : MonoBehaviour
 
     public void Attack(InputAction.CallbackContext ctx)
     {
+        Debug.Log("Charging for primary bool: " + dirInputting);
         if (ctx.performed && !isAttacking && !didUpAttackGround && !downAttacking && !dirInputting)
         {
             isAttacking = true;
@@ -51,6 +52,7 @@ public class AttackController : MonoBehaviour
         if(ctx.started)
         {
             animator.SetTrigger("Charge");
+            Debug.Log("Started Charging");
         }
         if(ctx.canceled && !isAttacking && !didUpAttackGround && !downAttacking)
         {

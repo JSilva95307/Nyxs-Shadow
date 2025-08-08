@@ -473,7 +473,7 @@
                 {
                     "name": "binding",
                     "id": "2f82a354-152e-48c1-a5a5-ecef5443517b",
-                    "path": "<Mouse>/leftButton",
+                    "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",

@@ -170,6 +170,10 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetAxis("Vertical") != 0)
+            AttackController.instance.dirInputting = true;
+        else
+            AttackController.instance.dirInputting = false;
         if (Input.GetKeyDown(KeyCode.U))
             currentWeapon = "SwoPrim";
         if (Input.GetKeyDown(KeyCode.I))
