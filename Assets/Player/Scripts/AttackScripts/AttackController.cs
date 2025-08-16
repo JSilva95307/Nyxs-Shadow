@@ -13,6 +13,7 @@ public class AttackController : MonoBehaviour
     public bool downAttackLv3 = false;
     public bool downAttacking = false;
     public bool dirInputting = false;
+    public bool airUpAttack = false;
     private PlayerController controller;
 
     public static AttackController instance;
@@ -41,8 +42,11 @@ public class AttackController : MonoBehaviour
     public void UpAttack(InputAction.CallbackContext ctx)
     {
         if (ctx.performed && !isAttacking && !didUpAttackGround && !downAttacking)
-        { 
-            didUpAttackGround = true;
+        {
+            if (controller.isGrounded)
+                didUpAttackGround = true;
+            else if (!controller.isGrounded)
+                airUpAttack = true;
             Debug.Log("Up Attack Pt. 1");
         }
     }

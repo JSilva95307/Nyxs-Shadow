@@ -39,6 +39,11 @@ public class GroundedBehavior : StateMachineBehaviour
             AttackController.instance.animator.Play("SwordD3");
             Debug.Log("Down attack level 3");
         }
+        else if (AttackController.instance.airUpAttack)
+        {
+            AttackController.instance.animator.Play("SwordAirUA");
+            Debug.Log("Aerial Up Attack");
+        }
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
@@ -50,6 +55,7 @@ public class GroundedBehavior : StateMachineBehaviour
         AttackController.instance.downAttackLv2 = false;
         AttackController.instance.downAttackLv3 = false;
         AttackController.instance.downAttacking = false;
+        AttackController.instance.airUpAttack = false;
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
