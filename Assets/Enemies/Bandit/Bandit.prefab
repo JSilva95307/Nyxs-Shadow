@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6552376495554756731}
   - component: {fileID: 8760849283396201586}
   - component: {fileID: 5066515820885387873}
+  - component: {fileID: 8221746253099909829}
   m_Layer: 6
   m_Name: Bandit
   m_TagString: Enemy
@@ -69,7 +70,7 @@ MonoBehaviour:
   dropMoney: 1
   dropAmount: 5
   launchDir: {x: 0, y: 0}
-  k: 3
+  k: 5
   playerCheckRange: 0
   playerMask:
     serializedVersion: 2
@@ -268,6 +269,33 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.35, y: 0.48}
   m_EdgeRadius: 0
+--- !u!50 &8221746253099909829
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3918217748909820141}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 10
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 6200000, guid: 8026e63388469a94fb4738d8eca6ef26, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &8601375813305215071
 GameObject:
   m_ObjectHideFlags: 0

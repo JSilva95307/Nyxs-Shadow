@@ -16,13 +16,13 @@ public class OgreBehavior : BaseEnemy
 
     private bool halfHealth = false;
 
-    private bool dead = false;
+    //private bool dead = false;
 
     public bool jumpQueued = false;
     private bool queueShockwave = false;
     private bool chargeQueued = false;
     
-    public Animator animator;
+    //public Animator animator;
     public Transform wallCheck;
     public GameObject model;
     public CapsuleCollider2D collision;
@@ -49,14 +49,20 @@ public class OgreBehavior : BaseEnemy
     public Transform projectileSpawn2;
     public GameObject shockwave;
 
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         health = GetComponent<Health>();
+        health.AddDeathListener(Die);
+        animator = model.GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
+        if(dead) return;
+
+        base.Update();
         timer += Time.deltaTime;
 
 
@@ -150,10 +156,10 @@ public class OgreBehavior : BaseEnemy
 
 
 
-        if (health.GetCurrentHealth() <= 0 && dead == false)
-        {
-            dead = true;
-        }
+        //if (health.GetCurrentHealth() <= 0 && dead == false)
+        //{
+        //    dead = true;
+        //}
 
 
         if (attacking)

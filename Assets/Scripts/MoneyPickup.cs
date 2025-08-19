@@ -74,7 +74,7 @@ public class MoneyPickup : MonoBehaviour
     private void Collect()
     {
         PlayerManager.Instance._playerController.money += value;
-        Debug.Log("Collected");
+        //Debug.Log("Collected");
         Destroy(gameObject);
     }
 

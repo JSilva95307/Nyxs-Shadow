@@ -50,7 +50,8 @@ public abstract class BaseEnemy : MonoBehaviour
     [Space(10)]
     [Header("Launch Vars")]
     public Vector2 launchDir;
-    public float k = 3; //k = excitation constant (lower k (~1-2) for sluggish movement, higher k (~10) for move snappish behavior)
+    public float launchForce;
+    public float k = 5; //k = excitation constant (lower k (~1-2) for sluggish movement, higher k (~10) for move snappish behavior)
 
     protected GameObject player;
     protected bool playerFound;
@@ -77,7 +78,7 @@ public abstract class BaseEnemy : MonoBehaviour
         {
             for (int i = 0; i < dropAmount; i++)
             {
-                Debug.Log("spawned pickup");
+                //Debug.Log("spawned pickup");
                 GameObject money = Instantiate(GameManager.Instance.moneyPickup);
                 pickupRef = money.GetComponent<MoneyPickup>();
                 money.transform.position = transform.position;
@@ -96,20 +97,22 @@ public abstract class BaseEnemy : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.L))
         {
-            launchDir.y += 5f;
-            rb.AddForce(launchDir);
+            launchDir.y += 2f;
+            //rb.AddForce(launchDir);
+
+            
             Debug.Log("Launched");
         }
 
         launchDir.x = Mathf.Lerp(launchDir.x, 0f, (float)(1 - Mathf.Exp(-k * Time.deltaTime)));
         launchDir.y = Mathf.Lerp(launchDir.y, 0f, (float)(1 - Mathf.Exp(-k * Time.deltaTime)));
 
-        if(launchDir.x < 0.5f)
+        if (launchDir.x < 0.01f)
         {
             launchDir.x = 0;
         }
-        
-        if (launchDir.y < 0.5f)
+
+        if (launchDir.y < 0.01f)
         {
             launchDir.y = 0;
         }
@@ -137,8 +140,12 @@ public abstract class BaseEnemy : MonoBehaviour
 
             //transform.position = temp;
 
-            rb.linearVelocityX = (movement.x + (launchDir.x * transform.localScale.x)) * moveSpeed;
-            rb.linearVelocityY = (movement.y + (launchDir.y * transform.localScale.y)) * moveSpeed;
+            //rb.linearVelocityX = (playerVel.x + (PlayerManager.Instance.lungeDist.x * transform.localScale.x)) * movementSpeed;
+
+            //rb.linearVelocityX = (movement.x + (launchDir.x * transform.localScale.x)) * moveSpeed;
+            //rb.linearVelocityY = (movement.y + (launchDir.y * transform.localScale.y)) * moveSpeed;
+
+            rb.AddForce(launchDir * launchForce, ForceMode2D.Impulse);
         }
     }
 
