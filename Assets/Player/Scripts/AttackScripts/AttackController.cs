@@ -14,6 +14,7 @@ public class AttackController : MonoBehaviour
     public bool downAttacking = false;
     public bool dirInputting = false;
     public bool airUpAttack = false;
+    public bool airDownAttack = false;
     private PlayerController controller;
 
     public static AttackController instance;
@@ -50,24 +51,29 @@ public class AttackController : MonoBehaviour
             Debug.Log("Up Attack Pt. 1");
         }
     }
-    
+
     public void DownAttackCharge(InputAction.CallbackContext ctx)
     {
-        if(ctx.started)
+        if (ctx.started)
         {
             animator.SetTrigger("Charge");
             Debug.Log("Started Charging");
         }
-        if(ctx.canceled && !isAttacking && !didUpAttackGround && !downAttacking)
+        if (ctx.canceled && !isAttacking && !didUpAttackGround && !downAttacking)
         {
-            Debug.Log("Down Attack Charged time: " + ctx.duration);
-            if (ctx.duration <= 1.0f)
-                downAttackLv1 = true;
-            else if (ctx.duration > 1.0f && ctx.duration <= 2.0f)
-                downAttackLv2 = true;
-            else if (ctx.duration > 2.0f)
-                downAttackLv3 = true;
-            downAttacking = true;
+            if (controller.isGrounded)
+            {
+                Debug.Log("Down Attack Charged time: " + ctx.duration);
+                if (ctx.duration <= 1.0f)
+                    downAttackLv1 = true;
+                else if (ctx.duration > 1.0f && ctx.duration <= 2.0f)
+                    downAttackLv2 = true;
+                else if (ctx.duration > 2.0f)
+                    downAttackLv3 = true;
+                downAttacking = true;
+            }
+            else if (!controller.isGrounded)
+                airDownAttack = true;
         }
     }
 
