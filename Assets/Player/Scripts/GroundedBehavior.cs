@@ -60,6 +60,7 @@ public class GroundedBehavior : StateMachineBehaviour
         AttackController.instance.downAttackLv3 = false;
         AttackController.instance.downAttacking = false;
         AttackController.instance.airUpAttack = false;
+        AttackController.instance.airDownAttack = false;
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

@@ -490,7 +490,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c7c65fccb0bae14ebb37648865efa37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lungeDist: {x: 0.5, y: -2}
+  lungeDist: {x: 0.5, y: -5}
   damage: 25
   stagger: 15
 --- !u!114 &-4413763845252583911
