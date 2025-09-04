@@ -144,8 +144,11 @@ public abstract class BaseEnemy : MonoBehaviour
 
             //rb.linearVelocityX = (movement.x + (launchDir.x * transform.localScale.x)) * moveSpeed;
             //rb.linearVelocityY = (movement.y + (launchDir.y * transform.localScale.y)) * moveSpeed;
-
-            rb.AddForce(launchDir * launchForce, ForceMode2D.Impulse);
+            
+            
+            //most recent solution (doesn't work):
+            //rb.AddForce(launchDir * launchForce, ForceMode2D.Impulse);
+            transform.Translate(launchDir * launchForce * Time.deltaTime);
         }
     }
 
