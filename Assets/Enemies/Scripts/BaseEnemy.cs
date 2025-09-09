@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor.Tilemaps;
 using UnityEngine;
+using UnityEngine.WSA;
 using static UnityEditor.PlayerSettings;
 
 public abstract class BaseEnemy : MonoBehaviour
@@ -64,6 +65,10 @@ public abstract class BaseEnemy : MonoBehaviour
 
     protected bool dead;
 
+    //variables to test the launching functionality.
+    public float delayTime;
+    public bool launched;
+
     public abstract void Attack();
     public abstract void Attack2();
     public abstract void Attack3();
@@ -73,6 +78,11 @@ public abstract class BaseEnemy : MonoBehaviour
         drops = new List<MoneyPickup>();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+
+        //temp vars
+        delayTime = 0f;
+
+        launched = false;
 
         if (dropMoney)
         {
@@ -95,29 +105,33 @@ public abstract class BaseEnemy : MonoBehaviour
 
     protected virtual void Update()
     {
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            launchDir.y += 2f;
-            //rb.AddForce(launchDir);
+        //if (Input.GetKeyDown(KeyCode.L))
+        //{
+        //    launchDir.y += 2f;
+        //    //rb.AddForce(launchDir);
 
             
-            Debug.Log("Launched");
-        }
+        //    Debug.Log("Launched");
+        //}
 
-        launchDir.x = Mathf.Lerp(launchDir.x, 0f, (float)(1 - Mathf.Exp(-k * Time.deltaTime)));
-        launchDir.y = Mathf.Lerp(launchDir.y, 0f, (float)(1 - Mathf.Exp(-k * Time.deltaTime)));
+        //launchDir.x = Mathf.Lerp(launchDir.x, 0f, (float)(1 - Mathf.Exp(-k * Time.deltaTime)));
+        //launchDir.y = Mathf.Lerp(launchDir.y, 0f, (float)(1 - Mathf.Exp(-k * Time.deltaTime)));
 
-        if (launchDir.x < 0.01f)
+        //if (launchDir.x < 0.01f)
+        //{
+        //    launchDir.x = 0;
+        //}
+
+        //if (launchDir.y < 0.01f)
+        //{
+        //    launchDir.y = 0;
+        //}
+        if (delayTime < 2.0)
+            delayTime += Time.deltaTime;
+        else if (delayTime >= 2.0 && !launched)
         {
-            launchDir.x = 0;
+            ApplyLaunch();
         }
-
-        if (launchDir.y < 0.01f)
-        {
-            launchDir.y = 0;
-        }
-
-        ApplyLaunch();
     }
 
     protected virtual void FixedUpdate()
@@ -149,6 +163,9 @@ public abstract class BaseEnemy : MonoBehaviour
             //most recent solution (doesn't work):
             //rb.AddForce(launchDir * launchForce, ForceMode2D.Impulse);
             transform.Translate(launchDir * launchForce * Time.deltaTime);
+            launchForce -= (launchForce * 0.05f);
+            if (launchForce <= 0.1f)
+                launchForce = 0f;
         }
     }
 

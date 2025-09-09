@@ -79,6 +79,9 @@ public class SlimeBehavior : BaseEnemy
         }
         CheckGround();
         ApplyGravity();
+
+        // temp launch test
+       
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
