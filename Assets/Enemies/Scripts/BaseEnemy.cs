@@ -17,6 +17,7 @@ public abstract class BaseEnemy : MonoBehaviour
     public Transform groundCheckPos;
     protected Vector2 movement;
     protected float verticalSpeed;
+    protected AnimationCurve launchSpeedCurve;
 
     [Space(10)]
     [Header("Detection")]
