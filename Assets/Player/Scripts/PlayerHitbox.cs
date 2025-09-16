@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.WSA;
 
 public class PlayerHitbox : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class PlayerHitbox : MonoBehaviour
     public bool active;
     public float damage;
     public float stagger;
+    public LaunchScript launcher;
     private List<GameObject> hitEnemies = new List<GameObject>();
     
     void Start()
@@ -39,6 +41,11 @@ public class PlayerHitbox : MonoBehaviour
             enemyHealth.TakeStagger(PlayerManager.Instance.stagger);
         }
         
+        if(launcher.launchForce > 0 && other.gameObject.TryGetComponent(out LaunchScript enemyLaunchee))
+        {
+            enemyLaunchee.launchDir = launcher.launchDir;
+            enemyLaunchee.launchForce = launcher.launchForce;
+        }
     }
 
     public void ResetHitbox()

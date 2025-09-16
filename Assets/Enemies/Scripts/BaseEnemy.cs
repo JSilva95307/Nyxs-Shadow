@@ -17,7 +17,6 @@ public abstract class BaseEnemy : MonoBehaviour
     public Transform groundCheckPos;
     protected Vector2 movement;
     protected float verticalSpeed;
-    protected AnimationCurve launchSpeedCurve;
 
     [Space(10)]
     [Header("Detection")]
@@ -51,8 +50,7 @@ public abstract class BaseEnemy : MonoBehaviour
 
     [Space(10)]
     [Header("Launch Vars")]
-    public Vector2 launchDir;
-    public float launchForce;
+    LaunchScript launcher;
     public float k = 5; //k = excitation constant (lower k (~1-2) for sluggish movement, higher k (~10) for move snappish behavior)
 
     protected GameObject player;
@@ -79,11 +77,13 @@ public abstract class BaseEnemy : MonoBehaviour
         drops = new List<MoneyPickup>();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        launcher = GetComponent<LaunchScript>();
 
         //temp vars
         delayTime = 0f;
-
         launched = false;
+        launcher.launchDir = new Vector2(0.5f, 1f);
+        launcher.launchForce = 10f;
 
         if (dropMoney)
         {
@@ -131,7 +131,7 @@ public abstract class BaseEnemy : MonoBehaviour
             delayTime += Time.deltaTime;
         else if (delayTime >= 2.0 && !launched)
         {
-            ApplyLaunch();
+            launcher.ApplyLaunch();
         }
     }
 
@@ -140,34 +140,6 @@ public abstract class BaseEnemy : MonoBehaviour
         
 
 
-    }
-
-    private void ApplyLaunch()
-    {
-        if(launchDir != Vector2.zero)
-        {
-            //Vector3 temp = Vector3.zero;
-            //float tempX = (movement.x + (launchDir.x + transform.localScale.x)) * moveSpeed;
-            //float tempY = (movement.y + (launchDir.y + transform.localScale.y)) * moveSpeed;
-
-            //temp.x = tempX;
-            //temp.y = tempY;
-
-            //transform.position = temp;
-
-            //rb.linearVelocityX = (playerVel.x + (PlayerManager.Instance.lungeDist.x * transform.localScale.x)) * movementSpeed;
-
-            //rb.linearVelocityX = (movement.x + (launchDir.x * transform.localScale.x)) * moveSpeed;
-            //rb.linearVelocityY = (movement.y + (launchDir.y * transform.localScale.y)) * moveSpeed;
-            
-            
-            //most recent solution (doesn't work):
-            //rb.AddForce(launchDir * launchForce, ForceMode2D.Impulse);
-            transform.Translate(launchDir * launchForce * Time.deltaTime);
-            launchForce -= (launchForce * 0.05f);
-            if (launchForce <= 0.1f)
-                launchForce = 0f;
-        }
     }
 
     public void CheckGround()
