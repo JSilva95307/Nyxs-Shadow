@@ -18,7 +18,8 @@ public class GroundedBehavior : StateMachineBehaviour
         }
         else if (AttackController.instance.isAttacking)
         {
-            AttackController.instance.animator.Play("SwordAttack1");
+            //AttackController.instance.animator.Play("SwordAttack1");
+            AttackController.instance.animator.Play("TestSwordAttack1");
         }
         else if (AttackController.instance.didUpAttackGround && PlayerManager.Instance._playerController.isGrounded)
         {
