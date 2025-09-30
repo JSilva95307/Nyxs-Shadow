@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 4179565014240443345}
   - component: {fileID: 4360905462744144570}
   - component: {fileID: 122630704858068582}
+  - component: {fileID: 8330798297009752837}
   m_Layer: 6
   m_Name: Troll
   m_TagString: Enemy
@@ -138,7 +139,6 @@ MonoBehaviour:
     m_Bits: 0
   dropMoney: 1
   dropAmount: 20
-  launchDir: {x: 0, y: 0}
   k: 3
   slapDamage: 0
   smashDamage: 0
@@ -320,6 +320,21 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.43, y: 0.61}
   m_EdgeRadius: 0
+--- !u!114 &8330798297009752837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2212365811690797690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3287cbb288e82834d808df5588bc0265, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  launchableObject: {fileID: 0}
+  launchDir: {x: 0, y: 0}
+  launchForce: 0
 --- !u!1 &6791704339700746039
 GameObject:
   m_ObjectHideFlags: 0
@@ -376,7 +391,7 @@ Transform:
   m_GameObject: {fileID: 7649773917235992579}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0.09, y: -0.186, z: 0}
+  m_LocalPosition: {x: 0.09, y: -0.289, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

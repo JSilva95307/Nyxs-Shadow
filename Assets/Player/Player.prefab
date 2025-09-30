@@ -542,6 +542,7 @@ GameObject:
   - component: {fileID: 7928505541811204023}
   - component: {fileID: 9121760617326012089}
   - component: {fileID: 732834001943881101}
+  - component: {fileID: 936313928646001693}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -805,10 +806,6 @@ MonoBehaviour:
     m_ActionName: 'Player/Jump[/Keyboard/space]'
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 6d1c74c4-8037-4884-a5b1-6e6270aa5063
-    m_ActionName: 'Player/Climb[/Keyboard/s,/Keyboard/w]'
-  - m_PersistentCalls:
-      m_Calls: []
     m_ActionId: 02f3c2c9-9c7d-4508-b1b3-3f8e81507b67
     m_ActionName: 'UI/Navigate[/DualSenseGamepadHID/leftStick/up,/DualSenseGamepadHID/rightStick/up,/DualSenseGamepadHID/leftStick/down,/DualSenseGamepadHID/rightStick/down,/DualSenseGamepadHID/leftStick/left,/DualSenseGamepadHID/rightStick/left,/DualSenseGamepadHID/leftStick/right,/DualSenseGamepadHID/rightStick/right,/DualSenseGamepadHID/dpad,/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]'
   - m_PersistentCalls:
@@ -895,6 +892,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: e9c6695d-cb9e-4345-9221-286b0c46b24c
     m_ActionName: 'Player/UpAttack[/Keyboard/w,/Mouse/leftButton]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 732834001943881101}
+        m_TargetAssemblyTypeName: AttackController, Assembly-CSharp
+        m_MethodName: DownAttackCharge
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: a6be789d-230d-46e6-bbae-b9a09bf74295
+    m_ActionName: 'Player/DownAttack[/Keyboard/s,/Mouse/rightButton]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -1130,6 +1143,28 @@ MonoBehaviour:
   animator: {fileID: 0}
   isAttacking: 0
   didUpAttackGround: 0
+  downAttackLv1: 0
+  downAttackLv2: 0
+  downAttackLv3: 0
+  downAttacking: 0
+  dirInputting: 0
+  airUpAttack: 0
+  airDownAttack: 0
+--- !u!114 &936313928646001693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2793163437225728115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3287cbb288e82834d808df5588bc0265, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  launchableObject: {fileID: 2848291232546605315}
+  launchDir: {x: 0, y: 0}
+  launchForce: 0
 --- !u!1 &2866573323661581830
 GameObject:
   m_ObjectHideFlags: 0
@@ -2976,6 +3011,7 @@ MonoBehaviour:
   active: 0
   damage: 10
   stagger: 0
+  launcher: {fileID: 0}
 --- !u!1 &7683055304953626541
 GameObject:
   m_ObjectHideFlags: 0

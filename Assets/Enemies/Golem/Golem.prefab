@@ -24,13 +24,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 188842148074545056}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0.33, y: -0.13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7117896005127123647}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &5027786179316383145
 GameObject:
   m_ObjectHideFlags: 0
@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 6740228670636189923}
   - component: {fileID: 3299884675804310687}
   - component: {fileID: 4022166034603779789}
+  - component: {fileID: 3174606920299269689}
   m_Layer: 6
   m_Name: Golem
   m_TagString: Enemy
@@ -159,7 +160,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab71c17f01c7ff84babfc7e9ff523a34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  animator: {fileID: 2136318876111220851}
+  moveSpeed: 4
   gravityStrength: 4
   groundCheckPos: {fileID: 8292060612791771080}
   ledgeDetectOffset: {x: 0, y: 0, z: 0}
@@ -167,6 +169,7 @@ MonoBehaviour:
   wallDetectOffset: {x: 0, y: 0, z: 0}
   wallDetectSpacing: 1.4
   mainCollision: {fileID: 3299884675804310687}
+  showDetection: 0
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 4104
@@ -175,10 +178,7 @@ MonoBehaviour:
     m_Bits: 329
   dropMoney: 1
   dropAmount: 5
-  moneyPickup: {fileID: 8554566041734466576, guid: 3d0012ef3cf1a644d95dbc166e470821, type: 3}
-  launchDir: {x: 0, y: 0}
   k: 3
-  animator: {fileID: 2136318876111220851}
   timeBetweenAttacks: 2
   projectile: {fileID: 3613797102332955812, guid: 60d336423d6d65f4da2738d0a60a281e, type: 3}
   spawnLocation: {fileID: 188842148074545056}
@@ -247,6 +247,21 @@ MonoBehaviour:
   staggeredDecreaseRate: 15
   staggered: 0
   invincibilityTime: 0
+--- !u!114 &3174606920299269689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5027786179316383145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3287cbb288e82834d808df5588bc0265, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  launchableObject: {fileID: 0}
+  launchDir: {x: 0, y: 0}
+  launchForce: 0
 --- !u!1 &7797911662944418892
 GameObject:
   m_ObjectHideFlags: 0

@@ -23,7 +23,7 @@ public class LaunchScript : MonoBehaviour
 
     public void ApplyLaunch()
     {
-        if (launchDir != Vector2.zero)
+        if (launchDir != Vector2.zero && launchForce > 0)
         {
             transform.Translate(launchDir * launchForce * Time.deltaTime);
             launchForce -= (launchForce * 0.05f);

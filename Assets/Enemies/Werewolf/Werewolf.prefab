@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 7812682969691090770}
   - component: {fileID: 6956768786281124333}
   - component: {fileID: 4063107422947792126}
+  - component: {fileID: 110613039455945804}
   m_Layer: 6
   m_Name: Werewolf
   m_TagString: Enemy
@@ -83,7 +84,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 4066753170721310821}
   moveSpeed: 10
-  gravityStrength: 8
+  gravityStrength: 4
   groundCheckPos: {fileID: 5345118995277340952}
   ledgeDetectOffset: {x: 0, y: 0, z: 0}
   ledgeDetectSpacing: 1.2
@@ -99,7 +100,6 @@ MonoBehaviour:
     m_Bits: 0
   dropMoney: 1
   dropAmount: 10
-  launchDir: {x: 0, y: 0}
   k: 3
   timeBetweenAttacks: 2
   playerCheckRange: 2
@@ -299,3 +299,18 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.38, y: 0.67}
   m_EdgeRadius: 0
+--- !u!114 &110613039455945804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8734190385502490138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3287cbb288e82834d808df5588bc0265, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  launchableObject: {fileID: 0}
+  launchDir: {x: 0, y: 0}
+  launchForce: 0

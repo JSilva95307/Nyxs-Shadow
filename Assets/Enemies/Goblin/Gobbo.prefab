@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: -3397605636159247989}
   - component: {fileID: 3946853555201342044}
   - component: {fileID: 1883483654017763247}
+  - component: {fileID: 2259978105054589393}
   m_Layer: 6
   m_Name: Gobbo
   m_TagString: Enemy
@@ -121,7 +122,6 @@ MonoBehaviour:
     m_Bits: 0
   dropMoney: 1
   dropAmount: 3
-  launchDir: {x: 0, y: 0}
   k: 3
   hitbox: {fileID: -3397605636159247989}
   damage: 15
@@ -295,3 +295,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2259978105054589393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2667018485269908518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3287cbb288e82834d808df5588bc0265, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  launchableObject: {fileID: 0}
+  launchDir: {x: 0, y: 0}
+  launchForce: 0

@@ -64,10 +64,6 @@ public abstract class BaseEnemy : MonoBehaviour
 
     protected bool dead;
 
-    //variables to test the launching functionality.
-    public float delayTime;
-    public bool launched;
-
     public abstract void Attack();
     public abstract void Attack2();
     public abstract void Attack3();
@@ -78,12 +74,6 @@ public abstract class BaseEnemy : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         launcher = GetComponent<LaunchScript>();
-
-        //temp vars
-        delayTime = 0f;
-        launched = false;
-        launcher.launchDir = new Vector2(0.5f, 1f);
-        launcher.launchForce = 10f;
 
         if (dropMoney)
         {
@@ -127,9 +117,7 @@ public abstract class BaseEnemy : MonoBehaviour
         //{
         //    launchDir.y = 0;
         //}
-        if (delayTime < 2.0)
-            delayTime += Time.deltaTime;
-        else if (delayTime >= 2.0 && !launched)
+        if (launcher.launchForce > 0)
         {
             launcher.ApplyLaunch();
         }

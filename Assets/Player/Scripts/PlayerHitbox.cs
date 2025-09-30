@@ -40,7 +40,7 @@ public class PlayerHitbox : MonoBehaviour
             enemyHealth.TakeDamage(PlayerManager.Instance.damage);
             enemyHealth.TakeStagger(PlayerManager.Instance.stagger);
         }
-        
+        //apply launch
         if(launcher.launchForce > 0 && other.gameObject.TryGetComponent(out LaunchScript enemyLaunchee))
         {
             enemyLaunchee.launchDir = launcher.launchDir;

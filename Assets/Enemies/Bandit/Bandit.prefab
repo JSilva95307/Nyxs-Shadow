@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8760849283396201586}
   - component: {fileID: 5066515820885387873}
   - component: {fileID: 8221746253099909829}
+  - component: {fileID: 7251805887145768699}
   m_Layer: 6
   m_Name: Bandit
   m_TagString: Enemy
@@ -69,7 +70,6 @@ MonoBehaviour:
     m_Bits: 0
   dropMoney: 1
   dropAmount: 5
-  launchDir: {x: 0, y: 0}
   k: 5
   playerCheckRange: 0
   playerMask:
@@ -296,6 +296,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &7251805887145768699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3918217748909820141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3287cbb288e82834d808df5588bc0265, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  launchableObject: {fileID: 0}
+  launchDir: {x: 0, y: 0}
+  launchForce: 0
 --- !u!1 &8601375813305215071
 GameObject:
   m_ObjectHideFlags: 0
