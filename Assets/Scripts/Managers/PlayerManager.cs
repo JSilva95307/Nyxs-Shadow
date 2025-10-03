@@ -16,6 +16,9 @@ public class PlayerManager : MonoBehaviour
     public float damage;
     public float stagger;
 
+    public Vector2 launcherDir;
+    public float launchSpeed;
+
     public float recentEnemyMaxHealth;
     public float recentEnemyHealth;
     public float recentEnemyMaxStagger;

@@ -405,6 +405,8 @@ MonoBehaviour:
   lungeDist: {x: 0, y: 0}
   damage: 10
   stagger: 0
+  launcherDir: {x: 0, y: 0}
+  launchSpeed: 0
   recentEnemyMaxHealth: 0
   recentEnemyHealth: 0
   recentEnemyMaxStagger: 0
@@ -3442,7 +3444,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3215755799595922900, guid: df672a3dfe4c42f4a9c0c0d82e60f6a9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7939478721567202715, guid: df672a3dfe4c42f4a9c0c0d82e60f6a9, type: 3}
       propertyPath: m_LocalPosition.x

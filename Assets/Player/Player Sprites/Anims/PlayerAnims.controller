@@ -15,6 +15,8 @@ MonoBehaviour:
   lungeDist: {x: 2, y: 0}
   damage: 25
   stagger: 0
+  launchDirection: {x: 0, y: 0}
+  launchForce: 0
 --- !u!1102 &-8753785370544311927
 AnimatorState:
   serializedVersion: 6
@@ -299,6 +301,8 @@ MonoBehaviour:
   lungeDist: {x: 2, y: 10}
   damage: 20
   stagger: 10
+  launchDirection: {x: 0.1, y: 1}
+  launchForce: 50
 --- !u!114 &-7490320497099881060
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -381,6 +385,8 @@ MonoBehaviour:
   lungeDist: {x: 1, y: 0}
   damage: 5
   stagger: 15
+  launchDirection: {x: 0, y: 0}
+  launchForce: 0
 --- !u!1101 &-5751111868004660563
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -495,6 +501,8 @@ MonoBehaviour:
   lungeDist: {x: 0.5, y: -5}
   damage: 25
   stagger: 15
+  launchDirection: {x: 0, y: 0}
+  launchForce: 0
 --- !u!114 &-4413763845252583911
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -619,6 +627,8 @@ MonoBehaviour:
   lungeDist: {x: 1, y: 0}
   damage: 45
   stagger: 45
+  launchDirection: {x: 0, y: 0}
+  launchForce: 0
 --- !u!114 &-3067718036750594718
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -634,6 +644,8 @@ MonoBehaviour:
   lungeDist: {x: 3, y: 0}
   damage: 25
   stagger: 0
+  launchDirection: {x: 0, y: 0}
+  launchForce: 0
 --- !u!1101 &-2986031460924398429
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -770,6 +782,8 @@ MonoBehaviour:
   lungeDist: {x: 1, y: 0}
   damage: 10
   stagger: 15
+  launchDirection: {x: 0, y: 0}
+  launchForce: 0
 --- !u!1101 &-1867528228970065803
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -807,6 +821,8 @@ MonoBehaviour:
   lungeDist: {x: 1, y: 0}
   damage: 5
   stagger: 15
+  launchDirection: {x: 0, y: 0}
+  launchForce: 0
 --- !u!1101 &-640690779764939606
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -1179,6 +1195,8 @@ MonoBehaviour:
   lungeDist: {x: 1, y: 0}
   damage: 30
   stagger: 30
+  launchDirection: {x: 0, y: 0}
+  launchForce: 0
 --- !u!1101 &2816715216279711323
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -1347,6 +1365,8 @@ MonoBehaviour:
   lungeDist: {x: 3, y: 0}
   damage: 20
   stagger: 25
+  launchDirection: {x: 0, y: 0}
+  launchForce: 0
 --- !u!114 &4823631651602297097
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1449,6 +1469,8 @@ MonoBehaviour:
   lungeDist: {x: 1, y: 0}
   damage: 70
   stagger: 55
+  launchDirection: {x: 0, y: 0}
+  launchForce: 0
 --- !u!1101 &6294491781873868255
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -1579,6 +1601,8 @@ MonoBehaviour:
   lungeDist: {x: 0, y: 0.5}
   damage: 50
   stagger: 30
+  launchDirection: {x: 0, y: 0}
+  launchForce: 0
 --- !u!1102 &8986374563604553281
 AnimatorState:
   serializedVersion: 6
