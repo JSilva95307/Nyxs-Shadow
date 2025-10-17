@@ -20,7 +20,7 @@ public class TS_Walk : StateMachineBehaviour
         {
             patrolPoint = new Vector2(rb.position.x - patrolDist, rb.position.y);
         }
-        ts.FlipTreeSpirit();
+        ts.FlipEnemy();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

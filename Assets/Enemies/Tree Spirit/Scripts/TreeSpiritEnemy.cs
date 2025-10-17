@@ -89,20 +89,6 @@ public class TreeSpiritEnemy : BaseEnemy
     }
 
     public void LookAtPlayer() { FacePlayer(); }
-    public void FlipTreeSpirit()
-    {
-        Quaternion rotation = transform.rotation;
-        if (facingRight)
-        {
-            rotation.y = 0;
-        }
-        else
-        {
-            rotation.y = 180;
-        }
-        transform.localRotation = rotation;
-        facingRight = !facingRight;
-    }
 
     public void OnTriggerEnter2D(Collider2D collision)
     {

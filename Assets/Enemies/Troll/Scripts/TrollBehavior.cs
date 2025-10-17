@@ -97,20 +97,6 @@ public class TrollBehavior : BaseEnemy
 
     }
 
-    public void FlipTroll()
-    {
-        Quaternion rotation = transform.rotation;
-        if (facingRight)
-        {
-            rotation.y = 0;
-        }
-        else
-        {
-            rotation.y = 180;
-        }
-        transform.localRotation = rotation;
-        facingRight = !facingRight;
-    }
     public void LookAtPlayer() { FacePlayer(); }
     //public void TrollDeath() { animator.SetTrigger("Die"); }
 

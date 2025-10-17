@@ -16,11 +16,11 @@ public class SlimeBehavior : BaseEnemy
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     protected override void Start()
     {
-        base.Start();
         health = GetComponent<Health>();
         health.AddDeathListener(Die);
         animator.SetBool("Patrol", true);
         hitbox.enabled = false;
+        base.Start();
     }
 
     public override void Attack()
@@ -97,27 +97,6 @@ public class SlimeBehavior : BaseEnemy
     //    Die();
     //}
 
-    public void FlipSlime()
-    {
-        Vector3 scale = transform.localScale;
-        Quaternion rotation = transform.rotation;
-
-        if (facingRight)
-        {
-            rotation.y = 180;
-            //scale.x = Mathf.Abs(scale.x) * (flip ? -1 : 1);
-            facingRight = false;
-        }
-        else
-        {
-            rotation.y = 0;
-            //scale.x = Mathf.Abs(scale.x) * -1 * (flip ? -1 : 1);
-            facingRight = true;
-        }
-        Debug.Log("Called Flip");
-        //transform.localScale = scale;
-        //transform.localRotation = rotation;
-    }
     public void LookAtPlayer()
     {
         FacePlayer();

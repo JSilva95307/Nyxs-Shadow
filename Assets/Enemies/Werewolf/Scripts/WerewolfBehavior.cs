@@ -19,11 +19,11 @@ public class WerewolfBehavior : BaseEnemy
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     protected override void Start()
     {
-        base.Start();
         health = GetComponent<Health>();
         health.AddDeathListener(Die);
         animator.SetBool("Patrol", true);
         meleeCollider.enabled = false;
+        base.Start();
     }
 
     // Update is called once per frame
@@ -95,22 +95,6 @@ public class WerewolfBehavior : BaseEnemy
     //    animator.SetTrigger("Die");
     //}
 
-    public void FlipWolf()
-    {
-        Quaternion rotation = transform.rotation;
-
-        if (!facingRight)
-        {
-            rotation.y = 0;
-            facingRight = true;
-        }
-        else
-        {
-            rotation.y = 180;
-            facingRight = false;
-        }
-        transform.localRotation = rotation;
-    }
     public void LookAtPlayer()
     {
         FacePlayer();

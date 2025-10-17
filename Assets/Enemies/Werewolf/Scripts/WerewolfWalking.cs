@@ -21,7 +21,7 @@ public class WerewolfWalking : StateMachineBehaviour
         {
             patrolPoint = new Vector2(rb.position.x - patrolDist , rb.position.y);
         }
-        wolf.FlipWolf();
+        wolf.FlipEnemy();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

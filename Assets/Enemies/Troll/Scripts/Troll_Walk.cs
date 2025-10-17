@@ -20,7 +20,7 @@ public class Troll_Walk : StateMachineBehaviour
         {
             patrolPoint = new Vector2(rb.position.x - patrolDist, rb.position.y);
         }
-        troll.FlipTroll();
+        troll.FlipEnemy();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

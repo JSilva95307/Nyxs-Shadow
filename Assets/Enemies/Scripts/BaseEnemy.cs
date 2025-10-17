@@ -328,7 +328,26 @@ public abstract class BaseEnemy : MonoBehaviour
         
     }
 
-    public Transform GetTransform() { return transform; }
+    public Transform GetTransform() { return this.transform; }
+
+    public void FlipEnemy()
+    {
+        Vector3 scale = transform.localScale;
+        Quaternion rotation = transform.rotation;
+
+        if (facingRight)
+        {
+            rotation.y = 180;
+            facingRight = false;
+        }
+        else
+        {
+            rotation.y = 0;
+            facingRight = true;
+        }
+        Debug.Log("Called Flip");
+        transform.rotation = rotation;
+    }
 
     public float GetMoveSpeed()
     {

@@ -21,7 +21,7 @@ public class SlimePatrol : StateMachineBehaviour
         {
             patrolPoint = new Vector2(rb.position.x - patrolDist, rb.position.y);
         }
-        slime.FlipSlime();
+        slime.FlipEnemy();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
