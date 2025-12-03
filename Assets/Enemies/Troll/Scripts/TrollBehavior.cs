@@ -31,19 +31,6 @@ public class TrollBehavior : BaseEnemy
     protected override void Update()
     {
         base.Update();
-        CheckGround();
-        ApplyGravity();
-
-
-        if (targetSet == true && Vector2.Distance(targetLocation, transform.position) > 0.25f)
-        {
-            MoveTo();
-        }
-        else if (targetSet == true && Vector2.Distance(targetLocation, transform.position) <= 0.25f)
-        {
-            targetSet = false;
-            targetLocation = Vector2.zero;
-        }
 
         if (facingRight)
         {
@@ -61,6 +48,8 @@ public class TrollBehavior : BaseEnemy
             Debug.Log("Player Spotted!");
             animator.SetTrigger("Chase");
         }
+        CheckGround();
+        ApplyGravity();
     }
 
     public override void Attack()

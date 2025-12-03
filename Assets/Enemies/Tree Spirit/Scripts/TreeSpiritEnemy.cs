@@ -29,19 +29,7 @@ public class TreeSpiritEnemy : BaseEnemy
     protected override void Update()
     {
         base.Update();
-        CheckGround();
-        ApplyGravity();
-
-        if (targetSet == true && Vector2.Distance(targetLocation, transform.position) > 0.25f)
-        {
-            MoveTo();
-        }
-        else if (targetSet == true && Vector2.Distance(targetLocation, transform.position) <= 0.25f)
-        {
-            targetSet = false;
-            targetLocation = Vector2.zero;
-        }
-
+        
         if (facingRight)
         {
             playerCheck = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + 1), new Vector2(playerCheckRange, 0), -playerCheckRange, playerMask);
@@ -58,6 +46,8 @@ public class TreeSpiritEnemy : BaseEnemy
             Debug.Log("Player Spotted!");
             animator.SetBool("Chase", true);
         }
+        CheckGround();
+        ApplyGravity();
     }
 
     public override void Attack()

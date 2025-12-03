@@ -46,15 +46,6 @@ public class SlimeBehavior : BaseEnemy
     protected override void Update()
     {
         base.Update();
-        if (targetSet == true && Vector2.Distance(targetLocation, transform.position) > 0.25f)
-        {
-            MoveTo();
-        }
-        else if (targetSet == true && Vector2.Distance(targetLocation, transform.position) <= 0.25f)
-        {
-            targetSet = false;
-            targetLocation = Vector2.zero;
-        }
 
         if (facingRight)
         {

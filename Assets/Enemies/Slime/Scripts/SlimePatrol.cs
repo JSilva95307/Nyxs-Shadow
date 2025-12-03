@@ -22,17 +22,13 @@ public class SlimePatrol : StateMachineBehaviour
             patrolPoint = new Vector2(rb.position.x - patrolDist, rb.position.y);
         }
         slime.FlipEnemy();
+        slime.SetTarget(patrolPoint);
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (Vector2.Distance(rb.position, patrolPoint) >= 1)
-        {
-            Vector2 target = new Vector2(patrolPoint.x, rb.position.y);
-            slime.SetTarget(target);
-        }
-        else
+        if (Vector2.Distance(rb.position, patrolPoint) <= 1)
             animator.SetTrigger("SitIdle");
     }
 
@@ -41,6 +37,5 @@ public class SlimePatrol : StateMachineBehaviour
     {
         goingRight = !goingRight;
         animator.ResetTrigger("SitIdle");
-        slime.SetTarget(slime.transform.position);
     }
 }

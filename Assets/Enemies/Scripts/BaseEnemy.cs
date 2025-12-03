@@ -8,10 +8,12 @@ using static UnityEditor.PlayerSettings;
 public abstract class BaseEnemy : MonoBehaviour
 {
     [Header("Functionality")]
+    //animation controller
     public Animator animator;
 
     [Space(10)]
     [Header("Movement")]
+    //variables controlling the enemy's movement
     public float moveSpeed;
     public float gravityStrength;
     public Transform groundCheckPos;
@@ -20,19 +22,19 @@ public abstract class BaseEnemy : MonoBehaviour
 
     [Space(10)]
     [Header("Detection")]
+    //variables to detect platform ledges
     public Vector3 ledgeDetectOffset = new Vector3(0f, 0f, 0f);
     public float ledgeDetectSpacing = 1.2f;
-
+    //variables to detect walls
     public Vector3 wallDetectOffset = new Vector3(0f, 0f, 0f);
     public float wallDetectSpacing = 1.4f;
+
     public Collider2D mainCollision;
     protected Rigidbody2D rb;
 
     [Space(5)]
+    //changes whether or not to show the detection areas for the variables above
     public bool showDetection;
-
-
-
 
     [Space(10)]
     [Header("Layer Masks")]
@@ -96,39 +98,23 @@ public abstract class BaseEnemy : MonoBehaviour
 
     protected virtual void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.L))
-        //{
-        //    launchDir.y += 2f;
-        //    //rb.AddForce(launchDir);
-
-            
-        //    Debug.Log("Launched");
-        //}
-
-        //launchDir.x = Mathf.Lerp(launchDir.x, 0f, (float)(1 - Mathf.Exp(-k * Time.deltaTime)));
-        //launchDir.y = Mathf.Lerp(launchDir.y, 0f, (float)(1 - Mathf.Exp(-k * Time.deltaTime)));
-
-        //if (launchDir.x < 0.01f)
-        //{
-        //    launchDir.x = 0;
-        //}
-
-        //if (launchDir.y < 0.01f)
-        //{
-        //    launchDir.y = 0;
-        //}
         if (launcher.launchForce > 0)
         {
             launcher.ApplyLaunch();
         }
+
+        if (targetSet == true && Vector2.Distance(targetLocation, transform.position) > 0.25f)
+        {
+            MoveTo();
+        }
+        else if (targetSet == true && Vector2.Distance(targetLocation, transform.position) <= 0.25f)
+        {
+            targetSet = false;
+            targetLocation = Vector2.zero;
+        }
     }
 
-    protected virtual void FixedUpdate()
-    {
-        
-
-
-    }
+    protected virtual void FixedUpdate()  {    }
 
     public void CheckGround()
     {
@@ -174,18 +160,15 @@ public abstract class BaseEnemy : MonoBehaviour
 
         if (target.x > transform.position.x)
         {
-            //scale.x = Mathf.Abs(scale.x) * (flip ? -1 : 1);
             rotation.y = 0;
             facingRight = true;
         }
         else
         {
-            //scale.x = Mathf.Abs(scale.x) * -1 * (flip ? -1 : 1);
             rotation.y = 180;
             facingRight = false;
         }
 
-        //transform.localScale = scale;
         transform.localRotation = rotation;
     }
 
@@ -244,27 +227,13 @@ public abstract class BaseEnemy : MonoBehaviour
 
     protected void MoveTo()
     {
-        //if (transform.position.x > targetLocation.x)
-        //    movement = new Vector2(-1, 0);
-        //else
-        //    movement = new Vector2(1, 0);
         transform.Translate( Vector2.right * moveSpeed * Time.deltaTime );
     }
     
     public void ChasePlayer()
     {
         Vector3 target = player.transform.position;
-
         movement = Vector2.right;
-        //if (transform.position.x > target.x)
-        //{
-        //    Debug.Log("Moving left");
-        //}
-        //else
-        //{
-        //    movement = Vector2.right;
-        //    Debug.Log("Moving right");
-        //}
         transform.Translate(movement * moveSpeed * Time.deltaTime);
     }
 
@@ -291,41 +260,6 @@ public abstract class BaseEnemy : MonoBehaviour
 
         if (hit.collider == null && groundHit.collider != null)
             transform.position = pos;
-
-        //while (true)
-        //{
-        //    attempts++;
-        //    pos.x = target.x + offset;
-        //    pos.y += 2f;
-        //    Collider2D hit = Physics2D.OverlapCircle(target, 1, collisionLayerMask);
-
-        //    if (hit == null)
-        //    {
-        //        Teleport(pos);
-        //        Debug.Log(offset);
-        //        break;
-        //    }
-
-        //    pos.x = target.x - offset;
-        //    hit = Physics2D.OverlapCircle(target, 1, collisionLayerMask);
-            
-        //    if (hit == null)
-        //    {
-        //        Teleport(pos);
-        //        Debug.Log(offset);
-        //        break;
-        //    }
-
-        //    offset += 2;
-        //    Debug.Log(offset);
-
-        //    if (attempts > 5)
-        //    {
-        //        Debug.Log("failed teleport");
-        //        break;
-        //    }
-        //}
-        
     }
 
     public Transform GetTransform() { return this.transform; }
@@ -391,7 +325,6 @@ public abstract class BaseEnemy : MonoBehaviour
             v.x -= wallDetectSpacing * 2;
             v2.x -= wallDetectSpacing * 2;
             Gizmos.DrawLine(v, v2);
-            //
         }
     }
 }

@@ -3295,6 +3295,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2924654051996635017, guid: a80b5be8e0c3b8d499ef8af932d4f95a, type: 3}
+      propertyPath: showDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8734190385502490138, guid: a80b5be8e0c3b8d499ef8af932d4f95a, type: 3}
       propertyPath: m_Name
       value: Werewolf
@@ -3438,6 +3442,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3920045057137741465, guid: df672a3dfe4c42f4a9c0c0d82e60f6a9, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 772364627890559963, guid: df672a3dfe4c42f4a9c0c0d82e60f6a9, type: 3}
+      propertyPath: showDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3215755799595922900, guid: df672a3dfe4c42f4a9c0c0d82e60f6a9, type: 3}
       propertyPath: m_Name
       value: Slime

@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   patrolDist: 10
+  patrolPoint: {x: 0, y: 0}
+  goingRight: 1
 --- !u!1102 &-6767766786410863090
 AnimatorState:
   serializedVersion: 6
